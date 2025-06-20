@@ -4,7 +4,7 @@ date = 2024-07-27
 description = "A brief overview of my professional journey, blending a strong foundation in mathematics with hands-on experience in full-stack development and DevOps to deliver high-quality software solutions."
 taxonomies = { tags = ["Intro", "DevOps", "Architecture"] }
 [extra]
-image = "/img/default_post_image.jpg" # 建议您之后替换成自己的图片
+image = "default-banner.jpg" # 建议您之后替换成自己的图片
 +++
 
 My journey in tech began with a strong foundation in mathematics, which I've leveraged to solve complex problems across various industries, from fintech and SaaS to automotive and digital consultancy. Throughout my career, I have consistently delivered innovative solutions that balance technical excellence with business value.

@@ -7,19 +7,25 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
+taxonomies = [
+    { name = "tags" }
+]
+
+# theme = "zolarwind"
+
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
 
-theme = "zolarwind"
-
 [extra]
-# Put all your custom variables here
 title = "William's Blog"
+path_language_resources = "i18n/"
 
-[extra.menu_pages]
-blog = "blog"
+[[extra.menu_pages]]
+title = "Blog"
+url = "blog"
 
-[extra.social_links]
-github = "https://github.com/williamhatch"
+[[extra.social_links]]
+name = "github"
+url = "https://github.com/williamhatch"

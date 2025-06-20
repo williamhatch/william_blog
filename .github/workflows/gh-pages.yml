@@ -1,0 +1,40 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # or master
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Build
+        # Uses a Docker image, so Zola version is locked
+        uses: getzola/zola-action-build@v0.19.1
+        with:
+          # Optional, will be used as base URL.
+          # Useful for deploying to a subdirectory like <user>.github.io/<repo>
+          # If you are deploying to a custom domain, you can remove this
+          base-url: william-blog
+          # Optional, will use `build` as default
+          # build-dir: public
+          # Optional, can be used to check for internal links
+          # check-links: true
+          # Optional, can be used to check for external links
+          # check-external-links: true
+
+      - name: Deploy
+        # Only deploy when pushing to main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          # GITHUB_TOKEN is a secret automatically provided by GitHub
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public 

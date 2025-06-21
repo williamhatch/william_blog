@@ -1,6 +1,7 @@
-{% set banner = get_url(path="img/default-banner.jpg") %}
-{% if page.extra.image is defined %}
-  {% set banner = page.path ~ page.extra.image %}
+{% if page.extra.image %}
+  {% set banner = get_url(path=page.path ~ page.extra.image) %}
+{% else %}
+  {% set banner = get_url(path="img/default-banner.jpg") %}
 {% endif %}
 
 <div class="flex flex-col rounded-md shadow-md overflow-hidden">

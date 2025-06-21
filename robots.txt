@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://williamhatch.github.io/william_blog/sitemap.xml

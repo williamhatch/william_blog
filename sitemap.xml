@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://williamhatch.github.io/william_blog/</loc>
+    </url>
+    <url>
+        <loc>https://williamhatch.github.io/william_blog/blog/</loc>
+    </url>
+    <url>
+        <loc>https://williamhatch.github.io/william_blog/blog/my-journey-in-tech/</loc>
+        <lastmod>2024-07-27</lastmod>
+    </url>
+    <url>
+        <loc>https://williamhatch.github.io/william_blog/blog/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://williamhatch.github.io/william_blog/tags/</loc>
+    </url>
+    <url>
+        <loc>https://williamhatch.github.io/william_blog/tags/architecture/</loc>
+    </url>
+    <url>
+        <loc>https://williamhatch.github.io/william_blog/tags/devops/</loc>
+    </url>
+    <url>
+        <loc>https://williamhatch.github.io/william_blog/tags/intro/</loc>
+    </url>
+</urlset>

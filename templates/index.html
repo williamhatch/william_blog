@@ -2,24 +2,48 @@
 
 {% block content %}
 <div class="p-4 sm:p-8">
-{% include "partials/banner.html" %}
-{% include "partials/list.html" %}
-
-<section>
-    <h2 class="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100">Areas of Expertise</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {% for skill in config.extra.skills %}
-        <a href="{{ get_url(path='tags/' ~ skill.tag | lower ~ '/') | safe }}" class="group skill-card">
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transform transition-all duration-300 ease-in-out">
-                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600">{{ skill.name }}</h3>
-                <p class="text-gray-500 dark:text-gray-400">
-                    {{ skill.description }}
-                </p>
+    {% include "partials/banner.html" %}
+    
+    <div class="flex flex-col lg:flex-row gap-8">
+        <!-- 博客列表 -->
+        <div class="lg:w-3/4">
+            {% include "partials/list.html" %}
+        </div>
+        
+        <!-- 社交媒体链接 -->
+        <div class="lg:w-1/4">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 sticky top-4">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Connect with Me</h3>
+                <div class="flex flex-wrap gap-4 social-links">
+                    {% for link in config.extra.social_links %}
+                    <a href="{{ link.url }}" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="social-link transform transition-all duration-300 ease-in-out hover:scale-110"
+                       title="{{ link.name | title }}">
+                        <i class="{{ link.icon }} text-2xl text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400"></i>
+                    </a>
+                    {% endfor %}
+                </div>
             </div>
-        </a>
-        {% endfor %}
+        </div>
     </div>
-</section>
+
+    <section>
+        <h2 class="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100">Areas of Expertise</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for skill in config.extra.skills %}
+            <a href="{{ get_url(path='tags/' ~ skill.tag | lower ~ '/') | safe }}" class="group skill-card">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transform transition-all duration-300 ease-in-out">
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600">{{ skill.name }}</h3>
+                    <p class="text-gray-500 dark:text-gray-400">
+                        {{ skill.description }}
+                    </p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
 </div>
 
 <script>
@@ -38,16 +62,20 @@
             }
         });
 
+        // 社交链接入场动画
+        gsap.from(".social-link", {
+            scale: 0,
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "back.out(1.7)"
+        });
+
         // 技能卡片点击动画
         document.querySelectorAll('.skill-card').forEach(card => {
             card.addEventListener('click', (e) => {
-                // 防止动画期间跳转
                 e.preventDefault();
-                
-                // 获取卡片元素
                 const cardDiv = card.querySelector('div');
-                
-                // 点击动画
                 gsap.to(cardDiv, {
                     scale: 0.95,
                     duration: 0.1,
@@ -58,7 +86,6 @@
                             duration: 0.2,
                             ease: "power2.out",
                             onComplete: () => {
-                                // 动画完成后跳转
                                 window.location.href = card.href;
                             }
                         });

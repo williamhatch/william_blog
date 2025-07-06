@@ -29,6 +29,27 @@ url = "blog"
 [[extra.social_links]]
 name = "github"
 url = "https://github.com/williamhatch"
+icon = "fab fa-github"
+
+[[extra.social_links]]
+name = "twitter"
+url = "https://twitter.com/williamhatch"
+icon = "fab fa-x-twitter"
+
+[[extra.social_links]]
+name = "youtube"
+url = "https://youtube.com/@williamhatch"
+icon = "fab fa-youtube"
+
+[[extra.social_links]]
+name = "dev"
+url = "https://dev.to/williamhatch"
+icon = "fab fa-dev"
+
+[[extra.social_links]]
+name = "linkedin"
+url = "https://linkedin.com/in/williamhatch"
+icon = "fab fa-linkedin"
 
 [[extra.skills]]
 name = "Rails"

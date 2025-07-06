@@ -19,7 +19,7 @@ This article presents a systematic framework for human-AI collaboration in softw
 
 ## Framework Overview
 
-![AI Coding Workflow](workflow.svg)
+![AI Coding Workflow](workflow.svg){width=200px}
 
 ## The Challenge: Why AI Coding Needs Structure
 

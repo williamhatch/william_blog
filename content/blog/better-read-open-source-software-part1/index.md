@@ -20,6 +20,8 @@ Reading quality open source software is one of the best ways to significantly im
 
 The ER (Entity Relationship) model is usually the output of system analysis used to define and describe the key content within the business domain. It does **not** define business processes but presents business data patterns in a graphical form.
 
+![ERD Overview](erd-overview.webp)
+
 Typically, the ER model consists of entities (represented by boxes) connected by relationships (lines), where the lines represent associations and dependencies between entities. For example, a building can have zero or more apartments, but an apartment belongs to exactly one building.
 
 Entities can be characterized by relationships as well as additional attributes, including identifiers called *primary keys*. A diagram showing entities, their attributes, and relationships is called an entity-attribute-relationship diagram (ERD).
@@ -31,6 +33,8 @@ In practice, ER models are implemented as databases. In a simple relational data
 ## How ERD Helps in Reading Open Source Projects
 
 ERDs visually represent the data structures and relationships, helping you quickly grasp the backbone of complex systems. This is especially helpful when facing large open source codebases — ERDs highlight the core data models and how they interact, speeding up comprehension.
+
+![Spree ERD Example](spree-erd-example.webp)
 
 ---
 
@@ -65,6 +69,8 @@ bundle exec erd --notation=simple --direct --orientation=vertical --splines=orth
 
 You will get a simple diagram showing main entities and their relationships.
 
+![Rails ERD Configuration](rails-erd-config.webp)
+
 ---
 
 ## Improving ERD with Color
@@ -84,6 +90,8 @@ bundle exec erd --notation=simple --direct --orientation=vertical --splines=orth
 
 The color-coded ERD improves readability by visually distinguishing different modules and their relationships.
 
+![Colored ERD](colored-erd.webp)
+
 ---
 
 ## Next Steps and Future Plans
@@ -101,18 +109,6 @@ The ultimate goal is to enable drag-and-drop modeling that automatically generat
 - [rails-erd GitHub repository](https://github.com/williamhatch/rails-erd)  
 - [Spree Starter GitHub repository](https://github.com/spree/spree_starter)  
 - Original article in Chinese on Juejin: [How to Better Read Open Source Software Part 1 (掘金)](https://juejin.cn/post/7037627476897431565)
-
----
-
-## Visual References
-
-![ERD Overview](erd-overview.webp)
-
-![Spree ERD Example](spree-erd-example.webp)
-
-![Colored ERD](colored-erd.webp)
-
-![Rails ERD Configuration](rails-erd-config.webp)
 
 ---
 

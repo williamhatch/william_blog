@@ -19,16 +19,20 @@ This article presents a systematic framework for human-AI collaboration in softw
 
 ## Framework Overview
 
-![AI Coding Workflow](workflow.png)
+![AI Coding Workflow](workflow.svg)
 
 ## The Challenge: Why AI Coding Needs Structure
 
-Uncontrolled AI coding assistance often leads to several issues:
+Uncontrolled AI coding assistance typically leads to several issues:
 
-1. **Divergence from Business Goals**: AI might optimize for code elegance over business requirements
-2. **Architectural Inconsistency**: Generated code may not align with project conventions
-3. **Testing Gaps**: Critical edge cases and error handling often overlooked
-4. **Loss of Control**: Blurred boundaries between human and AI responsibilities
+- **Divergence from Business Goals**: AI may optimize for code elegance rather than business requirements
+- **Architectural Inconsistency**: Generated code may not align with project conventions
+- **Testing Gaps**: Critical edge cases and error handling often get overlooked
+- **Loss of Control**: Blurred lines between human and AI responsibilities
+- **Code Bloat**: Generation of unnecessary or redundant code that adds complexity without value
+- **Code Regression**: Potential deterioration or accidental deletion of well-functioning code
+
+These challenges underscore the need for a structured approach to AI-assisted development.
 
 ## A Framework for Controlled AI Collaboration
 

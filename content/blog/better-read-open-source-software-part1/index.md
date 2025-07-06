@@ -106,13 +106,13 @@ The ultimate goal is to enable drag-and-drop modeling that automatically generat
 
 ## Visual References
 
-![ERD Overview](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d0e9fa83dc643f9ba658c96a2f45b8c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![ERD Overview](erd-overview.webp)
 
-![Spree ERD Example](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43f91ab75410462e9dc350ce19f53eb4~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![Spree ERD Example](spree-erd-example.webp)
 
-![Colored ERD](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d178a03fae97415c885792f8b1ed4c71~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![Colored ERD](colored-erd.webp)
 
-![Rails ERD Configuration](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f919fb40ddc4dbb892121e9842c8587~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![Rails ERD Configuration](rails-erd-config.webp)
 
 ---
 

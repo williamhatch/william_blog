@@ -17,6 +17,42 @@ GitHub Copilot和ChatGPT等AI编程助手的崛起在开发社区引发了既兴
 
 本文提出了一个系统化的人机协作框架，确保你在最大化利用AI潜力的同时保持对架构的控制。
 
+## 框架概览
+
+```mermaid
+flowchart TD
+    A[开始: 新功能需求] --> B[1. TDD优先]
+    B --> C[编写测试]
+    C --> D[2. AI开发计划]
+    D --> E[生成待办清单]
+    E --> F[3. 人工审查]
+    F --> G{是否通过?}
+    G -->|否| D
+    G -->|是| H[4. 最佳实践]
+    H --> I[注入开发规范]
+    I --> J[5. 代码实现]
+    J --> K[实现单个任务]
+    K --> L[运行测试]
+    L -->|失败| K
+    L -->|通过| M{还有任务?}
+    M -->|是| K
+    M -->|否| N[6. 测试覆盖]
+    N --> O[覆盖率分析]
+    O --> P[补充缺失测试]
+    P --> Q[7. 代码审查]
+    Q --> R[AI审查]
+    R --> S[人工审查]
+    S --> T{是否通过?}
+    T -->|否| J
+    T -->|是| U[结束: 功能完成]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style U fill:#9f9,stroke:#333,stroke-width:2px
+    style G fill:#ff9,stroke:#333,stroke-width:2px
+    style M fill:#ff9,stroke:#333,stroke-width:2px
+    style T fill:#ff9,stroke:#333,stroke-width:2px
+```
+
 ## 挑战：为什么AI编程需要结构化方法
 
 不受控制的AI编程助手常常导致以下问题：

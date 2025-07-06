@@ -1,7 +1,14 @@
----
-title: How to Better Read Open Source Software — Part 1: Introduction to ERD Tools
-tags: [Backend, Programmer, Open Source, ERD, Rails]
----
++++
+title = "How to Better Read Open Source Software — Part 1: Introduction to ERD Tools"
+date = 2024-03-21
+description = "A comprehensive guide on using ERD tools to better understand open source software projects, with practical examples using Rails and Spree."
+
+[taxonomies]
+tags = ["Backend", "Programmer", "Open Source", "ERD", "Rails"]
+
+[extra]
+show_comments = true
++++
 
 # How to Better Read Open Source Software — Part 1: Introduction to ERD Tools
 
@@ -29,7 +36,7 @@ ERDs visually represent the data structures and relationships, helping you quick
 
 ## Example: Generating ERD for Spree E-commerce
 
-Spree is a popular open-source e-commerce platform similar to Shopify. Let’s use it as an example to generate an ERD.
+Spree is a popular open-source e-commerce platform similar to Shopify. Let's use it as an example to generate an ERD.
 
 ```bash
 git clone git@github.com:spree/spree_starter.git

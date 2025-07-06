@@ -32,14 +32,9 @@ url = "https://github.com/williamhatch"
 icon = "fab fa-github"
 
 [[extra.social_links]]
-name = "twitter"
-url = "https://twitter.com/williamhatch"
-icon = "fab fa-x-twitter"
-
-[[extra.social_links]]
-name = "youtube"
-url = "https://youtube.com/@williamhatch"
-icon = "fab fa-youtube"
+name = "linkedin"
+url = "https://www.linkedin.com/in/yong-chen-2017/"
+icon = "fab fa-linkedin"
 
 [[extra.social_links]]
 name = "dev"
@@ -47,9 +42,9 @@ url = "https://dev.to/williamhatch"
 icon = "fab fa-dev"
 
 [[extra.social_links]]
-name = "linkedin"
-url = "https://linkedin.com/in/williamhatch"
-icon = "fab fa-linkedin"
+name = "medium"
+url = "https://medium.com/@trees.william"
+icon = "fab fa-medium"
 
 [[extra.skills]]
 name = "Rails"

@@ -9,14 +9,17 @@
     <h2 class="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100">Areas of Expertise</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for skill in config.extra.skills %}
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transform transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl">
-            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">{{ skill.name }}</h3>
-            <p class="text-gray-500 dark:text-gray-400">
-                {{ skill.description }}
-            </p>
-        </div>
+        <a href="{{ get_url(path='tags/' ~ skill.tag | lower ~ '/') | safe }}" class="group">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transform transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-xl">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600">{{ skill.name }}</h3>
+                <p class="text-gray-500 dark:text-gray-400">
+                    {{ skill.description }}
+                </p>
+            </div>
+        </a>
         {% endfor %}
     </div>
 </section>
 </div>
 {% endblock %}
+ 

@@ -33,43 +33,54 @@ url = "https://github.com/williamhatch"
 [[extra.skills]]
 name = "Rails"
 description = "Rapidly developing robust web applications with the Ruby on Rails framework, focusing on convention over configuration."
+tag = "Rails"
 
 [[extra.skills]]
 name = "Python"
 description = "Leveraging Python for data analysis, machine learning, and building powerful backend services and automation scripts."
+tag = "Python"
 
 [[extra.skills]]
 name = "Java"
 description = "Engineering enterprise-grade, high-performance applications and services with a focus on stability and scalability."
+tag = "Java"
 
 [[extra.skills]]
 name = "Go"
 description = "Building simple, reliable, and efficient software, especially for concurrent systems and microservices architectures."
+tag = "Go"
 
 [[extra.skills]]
 name = "Rust"
 description = "Writing memory-safe and performant systems-level software, ensuring reliability for critical applications."
+tag = "Rust"
 
 [[extra.skills]]
 name = "Vue.js"
 description = "Crafting interactive and modern user interfaces with the progressively adaptable Vue.js framework."
+tag = "Vue"
 
 [[extra.skills]]
 name = "React"
 description = "Developing dynamic and component-based user interfaces for complex single-page applications."
+tag = "React"
 
 [[extra.skills]]
 name = "Architecture"
 description = "Designing scalable, resilient, and maintainable software systems, from monoliths to microservices."
+tag = "Architecture"
 
 [[extra.skills]]
 name = "DevOps"
 description = "Automating and optimizing software delivery pipelines, focusing on CI/CD, infrastructure as code, and observability."
+tag = "DevOps"
 
 [[extra.skills]]
 name = "Data"
 description = "Working with data pipelines, databases, and analytics to extract insights and drive business value."
+tag = "Data"
 
 [[extra.skills]]
 name = "AI"
 description = "Integrating machine learning models and AI-driven features into products to create intelligent solutions."
+tag = "AI"

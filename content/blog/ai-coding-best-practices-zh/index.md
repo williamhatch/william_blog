@@ -19,7 +19,7 @@ GitHub Copilot和ChatGPT等AI编程助手的崛起在开发社区引发了既兴
 
 ## 框架概览
 
-![AI编程工作流程](workflow.svg){width=200px}
+![AI编程工作流程](workflow.png)
 
 ## 挑战：为什么AI编程需要结构化方法
 

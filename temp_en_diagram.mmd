@@ -1,0 +1,31 @@
+flowchart TD
+    A[Start: New Feature Request] --> B[1. TDD First]
+    B --> C[Write Tests]
+    C --> D[2. AI Development Plan]
+    D --> E[Generate Todo List]
+    E --> F[3. Human Review]
+    F --> G{Approved?}
+    G -->|No| D
+    G -->|Yes| H[4. Best Practices]
+    H --> I[Inject Conventions]
+    I --> J[5. Implementation]
+    J --> K[Code Single Task]
+    K --> L[Run Tests]
+    L -->|Fail| K
+    L -->|Pass| M{More Tasks?}
+    M -->|Yes| K
+    M -->|No| N[6. Test Coverage]
+    N --> O[Coverage Analysis]
+    O --> P[Generate Missing Tests]
+    P --> Q[7. Code Review]
+    Q --> R[AI Review]
+    R --> S[Human Review]
+    S --> T{Approved?}
+    T -->|No| J
+    T -->|Yes| U[End: Feature Complete]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style U fill:#9f9,stroke:#333,stroke-width:2px
+    style G fill:#ff9,stroke:#333,stroke-width:2px
+    style M fill:#ff9,stroke:#333,stroke-width:2px
+    style T fill:#ff9,stroke:#333,stroke-width:2px 

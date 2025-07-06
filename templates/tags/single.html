@@ -3,10 +3,41 @@
 {% block content %}
 {% set tag_item_count = term.pages | length %}
 <div class="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8">
-  <h1 class="text-center lg:text-left">
-    <span>{{ tag_item_count | num_format(locale=locale) }} {{ tag_item_count | pluralize(singular=res.posts.one, plural=res.posts.other) }} {{ res.with_tag }}</span>
-    <span class="px-4 py-2 bg-green-100 rounded-full">{{ term.name }}</span>
+  <h1 class="text-center lg:text-left mb-8">
+    <span class="text-2xl font-bold">{{ tag_item_count | num_format(locale=locale) }} {{ tag_item_count | pluralize(singular=res.posts.one, plural=res.posts.other) }} {{ res.with_tag }}</span>
+    <span class="ml-2 px-4 py-2 bg-green-100 rounded-full text-green-800 font-semibold">{{ term.name }}</span>
   </h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for page in term.pages %}
+    <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+      {% if page.extra.banner %}
+      <div class="aspect-w-16 aspect-h-9">
+        <img src="{{ page.extra.banner }}" alt="{{ page.title }}" class="object-cover w-full h-48">
+      </div>
+      {% endif %}
+      <div class="p-6">
+        <h2 class="text-xl font-bold mb-2">
+          <a href="{{ page.permalink }}" class="text-gray-900 hover:text-indigo-600">{{ page.title }}</a>
+        </h2>
+        {% if page.description %}
+        <p class="text-gray-600 mb-4 line-clamp-3">{{ page.description }}</p>
+        {% endif %}
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            {% if page.taxonomies.tags %}
+            {% for tag in page.taxonomies.tags %}
+            <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}" class="text-sm px-3 py-1 bg-gray-100 rounded-full text-gray-600 hover:bg-gray-200">{{ tag }}</a>
+            {% endfor %}
+            {% endif %}
+          </div>
+          <time datetime="{{ page.date }}" class="text-sm text-gray-500">
+            {{ page.date | date(format="%Y-%m-%d") }}
+          </time>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
 </div>
-{% include "partials/list.html" %}
 {% endblock %}

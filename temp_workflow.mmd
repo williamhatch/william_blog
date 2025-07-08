@@ -1,0 +1,22 @@
+%%{init: {'theme': 'neutral', 'flowchart': {'curve': 'basis', 'width': 1200, 'height': 800 }}}%%
+graph TD
+    A["Framework Entry Point"] --> B["Convention Detection"]
+    B --> C{"Match Default<br/>Convention?"}
+    C -->|Yes| D["Apply Default Behavior"]
+    C -->|No| E["Look for Custom<br/>Configuration"]
+    E --> F{"Custom Config<br/>Found?"}
+    F -->|Yes| G["Apply Custom<br/>Configuration"]
+    F -->|No| H["Fallback to<br/>Convention"]
+    D --> I["Execute Framework<br/>Logic"]
+    G --> I
+    H --> I
+    I --> J["Generate Result"]
+
+    classDef default fill:#f4f4f4,stroke:#333,stroke-width:2px;
+    classDef decision fill:#e1f5fe,stroke:#333,stroke-width:2px;
+    classDef process fill:#f3e5f5,stroke:#333,stroke-width:2px;
+    classDef endpoint fill:#f9fbe7,stroke:#333,stroke-width:2px;
+
+    class A,J endpoint;
+    class B,D,E,G,H,I process;
+    class C,F decision; 

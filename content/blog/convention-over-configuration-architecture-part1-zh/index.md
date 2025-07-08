@@ -10,7 +10,7 @@ author: "William"
 
 # 约定优于配置：从资深架构师视角解读现代软件设计
 
-![约定优于配置软件系统流程图](coc-system-overview.png)
+<img src="coc-system-overview.png" alt="约定优于配置软件系统流程图" style="width: 80%; margin: auto; display: block;">
 
 ## 1. 为什么我们需要 CoC？从配置驱动到架构哲学
 
@@ -55,7 +55,7 @@ CoC 并不是语法糖，而是**工程抽象**的重要体现。
 
 ## 5. 架构图与流程图
 
-![约定优于配置软件系统流程图](coc-workflow-diagram.png)
+<img src="coc-workflow-diagram.png" alt="约定优于配置软件系统流程图" style="width: 80%; margin: auto; display: block;">
 
 此图展示了现代框架如何整合：
 

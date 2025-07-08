@@ -10,7 +10,7 @@ author: "William"
 
 # Convention over Configuration: A Senior Architect’s Perspective on Modern Software Design
 
-<img src="coc-system-overview.png" alt="Convention-based Software System" style="width: 80%; margin: auto; display: block;">
+<img src="coc-system-overview-en.png" alt="Convention-based Software System" style="width: 80%; margin: auto; display: block;">
 
 ## 1. Why We Need CoC: The Pain of Early Configuration-Driven Systems
 

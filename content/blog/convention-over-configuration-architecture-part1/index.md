@@ -10,7 +10,7 @@ author: "William"
 
 # Convention over Configuration: A Senior Architect’s Perspective on Modern Software Design
 
-<img src="coc-system-overview-en.png" alt="Convention-based Software System" style="width: 200px; margin: auto; display: block;">
+<img src="coc-system-overview-en.png" alt="Convention-based Software System" style="width: 400px; margin: auto; display: block;">
 
 ## 1. Why We Need CoC: The Pain of Early Configuration-Driven Systems
 
@@ -60,7 +60,7 @@ It guides teams without needing to be constantly enforced. CoC helps in:
 
 ## 5. Architecture Visualization
 
-<img src="coc-workflow-diagram.png" alt="Convention over Configuration System Flowchart" style="width: 200px; margin: auto; display: block;">
+<img src="coc-workflow-diagram.png" alt="Convention over Configuration System Flowchart" style="width: 400px; margin: auto; display: block;">
 
 This diagram illustrates how modern frameworks integrate:
 

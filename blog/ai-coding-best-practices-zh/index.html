@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  
+  
+  
+  
+  
+
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name=generator content="Zola">
+
+  
+    <meta name="description" content="一份全面的AI辅助编程工作流程指南。学习如何通过结构化方法在保持控制权的同时充分利用AI的能力，结合TDD、最佳实践注入和系统化审查流程。">
+  
+
+  <title>William&#x27;s Blog</title>
+  <link rel="stylesheet" href="https://williamhatch.github.io/william_blog/css/generated.css">
+  
+
+  
+
+  <script defer src="https://williamhatch.github.io/william_blog/js/zolarwind/logic.js" integrity="sha384-GYtsrgYVRYoxdEL+C+79KROm+MCl1ArSzQnqVnPTV78UNz5a1vFxAEiKbobXhQlw"></script>
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  
+
+  
+
+
+<header class="sticky top-0 w-full z-10">
+  <nav class="bg-gray-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <a href="https://williamhatch.github.io/william_blog" aria-label="Go to homepage">
+              <div class="h-8 w-8 text-gray-200 hover:text-white fill-current">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                  <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-8 flex items-baseline">
+              
+                
+                  
+                    <a class="px-3 py-2 ml-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+                  
+                
+              
+            </div>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button id="toggleMobileMenu" class="icon inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white" aria-label="Menu">
+            <span id="mobile-icon-menu-unselected">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </span>
+            <span id="mobile-icon-menu-selected" class="hidden">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+      <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 sm:px-3">
+        
+          
+            <a class="mt-1 block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+          
+        
+      </div>
+    
+  </nav>
+</header>
+
+  <div id="content">
+    
+
+  
+    
+  
+
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+    <article class="prose">
+      <div class="h-48 rounded-md shadow-md">
+        <img class="h-48 w-full object-cover" src="https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;img&#x2F;default-banner.jpg" alt="AI编程最佳实践：人机协作的结构化框架">
+      </div>
+      <h1>AI编程最佳实践：人机协作的结构化框架</h1>
+      <div>
+        <p>
+          <span class="mr-2 text-sm">
+            <time datetime="2024-03-21">March 21, 2024</time> &middot;
+            1,199 words &middot;
+            6 minutes reading time
+          </span>
+          <span class="text-sm leading-5 font-medium text-indigo-600">
+
+  
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/ai/">AI</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/architecture/">Architecture</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/devops/">DevOps</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/zhong-wen/">中文</a></span>
+    
+  
+
+</span>
+
+        </p>
+      </div>
+
+      <div>
+        <blockquote>
+<p>"编程的未来不是取代开发者，而是增强他们的能力。关键在于建立一个框架，让人类保持控制权的同时充分利用AI的优势。"</p>
+</blockquote>
+<p>GitHub Copilot和ChatGPT等AI编程助手的崛起在开发社区引发了既兴奋又担忧的讨论。虽然这些工具能显著加快编码速度，但如果没有结构化的使用方法，可能导致架构混乱、代码质量不一致，以及项目控制权的丧失。</p>
+<p>本文提出了一个系统化的人机协作框架，确保你在最大化利用AI潜力的同时保持对架构的控制。</p>
+<h2 id="kuang-jia-gai-lan">框架概览<a class="zola-anchor" href="#kuang-jia-gai-lan" aria-label="Anchor link for: kuang-jia-gai-lan">🔗</a></h2>
+<p><img src="https://williamhatch.github.io/william_blog/blog/ai-coding-best-practices-zh/workflow.png" alt="AI编程工作流程" /></p>
+<h2 id="tiao-zhan-wei-shen-me-aibian-cheng-xu-yao-jie-gou-hua-fang-fa">挑战：为什么AI编程需要结构化方法<a class="zola-anchor" href="#tiao-zhan-wei-shen-me-aibian-cheng-xu-yao-jie-gou-hua-fang-fa" aria-label="Anchor link for: tiao-zhan-wei-shen-me-aibian-cheng-xu-yao-jie-gou-hua-fang-fa">🔗</a></h2>
+<p>不受控制的AI编程助手常常导致以下问题：</p>
+<ol>
+<li><strong>偏离业务目标</strong>：AI可能过度优化代码优雅性而忽视业务需求</li>
+<li><strong>架构不一致</strong>：生成的代码可能与项目规范不符</li>
+<li><strong>测试覆盖不足</strong>：关键边界情况和错误处理常被忽略</li>
+<li><strong>失去控制权</strong>：人机责任边界模糊不清</li>
+<li><strong>代码膨胀</strong>：生成大量冗余或不必要的代码，增加复杂度却没有实际价值</li>
+<li><strong>代码退化</strong>：可能导致原本良好的代码被破坏或意外删除</li>
+</ol>
+<p>这些挑战凸显了在AI辅助开发中采用结构化方法的必要性。</p>
+<h2 id="shou-kong-de-aixie-zuo-kuang-jia">受控的AI协作框架<a class="zola-anchor" href="#shou-kong-de-aixie-zuo-kuang-jia" aria-label="Anchor link for: shou-kong-de-aixie-zuo-kuang-jia">🔗</a></h2>
+<p>让我们探索一个能解决这些挑战同时最大化AI优势的结构化方法。</p>
+<h3 id="1-ce-shi-qu-dong-kai-fa-tdd-you-xian">1. 测试驱动开发（TDD）优先<a class="zola-anchor" href="#1-ce-shi-qu-dong-kai-fa-tdd-you-xian" aria-label="Anchor link for: 1-ce-shi-qu-dong-kai-fa-tdd-you-xian">🔗</a></h3>
+<p>在实现之前先写测试。这种方法：</p>
+<ul>
+<li>为你和AI明确需求</li>
+<li>确保可验证的结果</li>
+<li>保持对业务逻辑的关注</li>
+</ul>
+<p>AI提示示例：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>根据以下RSpec测试，实现Rails控制器逻辑：
+</span><span>
+</span><span>describe UsersController do
+</span><span>  describe &#39;POST #create&#39; do
+</span><span>    it &#39;使用有效参数创建新用户&#39; do
+</span><span>      # 测试代码
+</span><span>    end
+</span><span>  end
+</span><span>end
+</span></code></pre>
+<h3 id="2-aisheng-cheng-kai-fa-ji-hua">2. AI生成开发计划<a class="zola-anchor" href="#2-aisheng-cheng-kai-fa-ji-hua" aria-label="Anchor link for: 2-aisheng-cheng-kai-fa-ji-hua">🔗</a></h3>
+<p>让AI在实现之前创建结构化的待办事项清单：</p>
+<ul>
+<li>将功能分解为离散任务</li>
+<li>识别依赖关系和组件</li>
+<li>规划实现顺序</li>
+</ul>
+<p>提示示例：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>基于这个功能描述，创建一个待办事项清单，包括：
+</span><span>- 需要的类/模块
+</span><span>- 函数签名
+</span><span>- 数据库变更
+</span><span>- API端点
+</span><span>暂时不要写代码 - 等待我的审查。
+</span></code></pre>
+<h3 id="3-ren-gong-shen-cha-he-pi-zhun">3. 人工审查和批准<a class="zola-anchor" href="#3-ren-gong-shen-cha-he-pi-zhun" aria-label="Anchor link for: 3-ren-gong-shen-cha-he-pi-zhun">🔗</a></h3>
+<p>审查并修改AI的计划：</p>
+<ul>
+<li>与架构愿景对齐</li>
+<li>移除不必要的组件</li>
+<li>确认实现方案</li>
+<li>设定清晰的边界</li>
+</ul>
+<p>这一步对于保持项目方向的控制至关重要。</p>
+<h3 id="4-zhu-ru-zui-jia-shi-jian-he-yue-ding">4. 注入最佳实践和约定<a class="zola-anchor" href="#4-zhu-ru-zui-jia-shi-jian-he-yue-ding" aria-label="Anchor link for: 4-zhu-ru-zui-jia-shi-jian-he-yue-ding">🔗</a></h3>
+<p>在开始编码之前，明确提供：</p>
+<ul>
+<li>项目编码标准</li>
+<li>框架约定</li>
+<li>架构模式</li>
+<li>目录结构</li>
+<li>命名约定</li>
+<li>授权模式</li>
+</ul>
+<p>提示示例：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>你是一位精通Rails的高级工程师，熟悉：
+</span><span>- Service对象模式
+</span><span>- 基于策略的授权
+</span><span>- dry-rb gems
+</span><span>请遵循这些约定：
+</span><span>[列出约定]
+</span></code></pre>
+<h3 id="5-zeng-liang-shi-xian">5. 增量实现<a class="zola-anchor" href="#5-zeng-liang-shi-xian" aria-label="Anchor link for: 5-zeng-liang-shi-xian">🔗</a></h3>
+<p>一次实现一个任务：</p>
+<ul>
+<li>为单个组件生成代码</li>
+<li>立即运行测试</li>
+<li>必要时讨论设计决策</li>
+<li>保持持续反馈循环</li>
+</ul>
+<h3 id="6-aifu-zhu-ce-shi-fu-gai">6. AI辅助测试覆盖<a class="zola-anchor" href="#6-aifu-zhu-ce-shi-fu-gai" aria-label="Anchor link for: 6-aifu-zhu-ce-shi-fu-gai">🔗</a></h3>
+<p>使用AI增强测试覆盖：</p>
+<ul>
+<li>运行覆盖率工具（SimpleCov、pytest-cov）</li>
+<li>为未覆盖的路径生成测试</li>
+<li>确保处理边界情况</li>
+</ul>
+<p>提示示例：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>这是SimpleCov报告显示的未覆盖行。
+</span><span>为这些场景生成适当的测试：
+</span><span>[未覆盖的场景]
+</span></code></pre>
+<h3 id="7-shuang-ceng-dai-ma-shen-cha">7. 双层代码审查<a class="zola-anchor" href="#7-shuang-ceng-dai-ma-shen-cha" aria-label="Anchor link for: 7-shuang-ceng-dai-ma-shen-cha">🔗</a></h3>
+<p>实施两阶段审查流程：</p>
+<ol>
+<li>
+<p>AI审查：</p>
+<ul>
+<li>检查命名约定</li>
+<li>识别代码异味</li>
+<li>发现潜在bug</li>
+<li>建议重构机会</li>
+</ul>
+</li>
+<li>
+<p>人工审查：</p>
+<ul>
+<li>验证业务逻辑</li>
+<li>确保架构一致性</li>
+<li>最终批准和合并</li>
+</ul>
+</li>
+</ol>
+<h2 id="kong-zhi-ju-zhen-ren-ji-zhi-ze">控制矩阵：人机职责<a class="zola-anchor" href="#kong-zhi-ju-zhen-ren-ji-zhi-ze" aria-label="Anchor link for: kong-zhi-ju-zhen-ren-ji-zhi-ze">🔗</a></h2>
+<table><thead><tr><th>阶段</th><th>人类主导</th><th>AI协助</th></tr></thead><tbody>
+<tr><td>编写提示</td><td>✅</td><td></td></tr>
+<tr><td>生成待办事项</td><td></td><td>✅</td></tr>
+<tr><td>计划审查</td><td>✅</td><td></td></tr>
+<tr><td>最佳实践输入</td><td>✅</td><td></td></tr>
+<tr><td>实现</td><td>✅ (控制)</td><td>✅ (执行)</td></tr>
+<tr><td>测试增强</td><td>✅</td><td>✅</td></tr>
+<tr><td>覆盖率审查</td><td>✅</td><td>✅</td></tr>
+<tr><td>初步代码审查</td><td></td><td>✅</td></tr>
+<tr><td>最终审查</td><td>✅</td><td></td></tr>
+</tbody></table>
+<h2 id="kuang-jia-you-shi">框架优势<a class="zola-anchor" href="#kuang-jia-you-shi" aria-label="Anchor link for: kuang-jia-you-shi">🔗</a></h2>
+<ol>
+<li><strong>保持控制</strong>：人类驱动架构决策和项目方向</li>
+<li><strong>一致的质量</strong>：标准化方法确保可靠输出</li>
+<li><strong>高效协作</strong>：清晰的边界最大化人机优势</li>
+<li><strong>全面的测试</strong>：结构化的质量保证方法</li>
+<li><strong>可扩展流程</strong>：框架适应不同项目规模和技术</li>
+</ol>
+<h2 id="shi-shi-jian-yi">实施建议<a class="zola-anchor" href="#shi-shi-jian-yi" aria-label="Anchor link for: shi-shi-jian-yi">🔗</a></h2>
+<ol>
+<li><strong>记录你的框架</strong>：创建团队AI协作指南</li>
+<li><strong>从小开始</strong>：从小功能开始完善流程</li>
+<li><strong>迭代改进</strong>：基于团队反馈调整框架</li>
+<li><strong>跟踪指标</strong>：监控对开发速度和代码质量的影响</li>
+<li><strong>分享经验</strong>：记录成功的提示和模式</li>
+</ol>
+<h2 id="jie-lun">结论<a class="zola-anchor" href="#jie-lun" aria-label="Anchor link for: jie-lun">🔗</a></h2>
+<p>成功的AI辅助开发不仅仅是拥有强大的工具，更重要的是有一个能在利用AI能力的同时保持人类控制的结构化框架。这种方法确保AI保持助手角色而不是主导者，产出的代码能够与你的项目架构和业务目标保持一致。</p>
+<p>记住：AI应该增强你的开发过程，而不是取代你的架构判断。有了这个框架，你可以自信地将AI工具整合到工作流程中，同时保持对代码库质量和方向的控制。</p>
+
+      </div>
+    </article>
+  </div>
+
+  <script type="application/ld+json">
+{
+   "@context": "https://schema.org"
+  ,"@type": "BlogPosting"
+  ,"mainEntityOfPage": {
+     "@type": "WebPage"
+    ,"@id": "https://williamhatch.github.io/william_blog/blog/ai-coding-best-practices-zh/"
+  }
+  ,"headline": "AI编程最佳实践：人机协作的结构化框架"
+  ,"datePublished": "2024-03-21"
+  ,"dateModified": "2024-03-21"
+  
+  ,"description": "一份全面的AI辅助编程工作流程指南。学习如何通过结构化方法在保持控制权的同时充分利用AI的能力，结合TDD、最佳实践注入和系统化审查流程。"
+  ,"articleBody": "&#x27;编程的未来不是取代开发者，而是增强他们的能力。关键在于建立一个框架，让人类保持控制权的同时充分利用AI的优势。&#x27;GitHub Copilot和ChatGPT等AI编程助手的崛起在开发社区引发了既兴奋又担忧的讨论。虽然这些工具能显著加快编码速度，但如果没有结构化的使用方法，可能导致架构混乱、代码质量不一致，以及项目控制权的丧失。本文提出了一个系统化的人机协作框架，确保你在最大化利用AI潜力的同时保持对架构的控制。框架概览🔗挑战：为什么AI编程需要结构化方法🔗不受控制的AI编程助手常常导致以下问题：偏离业务目标：AI可能过度优化代码优雅性而忽视业务需求架构不一致：生成的代码可能与项目规范不符测试覆盖不足：关键边界情况和错误处理常被忽略失去控制权：人机责任边界模糊不清代码膨胀：生成大量冗余或不必要的代码，增加复杂度却没有实际价值代码退化：可能导致原本良好的代码被破坏或意外删除这些挑战凸显了在AI辅助开发中采用结构化方法的必要性。受控的AI协作框架🔗让我们探索一个能解决这些挑战同时最大化AI优势的结构化方法。1. 测试驱动开发（TDD）优先🔗在实现之前先写测试。这种方法：为你和AI明确需求确保可验证的结果保持对业务逻辑的关注AI提示示例：根据以下RSpec测试，实现Rails控制器逻辑：describe UsersController do  describe &amp;#39;POST #create&amp;#39; do    it &amp;#39;使用有效参数创建新用户&amp;#39; do      # 测试代码    end  endend2. AI生成开发计划🔗让AI在实现之前创建结构化的待办事项清单：将功能分解为离散任务识别依赖关系和组件规划实现顺序提示示例：基于这个功能描述，创建一个待办事项清单，包括：- 需要的类&#x2F;模块- 函数签名- 数据库变更- API端点暂时不要写代码 - 等待我的审查。3. 人工审查和批准🔗审查并修改AI的计划：与架构愿景对齐移除不必要的组件确认实现方案设定清晰的边界这一步对于保持项目方向的控制至关重要。4. 注入最佳实践和约定🔗在开始编码之前，明确提供：项目编码标准框架约定架构模式目录结构命名约定授权模式提示示例：你是一位精通Rails的高级工程师，熟悉：- Service对象模式- 基于策略的授权- dry-rb gems请遵循这些约定：[列出约定]5. 增量实现🔗一次实现一个任务：为单个组件生成代码立即运行测试必要时讨论设计决策保持持续反馈循环6. AI辅助测试覆盖🔗使用AI增强测试覆盖：运行覆盖率工具（SimpleCov、pytest-cov）为未覆盖的路径生成测试确保处理边界情况提示示例：这是SimpleCov报告显示的未覆盖行。为这些场景生成适当的测试：[未覆盖的场景]7. 双层代码审查🔗实施两阶段审查流程：AI审查：检查命名约定识别代码异味发现潜在bug建议重构机会人工审查：验证业务逻辑确保架构一致性最终批准和合并控制矩阵：人机职责🔗阶段人类主导AI协助编写提示✅生成待办事项✅计划审查✅最佳实践输入✅实现✅ (控制)✅ (执行)测试增强✅✅覆盖率审查✅✅初步代码审查✅最终审查✅框架优势🔗保持控制：人类驱动架构决策和项目方向一致的质量：标准化方法确保可靠输出高效协作：清晰的边界最大化人机优势全面的测试：结构化的质量保证方法可扩展流程：框架适应不同项目规模和技术实施建议🔗记录你的框架：创建团队AI协作指南从小开始：从小功能开始完善流程迭代改进：基于团队反馈调整框架跟踪指标：监控对开发速度和代码质量的影响分享经验：记录成功的提示和模式结论🔗成功的AI辅助开发不仅仅是拥有强大的工具，更重要的是有一个能在利用AI能力的同时保持人类控制的结构化框架。这种方法确保AI保持助手角色而不是主导者，产出的代码能够与你的项目架构和业务目标保持一致。记住：AI应该增强你的开发过程，而不是取代你的架构判断。有了这个框架，你可以自信地将AI工具整合到工作流程中，同时保持对代码库质量和方向的控制。"
+  
+}
+</script>
+
+
+
+  </div>
+  <footer>
+  <!-- Social Media Icons -->
+  
+    <ul class="mt-4 flex justify-center space-x-8">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
+    
+    
+  </div>
+</footer>
+
+  <script>
+    // 注册ScrollTrigger插件
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // 页面加载完成后执行动画
+    window.addEventListener('load', () => {
+      // 导航栏动画
+      gsap.from("nav", {
+        y: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+
+      // 标题动画
+      gsap.from("h1, h2", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+      });
+    });
+  </script>
+</body>
+</html>
+ 

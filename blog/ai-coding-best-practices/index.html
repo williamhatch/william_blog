@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  
+  
+  
+  
+  
+
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name=generator content="Zola">
+
+  
+    <meta name="description" content="A comprehensive guide to establishing an effective workflow for coding with AI assistants. Learn how to maintain control while leveraging AI&#x27;s capabilities through a structured approach combining TDD, best practices injection, and systematic review processes.">
+  
+
+  <title>William&#x27;s Blog</title>
+  <link rel="stylesheet" href="https://williamhatch.github.io/william_blog/css/generated.css">
+  
+
+  
+
+  <script defer src="https://williamhatch.github.io/william_blog/js/zolarwind/logic.js" integrity="sha384-GYtsrgYVRYoxdEL+C+79KROm+MCl1ArSzQnqVnPTV78UNz5a1vFxAEiKbobXhQlw"></script>
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  
+
+  
+
+
+<header class="sticky top-0 w-full z-10">
+  <nav class="bg-gray-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <a href="https://williamhatch.github.io/william_blog" aria-label="Go to homepage">
+              <div class="h-8 w-8 text-gray-200 hover:text-white fill-current">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                  <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-8 flex items-baseline">
+              
+                
+                  
+                    <a class="px-3 py-2 ml-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+                  
+                
+              
+            </div>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button id="toggleMobileMenu" class="icon inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white" aria-label="Menu">
+            <span id="mobile-icon-menu-unselected">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </span>
+            <span id="mobile-icon-menu-selected" class="hidden">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+      <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 sm:px-3">
+        
+          
+            <a class="mt-1 block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+          
+        
+      </div>
+    
+  </nav>
+</header>
+
+  <div id="content">
+    
+
+  
+    
+  
+
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+    <article class="prose">
+      <div class="h-48 rounded-md shadow-md">
+        <img class="h-48 w-full object-cover" src="https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;img&#x2F;default-banner.jpg" alt="AI Coding Best Practices: A Framework for Human-AI Collaboration">
+      </div>
+      <h1>AI Coding Best Practices: A Framework for Human-AI Collaboration</h1>
+      <div>
+        <p>
+          <span class="mr-2 text-sm">
+            <time datetime="2024-03-21">March 21, 2024</time> &middot;
+            667 words &middot;
+            4 minutes reading time
+          </span>
+          <span class="text-sm leading-5 font-medium text-indigo-600">
+
+  
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/ai/">AI</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/architecture/">Architecture</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/devops/">DevOps</a></span>
+    
+  
+
+</span>
+
+        </p>
+      </div>
+
+      <div>
+        <blockquote>
+<p>"The future of programming is not about replacing developers but augmenting their capabilities. The key is establishing a framework where humans remain in control while leveraging AI's strengths."</p>
+</blockquote>
+<p>The rise of AI coding assistants like GitHub Copilot and ChatGPT has sparked both excitement and concern in the development community. While these tools can dramatically accelerate coding tasks, using them without a structured approach can lead to architectural chaos, inconsistent code quality, and a loss of project control.</p>
+<p>This article presents a systematic framework for human-AI collaboration in software development, ensuring you maintain architectural control while maximizing AI's potential.</p>
+<h2 id="framework-overview">Framework Overview<a class="zola-anchor" href="#framework-overview" aria-label="Anchor link for: framework-overview">🔗</a></h2>
+<p><img src="https://williamhatch.github.io/william_blog/blog/ai-coding-best-practices/workflow.png" alt="AI Coding Workflow" /></p>
+<h2 id="the-challenge-why-ai-coding-needs-structure">The Challenge: Why AI Coding Needs Structure<a class="zola-anchor" href="#the-challenge-why-ai-coding-needs-structure" aria-label="Anchor link for: the-challenge-why-ai-coding-needs-structure">🔗</a></h2>
+<p>Uncontrolled AI coding assistance typically leads to several issues:</p>
+<ul>
+<li><strong>Divergence from Business Goals</strong>: AI may optimize for code elegance rather than business requirements</li>
+<li><strong>Architectural Inconsistency</strong>: Generated code may not align with project conventions</li>
+<li><strong>Testing Gaps</strong>: Critical edge cases and error handling often get overlooked</li>
+<li><strong>Loss of Control</strong>: Blurred lines between human and AI responsibilities</li>
+<li><strong>Code Bloat</strong>: Generation of unnecessary or redundant code that adds complexity without value</li>
+<li><strong>Code Regression</strong>: Potential deterioration or accidental deletion of well-functioning code</li>
+</ul>
+<p>These challenges underscore the need for a structured approach to AI-assisted development.</p>
+<h2 id="a-framework-for-controlled-ai-collaboration">A Framework for Controlled AI Collaboration<a class="zola-anchor" href="#a-framework-for-controlled-ai-collaboration" aria-label="Anchor link for: a-framework-for-controlled-ai-collaboration">🔗</a></h2>
+<p>Let's explore a structured approach that addresses these challenges while maximizing AI's benefits.</p>
+<h3 id="1-test-driven-development-tdd-first">1. Test-Driven Development (TDD) First<a class="zola-anchor" href="#1-test-driven-development-tdd-first" aria-label="Anchor link for: 1-test-driven-development-tdd-first">🔗</a></h3>
+<p>Start with tests before any implementation. This approach:</p>
+<ul>
+<li>Clarifies requirements for both you and the AI</li>
+<li>Ensures verifiable outcomes</li>
+<li>Maintains focus on business logic</li>
+</ul>
+<p>Example prompt for AI:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Based on these RSpec tests, implement the Rails controller logic:
+</span><span>
+</span><span>describe UsersController do
+</span><span>  describe &#39;POST #create&#39; do
+</span><span>    it &#39;creates a new user with valid parameters&#39; do
+</span><span>      # test code
+</span><span>    end
+</span><span>  end
+</span><span>end
+</span></code></pre>
+<h3 id="2-ai-generated-development-plan">2. AI-Generated Development Plan<a class="zola-anchor" href="#2-ai-generated-development-plan" aria-label="Anchor link for: 2-ai-generated-development-plan">🔗</a></h3>
+<p>Have AI create a structured todo list before implementation:</p>
+<ul>
+<li>Break down features into discrete tasks</li>
+<li>Identify dependencies and components</li>
+<li>Plan the implementation sequence</li>
+</ul>
+<p>Example prompt:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Given this feature description, create a todo list including:
+</span><span>- Required classes/modules
+</span><span>- Function signatures
+</span><span>- Database changes
+</span><span>- API endpoints
+</span><span>Do not write code yet - wait for my review.
+</span></code></pre>
+<h3 id="3-human-review-and-approval">3. Human Review and Approval<a class="zola-anchor" href="#3-human-review-and-approval" aria-label="Anchor link for: 3-human-review-and-approval">🔗</a></h3>
+<p>Review and modify the AI's plan:</p>
+<ul>
+<li>Align with architectural vision</li>
+<li>Remove unnecessary components</li>
+<li>Confirm implementation approach</li>
+<li>Set clear boundaries</li>
+</ul>
+<p>This step is crucial for maintaining control over the project's direction.</p>
+<h3 id="4-inject-best-practices-and-conventions">4. Inject Best Practices and Conventions<a class="zola-anchor" href="#4-inject-best-practices-and-conventions" aria-label="Anchor link for: 4-inject-best-practices-and-conventions">🔗</a></h3>
+<p>Before coding begins, explicitly provide:</p>
+<ul>
+<li>Project coding standards</li>
+<li>Framework conventions</li>
+<li>Architectural patterns</li>
+<li>Directory structure</li>
+<li>Naming conventions</li>
+<li>Authorization patterns</li>
+</ul>
+<p>Example prompt:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>You are a senior Rails engineer familiar with:
+</span><span>- Service objects pattern
+</span><span>- Policy-based authorization
+</span><span>- dry-rb gems
+</span><span>Follow these conventions:
+</span><span>[list conventions]
+</span></code></pre>
+<h3 id="5-incremental-implementation">5. Incremental Implementation<a class="zola-anchor" href="#5-incremental-implementation" aria-label="Anchor link for: 5-incremental-implementation">🔗</a></h3>
+<p>Implement one task at a time:</p>
+<ul>
+<li>Generate code for a single component</li>
+<li>Run tests immediately</li>
+<li>Discuss design decisions when needed</li>
+<li>Maintain continuous feedback loop</li>
+</ul>
+<h3 id="6-ai-assisted-test-coverage">6. AI-Assisted Test Coverage<a class="zola-anchor" href="#6-ai-assisted-test-coverage" aria-label="Anchor link for: 6-ai-assisted-test-coverage">🔗</a></h3>
+<p>Use AI to enhance test coverage:</p>
+<ul>
+<li>Run coverage tools (SimpleCov, pytest-cov)</li>
+<li>Generate tests for uncovered paths</li>
+<li>Ensure edge cases are handled</li>
+</ul>
+<p>Example prompt:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Here&#39;s the SimpleCov report showing uncovered lines.
+</span><span>Generate appropriate tests for these scenarios:
+</span><span>[uncovered scenarios]
+</span></code></pre>
+<h3 id="7-dual-layer-code-review">7. Dual-Layer Code Review<a class="zola-anchor" href="#7-dual-layer-code-review" aria-label="Anchor link for: 7-dual-layer-code-review">🔗</a></h3>
+<p>Implement a two-stage review process:</p>
+<ol>
+<li>
+<p>AI Review:</p>
+<ul>
+<li>Check naming conventions</li>
+<li>Identify code smells</li>
+<li>Spot potential bugs</li>
+<li>Suggest refactoring opportunities</li>
+</ul>
+</li>
+<li>
+<p>Human Review:</p>
+<ul>
+<li>Verify business logic</li>
+<li>Ensure architectural alignment</li>
+<li>Final approval and merge</li>
+</ul>
+</li>
+</ol>
+<h2 id="control-matrix-human-vs-ai-responsibilities">Control Matrix: Human vs AI Responsibilities<a class="zola-anchor" href="#control-matrix-human-vs-ai-responsibilities" aria-label="Anchor link for: control-matrix-human-vs-ai-responsibilities">🔗</a></h2>
+<table><thead><tr><th>Stage</th><th>Human Lead</th><th>AI Assistant</th></tr></thead><tbody>
+<tr><td>Writing Prompts</td><td>✅</td><td></td></tr>
+<tr><td>Generating Todos</td><td></td><td>✅</td></tr>
+<tr><td>Plan Review</td><td>✅</td><td></td></tr>
+<tr><td>Best Practices Input</td><td>✅</td><td></td></tr>
+<tr><td>Implementation</td><td>✅ (control)</td><td>✅ (execution)</td></tr>
+<tr><td>Test Enhancement</td><td>✅</td><td>✅</td></tr>
+<tr><td>Coverage Review</td><td>✅</td><td>✅</td></tr>
+<tr><td>Initial Code Review</td><td></td><td>✅</td></tr>
+<tr><td>Final Review</td><td>✅</td><td></td></tr>
+</tbody></table>
+<h2 id="benefits-of-this-framework">Benefits of This Framework<a class="zola-anchor" href="#benefits-of-this-framework" aria-label="Anchor link for: benefits-of-this-framework">🔗</a></h2>
+<ol>
+<li><strong>Maintained Control</strong>: Humans drive architectural decisions and project direction</li>
+<li><strong>Consistent Quality</strong>: Standardized approach ensures reliable output</li>
+<li><strong>Efficient Collaboration</strong>: Clear boundaries maximize both human and AI strengths</li>
+<li><strong>Comprehensive Testing</strong>: Structured approach to quality assurance</li>
+<li><strong>Scalable Process</strong>: Framework adapts to different project sizes and technologies</li>
+</ol>
+<h2 id="implementation-tips">Implementation Tips<a class="zola-anchor" href="#implementation-tips" aria-label="Anchor link for: implementation-tips">🔗</a></h2>
+<ol>
+<li><strong>Document Your Framework</strong>: Create a team guide for AI collaboration</li>
+<li><strong>Start Small</strong>: Begin with smaller features to refine the process</li>
+<li><strong>Iterate</strong>: Adjust the framework based on team feedback</li>
+<li><strong>Track Metrics</strong>: Monitor the impact on development speed and code quality</li>
+<li><strong>Share Learning</strong>: Document successful prompts and patterns</li>
+</ol>
+<h2 id="conclusion">Conclusion<a class="zola-anchor" href="#conclusion" aria-label="Anchor link for: conclusion">🔗</a></h2>
+<p>The key to successful AI-assisted development isn't just about having powerful tools—it's about having a structured framework that maintains human control while leveraging AI's capabilities. This approach ensures that AI remains an assistant rather than taking the lead, resulting in higher quality code that aligns with your project's architecture and business goals.</p>
+<p>Remember: AI should augment your development process, not replace your architectural judgment. With this framework, you can confidently integrate AI tools into your workflow while maintaining control over your codebase's quality and direction.</p>
+
+      </div>
+    </article>
+  </div>
+
+  <script type="application/ld+json">
+{
+   "@context": "https://schema.org"
+  ,"@type": "BlogPosting"
+  ,"mainEntityOfPage": {
+     "@type": "WebPage"
+    ,"@id": "https://williamhatch.github.io/william_blog/blog/ai-coding-best-practices/"
+  }
+  ,"headline": "AI Coding Best Practices: A Framework for Human-AI Collaboration"
+  ,"datePublished": "2024-03-21"
+  ,"dateModified": "2024-03-21"
+  
+  ,"description": "A comprehensive guide to establishing an effective workflow for coding with AI assistants. Learn how to maintain control while leveraging AI&#x27;s capabilities through a structured approach combining TDD, best practices injection, and systematic review processes."
+  ,"articleBody": "&#x27;The future of programming is not about replacing developers but augmenting their capabilities. The key is establishing a framework where humans remain in control while leveraging AI&#x27;s strengths.&#x27;The rise of AI coding assistants like GitHub Copilot and ChatGPT has sparked both excitement and concern in the development community. While these tools can dramatically accelerate coding tasks, using them without a structured approach can lead to architectural chaos, inconsistent code quality, and a loss of project control.This article presents a systematic framework for human-AI collaboration in software development, ensuring you maintain architectural control while maximizing AI&#x27;s potential.Framework Overview🔗The Challenge: Why AI Coding Needs Structure🔗Uncontrolled AI coding assistance typically leads to several issues:Divergence from Business Goals: AI may optimize for code elegance rather than business requirementsArchitectural Inconsistency: Generated code may not align with project conventionsTesting Gaps: Critical edge cases and error handling often get overlookedLoss of Control: Blurred lines between human and AI responsibilitiesCode Bloat: Generation of unnecessary or redundant code that adds complexity without valueCode Regression: Potential deterioration or accidental deletion of well-functioning codeThese challenges underscore the need for a structured approach to AI-assisted development.A Framework for Controlled AI Collaboration🔗Let&#x27;s explore a structured approach that addresses these challenges while maximizing AI&#x27;s benefits.1. Test-Driven Development (TDD) First🔗Start with tests before any implementation. This approach:Clarifies requirements for both you and the AIEnsures verifiable outcomesMaintains focus on business logicExample prompt for AI:Based on these RSpec tests, implement the Rails controller logic:describe UsersController do  describe &amp;#39;POST #create&amp;#39; do    it &amp;#39;creates a new user with valid parameters&amp;#39; do      # test code    end  endend2. AI-Generated Development Plan🔗Have AI create a structured todo list before implementation:Break down features into discrete tasksIdentify dependencies and componentsPlan the implementation sequenceExample prompt:Given this feature description, create a todo list including:- Required classes&#x2F;modules- Function signatures- Database changes- API endpointsDo not write code yet - wait for my review.3. Human Review and Approval🔗Review and modify the AI&#x27;s plan:Align with architectural visionRemove unnecessary componentsConfirm implementation approachSet clear boundariesThis step is crucial for maintaining control over the project&#x27;s direction.4. Inject Best Practices and Conventions🔗Before coding begins, explicitly provide:Project coding standardsFramework conventionsArchitectural patternsDirectory structureNaming conventionsAuthorization patternsExample prompt:You are a senior Rails engineer familiar with:- Service objects pattern- Policy-based authorization- dry-rb gemsFollow these conventions:[list conventions]5. Incremental Implementation🔗Implement one task at a time:Generate code for a single componentRun tests immediatelyDiscuss design decisions when neededMaintain continuous feedback loop6. AI-Assisted Test Coverage🔗Use AI to enhance test coverage:Run coverage tools (SimpleCov, pytest-cov)Generate tests for uncovered pathsEnsure edge cases are handledExample prompt:Here&amp;#39;s the SimpleCov report showing uncovered lines.Generate appropriate tests for these scenarios:[uncovered scenarios]7. Dual-Layer Code Review🔗Implement a two-stage review process:AI Review:Check naming conventionsIdentify code smellsSpot potential bugsSuggest refactoring opportunitiesHuman Review:Verify business logicEnsure architectural alignmentFinal approval and mergeControl Matrix: Human vs AI Responsibilities🔗StageHuman LeadAI AssistantWriting Prompts✅Generating Todos✅Plan Review✅Best Practices Input✅Implementation✅ (control)✅ (execution)Test Enhancement✅✅Coverage Review✅✅Initial Code Review✅Final Review✅Benefits of This Framework🔗Maintained Control: Humans drive architectural decisions and project directionConsistent Quality: Standardized approach ensures reliable outputEfficient Collaboration: Clear boundaries maximize both human and AI strengthsComprehensive Testing: Structured approach to quality assuranceScalable Process: Framework adapts to different project sizes and technologiesImplementation Tips🔗Document Your Framework: Create a team guide for AI collaborationStart Small: Begin with smaller features to refine the processIterate: Adjust the framework based on team feedbackTrack Metrics: Monitor the impact on development speed and code qualityShare Learning: Document successful prompts and patternsConclusion🔗The key to successful AI-assisted development isn&#x27;t just about having powerful tools—it&#x27;s about having a structured framework that maintains human control while leveraging AI&#x27;s capabilities. This approach ensures that AI remains an assistant rather than taking the lead, resulting in higher quality code that aligns with your project&#x27;s architecture and business goals.Remember: AI should augment your development process, not replace your architectural judgment. With this framework, you can confidently integrate AI tools into your workflow while maintaining control over your codebase&#x27;s quality and direction."
+  
+}
+</script>
+
+
+
+  </div>
+  <footer>
+  <!-- Social Media Icons -->
+  
+    <ul class="mt-4 flex justify-center space-x-8">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
+    
+    
+  </div>
+</footer>
+
+  <script>
+    // 注册ScrollTrigger插件
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // 页面加载完成后执行动画
+    window.addEventListener('load', () => {
+      // 导航栏动画
+      gsap.from("nav", {
+        y: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+
+      // 标题动画
+      gsap.from("h1, h2", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+      });
+    });
+  </script>
+</body>
+</html>
+ 

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  
+  
+  
+  
+  
+
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name=generator content="Zola">
+
+  
+    <meta name="description" content="Exploring how Convention over Configuration principle shapes modern software architecture and its implications for system design">
+  
+
+  <title>William&#x27;s Blog</title>
+  <link rel="stylesheet" href="https://williamhatch.github.io/william_blog/css/generated.css">
+  
+
+  
+
+  <script defer src="https://williamhatch.github.io/william_blog/js/zolarwind/logic.js" integrity="sha384-GYtsrgYVRYoxdEL+C+79KROm+MCl1ArSzQnqVnPTV78UNz5a1vFxAEiKbobXhQlw"></script>
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  
+
+  
+
+
+<header class="sticky top-0 w-full z-10">
+  <nav class="bg-gray-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <a href="https://williamhatch.github.io/william_blog" aria-label="Go to homepage">
+              <div class="h-8 w-8 text-gray-200 hover:text-white fill-current">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                  <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-8 flex items-baseline">
+              
+                
+                  
+                    <a class="px-3 py-2 ml-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+                  
+                
+              
+            </div>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button id="toggleMobileMenu" class="icon inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white" aria-label="Menu">
+            <span id="mobile-icon-menu-unselected">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </span>
+            <span id="mobile-icon-menu-selected" class="hidden">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+      <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 sm:px-3">
+        
+          
+            <a class="mt-1 block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+          
+        
+      </div>
+    
+  </nav>
+</header>
+
+  <div id="content">
+    
+
+  
+    
+  
+
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+    <article class="prose">
+      <div class="h-48 rounded-md shadow-md">
+        <img class="h-48 w-full object-cover" src="https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;img&#x2F;default-banner.jpg" alt="Convention over Configuration: A Senior Architect’s Perspective on Modern Software Design">
+      </div>
+      <h1>Convention over Configuration: A Senior Architect’s Perspective on Modern Software Design</h1>
+      <div>
+        <p>
+          <span class="mr-2 text-sm">
+            <time datetime="2025-07-09">July 09, 2025</time> &middot;
+            476 words &middot;
+            3 minutes reading time
+          </span>
+          <span class="text-sm leading-5 font-medium text-indigo-600">
+
+</span>
+
+        </p>
+      </div>
+
+      <div>
+        <h1 id="convention-over-configuration-a-senior-architect-s-perspective-on-modern-software-design">Convention over Configuration: A Senior Architect’s Perspective on Modern Software Design<a class="zola-anchor" href="#convention-over-configuration-a-senior-architect-s-perspective-on-modern-software-design" aria-label="Anchor link for: convention-over-configuration-a-senior-architect-s-perspective-on-modern-software-design">🔗</a></h1>
+<img src="coc-system-overview-en.png" alt="Convention-based Software System" style="width: 400px; margin: auto; display: block;">
+<h2 id="1-why-we-need-coc-the-pain-of-early-configuration-driven-systems">1. Why We Need CoC: The Pain of Early Configuration-Driven Systems<a class="zola-anchor" href="#1-why-we-need-coc-the-pain-of-early-configuration-driven-systems" aria-label="Anchor link for: 1-why-we-need-coc-the-pain-of-early-configuration-driven-systems">🔗</a></h2>
+<p>In the early Java EE days, enterprise developers spent countless hours writing XML just to describe what the application should already know...</p>
+<ul>
+<li><strong>Over-declaration</strong>: every bean, service, and controller had to be manually wired.</li>
+<li><strong>Separation of concerns gone wrong</strong>: configuration scattered outside implementation.</li>
+<li><strong>Cognitive overhead</strong>: understanding the system meant parsing endless files.</li>
+</ul>
+<p>If 90% of projects follow a similar structure, why not standardize it?</p>
+<p>This is the exact problem CoC solves.</p>
+<h2 id="2-what-is-convention-over-configuration">2. What Is Convention over Configuration?<a class="zola-anchor" href="#2-what-is-convention-over-configuration" aria-label="Anchor link for: 2-what-is-convention-over-configuration">🔗</a></h2>
+<blockquote>
+<p>“Don’t write configuration for things the framework can figure out.” — DHH, creator of Ruby on Rails</p>
+</blockquote>
+<p>The idea is simple:</p>
+<ul>
+<li>Prefer <strong>sensible defaults</strong> over explicit setup.</li>
+<li>Encourage <strong>implicit structure</strong> through file naming and organization.</li>
+<li>Let developers focus on what’s different, not on repeating boilerplate.</li>
+</ul>
+<h2 id="3-coc-across-languages-and-frameworks">3. CoC Across Languages and Frameworks<a class="zola-anchor" href="#3-coc-across-languages-and-frameworks" aria-label="Anchor link for: 3-coc-across-languages-and-frameworks">🔗</a></h2>
+<table><thead><tr><th>Framework</th><th>CoC in Action</th><th>Tooling</th></tr></thead><tbody>
+<tr><td>Rails</td><td>Folder-based MVC, no route config</td><td><code>rails generate scaffold</code></td></tr>
+<tr><td>Spring Boot</td><td>Autowiring, annotations over XML</td><td><code>@ComponentScan</code> etc.</td></tr>
+<tr><td>Django</td><td>App naming, admin auto discovery</td><td><code>startapp</code>, <code>urls.py</code></td></tr>
+<tr><td>Laravel</td><td>Controller + Resource Route bindings</td><td><code>artisan make:controller</code></td></tr>
+<tr><td>NestJS</td><td>Module structure + Decorator syntax</td><td><code>@Controller</code>, <code>@Module()</code></td></tr>
+</tbody></table>
+<p>These frameworks adopt the same mental model — directory structure, naming rules, default lifecycles.</p>
+<h2 id="4-coc-as-an-engineering-doctrine">4. CoC as an Engineering Doctrine<a class="zola-anchor" href="#4-coc-as-an-engineering-doctrine" aria-label="Anchor link for: 4-coc-as-an-engineering-doctrine">🔗</a></h2>
+<p>CoC is not just a DX (Developer Experience) trick — it’s an engineering design strategy.</p>
+<p><strong>Good architecture is invisible.</strong><br />
+It guides teams without needing to be constantly enforced. CoC helps in:</p>
+<ul>
+<li><strong>Code consistency across teams</strong></li>
+<li><strong>Reduced onboarding time</strong></li>
+<li><strong>Minimized error surface</strong></li>
+<li><strong>Automated tooling compatibility</strong></li>
+</ul>
+<h2 id="5-architecture-visualization">5. Architecture Visualization<a class="zola-anchor" href="#5-architecture-visualization" aria-label="Anchor link for: 5-architecture-visualization">🔗</a></h2>
+<img src="coc-workflow-diagram.png" alt="Convention over Configuration System Flowchart" style="width: 400px; margin: auto; display: block;">
+<p>This diagram illustrates how modern frameworks integrate:</p>
+<ul>
+<li>Scaffolding</li>
+<li>Default behaviors</li>
+<li>Naming conventions</li>
+<li>Directory layout</li>
+</ul>
+<p>...into a unified, opinionated software system.</p>
+<h2 id="6-coc-in-devops-and-microservices">6. CoC in DevOps and Microservices<a class="zola-anchor" href="#6-coc-in-devops-and-microservices" aria-label="Anchor link for: 6-coc-in-devops-and-microservices">🔗</a></h2>
+<p>Convention-driven tools like:</p>
+<ul>
+<li><strong>Terraform</strong>: Directory layout &amp; variable naming</li>
+<li><strong>Kubernetes YAML</strong>: Label selectors, config maps</li>
+<li><strong>CI/CD</strong>: <code>.github/workflows/</code>, <code>Jenkinsfile</code>, etc.</li>
+</ul>
+<p>All rely on shared conventions. As environments scale, conventions become guardrails.</p>
+<h2 id="7-code-portability-enabled-by-coc">7. Code Portability Enabled by CoC<a class="zola-anchor" href="#7-code-portability-enabled-by-coc" aria-label="Anchor link for: 7-code-portability-enabled-by-coc">🔗</a></h2>
+<p>Once you understand Rails, you’ll pick up Laravel or NestJS quickly — because CoC abstracts language differences.</p>
+<pre data-lang="typescript" style="background-color:#2b303b;color:#c0c5ce;" class="language-typescript "><code class="language-typescript" data-lang="typescript"><span style="color:#65737e;">// NestJS
+</span><span>@</span><span style="color:#8fa1b3;">Controller</span><span>(&#39;</span><span style="color:#a3be8c;">posts</span><span>&#39;)
+</span><span style="color:#b48ead;">export class </span><span style="color:#ebcb8b;">PostController </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">  @</span><span style="color:#8fa1b3;">Get</span><span style="color:#eff1f5;">(</span><span>&#39;</span><span style="color:#a3be8c;">:id</span><span>&#39;</span><span style="color:#eff1f5;">)
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">async </span><span style="color:#8fa1b3;">show</span><span>(</span><span style="color:#eff1f5;">@</span><span style="color:#8fa1b3;">Param</span><span style="color:#eff1f5;">(</span><span>&#39;</span><span style="color:#a3be8c;">id</span><span>&#39;</span><span style="color:#eff1f5;">) </span><span style="color:#bf616a;">id</span><span>: </span><span style="color:#eff1f5;">string</span><span>) </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">postService</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">findOne</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">id</span><span style="color:#eff1f5;">);
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">}
+</span></code></pre>
+<pre data-lang="php" style="background-color:#2b303b;color:#c0c5ce;" class="language-php "><code class="language-php" data-lang="php"><span>// Laravel
+</span><span>public function show($id) {
+</span><span>  $post = Post::find($id);
+</span><span>  return view(&#39;posts.show&#39;, compact(&#39;post&#39;));
+</span><span>}
+</span></code></pre>
+<pre data-lang="ruby" style="background-color:#2b303b;color:#c0c5ce;" class="language-ruby "><code class="language-ruby" data-lang="ruby"><span style="color:#65737e;"># Rails
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">show
+</span><span>  @</span><span style="color:#bf616a;">post </span><span>= </span><span style="color:#ebcb8b;">Post</span><span>.find(params[</span><span style="color:#a3be8c;">:id</span><span>])
+</span><span style="color:#b48ead;">end
+</span></code></pre>
+<h2 id="8-ai-automation-future-of-coc">8. AI, Automation &amp; Future of CoC<a class="zola-anchor" href="#8-ai-automation-future-of-coc" aria-label="Anchor link for: 8-ai-automation-future-of-coc">🔗</a></h2>
+<p>Even modern AI workflows adopt CoC:</p>
+<ul>
+<li><code>data/</code>, <code>model/</code>, <code>train.py</code>, <code>inference.py</code> — this is a de facto convention</li>
+<li>MLflow and Kubeflow pipelines follow predictable directory and module conventions</li>
+<li>Prompt-based coding (Copilot / GPT) relies heavily on knowing the <strong>structure</strong></li>
+</ul>
+<p>This shows CoC is not obsolete — it is evolving.</p>
+<h2 id="9-final-thoughts">9. Final Thoughts<a class="zola-anchor" href="#9-final-thoughts" aria-label="Anchor link for: 9-final-thoughts">🔗</a></h2>
+<p>CoC is not a limitation — it’s a <strong>productivity enabler</strong>.</p>
+<ul>
+<li>It minimizes choices that don’t matter.</li>
+<li>It promotes clarity, collaboration, and growth.</li>
+<li>It enables rapid transfer of skills across ecosystems.</li>
+</ul>
+<blockquote>
+<p>"Conventions are a gift to your future team."</p>
+</blockquote>
+<hr />
+<p><em>Written by a Senior Software Architect &amp; Platform Engineer</em></p>
+
+      </div>
+    </article>
+  </div>
+
+  <script type="application/ld+json">
+{
+   "@context": "https://schema.org"
+  ,"@type": "BlogPosting"
+  ,"mainEntityOfPage": {
+     "@type": "WebPage"
+    ,"@id": "https://williamhatch.github.io/william_blog/blog/convention-over-configuration-architecture-part1/"
+  }
+  ,"headline": "Convention over Configuration: A Senior Architect’s Perspective on Modern Software Design"
+  ,"datePublished": "2025-07-09"
+  ,"dateModified": "2025-07-09"
+  
+  ,"description": "Exploring how Convention over Configuration principle shapes modern software architecture and its implications for system design"
+  ,"articleBody": "Convention over Configuration: A Senior Architect’s Perspective on Modern Software Design🔗1. Why We Need CoC: The Pain of Early Configuration-Driven Systems🔗In the early Java EE days, enterprise developers spent countless hours writing XML just to describe what the application should already know...Over-declaration: every bean, service, and controller had to be manually wired.Separation of concerns gone wrong: configuration scattered outside implementation.Cognitive overhead: understanding the system meant parsing endless files.If 90% of projects follow a similar structure, why not standardize it?This is the exact problem CoC solves.2. What Is Convention over Configuration?🔗“Don’t write configuration for things the framework can figure out.” — DHH, creator of Ruby on RailsThe idea is simple:Prefer sensible defaults over explicit setup.Encourage implicit structure through file naming and organization.Let developers focus on what’s different, not on repeating boilerplate.3. CoC Across Languages and Frameworks🔗FrameworkCoC in ActionToolingRailsFolder-based MVC, no route configrails generate scaffoldSpring BootAutowiring, annotations over XML@ComponentScan etc.DjangoApp naming, admin auto discoverystartapp, urls.pyLaravelController + Resource Route bindingsartisan make:controllerNestJSModule structure + Decorator syntax@Controller, @Module()These frameworks adopt the same mental model — directory structure, naming rules, default lifecycles.4. CoC as an Engineering Doctrine🔗CoC is not just a DX (Developer Experience) trick — it’s an engineering design strategy.Good architecture is invisible.It guides teams without needing to be constantly enforced. CoC helps in:Code consistency across teamsReduced onboarding timeMinimized error surfaceAutomated tooling compatibility5. Architecture Visualization🔗This diagram illustrates how modern frameworks integrate:ScaffoldingDefault behaviorsNaming conventionsDirectory layout...into a unified, opinionated software system.6. CoC in DevOps and Microservices🔗Convention-driven tools like:Terraform: Directory layout &amp;amp; variable namingKubernetes YAML: Label selectors, config mapsCI&#x2F;CD: .github&#x2F;workflows&#x2F;, Jenkinsfile, etc.All rely on shared conventions. As environments scale, conventions become guardrails.7. Code Portability Enabled by CoC🔗Once you understand Rails, you’ll pick up Laravel or NestJS quickly — because CoC abstracts language differences.&#x2F;&#x2F; NestJS@Controller(&amp;#39;posts&amp;#39;)export class PostController {  @Get(&amp;#39;:id&amp;#39;)  async show(@Param(&amp;#39;id&amp;#39;) id: string) {    return this.postService.findOne(id);  }}&#x2F;&#x2F; Laravelpublic function show($id) {  $post = Post::find($id);  return view(&amp;#39;posts.show&amp;#39;, compact(&amp;#39;post&amp;#39;));}# Railsdef show  @post = Post.find(params[:id])end8. AI, Automation &amp;amp; Future of CoC🔗Even modern AI workflows adopt CoC:data&#x2F;, model&#x2F;, train.py, inference.py — this is a de facto conventionMLflow and Kubeflow pipelines follow predictable directory and module conventionsPrompt-based coding (Copilot &#x2F; GPT) relies heavily on knowing the structureThis shows CoC is not obsolete — it is evolving.9. Final Thoughts🔗CoC is not a limitation — it’s a productivity enabler.It minimizes choices that don’t matter.It promotes clarity, collaboration, and growth.It enables rapid transfer of skills across ecosystems.&#x27;Conventions are a gift to your future team.&#x27;Written by a Senior Software Architect &amp;amp; Platform Engineer"
+  
+}
+</script>
+
+
+
+  </div>
+  <footer>
+  <!-- Social Media Icons -->
+  
+    <ul class="mt-4 flex justify-center space-x-8">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
+    
+    
+  </div>
+</footer>
+
+  <script>
+    // 注册ScrollTrigger插件
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // 页面加载完成后执行动画
+    window.addEventListener('load', () => {
+      // 导航栏动画
+      gsap.from("nav", {
+        y: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+
+      // 标题动画
+      gsap.from("h1, h2", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+      });
+    });
+  </script>
+</body>
+</html>
+ 

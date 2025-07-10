@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  
+  
+  
+  
+  
+
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name=generator content="Zola">
+
+  
+    <meta name="description" content="The detailed, winding, and ultimately successful story of creating a personal blog from scratch, not just with code, but in constant dialogue with an AI assistant. We&#x27;ll cover everything from initial setup and CI&#x2F;CD pipelines to debugging theme migrations and fixing mysterious environment-specific bugs.">
+  
+
+  <title>William&#x27;s Blog</title>
+  <link rel="stylesheet" href="https://williamhatch.github.io/william_blog/css/generated.css">
+  
+
+  
+
+  <script defer src="https://williamhatch.github.io/william_blog/js/zolarwind/logic.js" integrity="sha384-GYtsrgYVRYoxdEL+C+79KROm+MCl1ArSzQnqVnPTV78UNz5a1vFxAEiKbobXhQlw"></script>
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  
+
+  
+
+
+<header class="sticky top-0 w-full z-10">
+  <nav class="bg-gray-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <a href="https://williamhatch.github.io/william_blog" aria-label="Go to homepage">
+              <div class="h-8 w-8 text-gray-200 hover:text-white fill-current">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                  <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-8 flex items-baseline">
+              
+                
+                  
+                    <a class="px-3 py-2 ml-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+                  
+                
+              
+            </div>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button id="toggleMobileMenu" class="icon inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white" aria-label="Menu">
+            <span id="mobile-icon-menu-unselected">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </span>
+            <span id="mobile-icon-menu-selected" class="hidden">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+      <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 sm:px-3">
+        
+          
+            <a class="mt-1 block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+          
+        
+      </div>
+    
+  </nav>
+</header>
+
+  <div id="content">
+    
+
+  
+    
+  
+
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+    <article class="prose">
+      <div class="h-48 rounded-md shadow-md">
+        <img class="h-48 w-full object-cover" src="https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;img&#x2F;default-banner.jpg" alt="How I Built This Blog: A Journey with Zola, GitHub, and an AI Pair Programmer">
+      </div>
+      <h1>How I Built This Blog: A Journey with Zola, GitHub, and an AI Pair Programmer</h1>
+      <div>
+        <p>
+          <span class="mr-2 text-sm">
+            <time datetime="2025-06-21">June 21, 2025</time> &middot;
+            2,236 words &middot;
+            12 minutes reading time
+          </span>
+          <span class="text-sm leading-5 font-medium text-indigo-600">
+
+  
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/ai/">AI</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/devops/">DevOps</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/architecture/">Architecture</a></span>
+    
+  
+
+</span>
+
+        </p>
+      </div>
+
+      <div>
+        <blockquote>
+<p>"It is our job to create computing technology such that nobody has to program, and that the programming language is human. Everybody in the world is now a programmer. This is the miracle of AI.”</p>
+</blockquote>
+<p>Those are the words of NVIDIA's founder and CEO, Jensen Huang. He painted a future where creation is democratized, where the barrier between an idea and its digital form is dissolved by natural language. For many programmers, this sounded like a threat. For me, it sounded like an invitation.</p>
+<p>I wanted to build a personal blog. A space to share my thoughts, document my projects, and plant a flag in my own little corner of the internet. The "how" was a familiar path: I'd use Zola, a fast static site generator I'd been meaning to try, and deploy it for free on GitHub Pages. But I decided to add a twist. I wouldn't do it alone. I would do it almost entirely with an AI pair programmer, Cursor, to see just how close we are to Huang's vision.</p>
+<p>This post is the story of that journey. It's not a sanitized, step-by-step tutorial where everything works perfectly. It's a real, raw account of the collaboration between man and machine. It's a story of triumph, of unexpected detours, of debugging hell, and ultimately, of a new, powerful way to build software.</p>
+<h2 id="chapter-1-laying-the-foundation">Chapter 1: Laying the Foundation<a class="zola-anchor" href="#chapter-1-laying-the-foundation" aria-label="Anchor link for: chapter-1-laying-the-foundation">🔗</a></h2>
+<p>Every project starts with a single command. For me, it was <code>zola init william_blog</code>. But from that point on, I wanted the AI to take the lead.</p>
+<p><strong>Me:</strong> "Okay, I've started a Zola project. I want to build a simple blog and deploy it to GitHub Pages. Can you set up a basic structure and a GitHub Actions workflow for me?"</p>
+<p><strong>Cursor (The AI):</strong> "Of course."</p>
+<p>It immediately scaffolded the project. It created a <code>.gitignore</code> file tailored for Zola projects. Then, it wrote the first version of our CI/CD pipeline in <code>.github/workflows/gh-pages.yml</code>. The idea was simple: on every push to the <code>main</code> branch, the action would build the Zola site and deploy the resulting static files to a <code>gh-pages</code> branch.</p>
+<p>This was the AI's first test. It chose an action, <code>getzola/zola-action-build</code>, which seemed reasonable. It also proposed a basic theme, <code>deepthought</code>. I accepted, and it added it as a Git submodule.</p>
+<p>With a skeleton in place, it was time for our first commit. And our first problem.</p>
+<p><code>git commit -m "Initial commit with basic structure and theme"</code></p>
+<p>The command failed. Git complained about the <code>themes/deepthought</code> directory being an uninitialized Git repository. It was a classic submodule snag. I told the AI what happened.</p>
+<p><strong>Cursor:</strong> "I see. The submodule was added, but its own <code>.git</code> directory is causing a conflict. I will remove the submodule's Git metadata to treat it as a regular directory."</p>
+<p>It executed <code>rm -rf themes/deepthought/.git</code>. The next commit worked flawlessly. We were on our way. I created a new repository on GitHub, and we pushed the code. The first Action started running.</p>
+<h2 id="chapter-2-the-dance-of-deployment">Chapter 2: The Dance of Deployment<a class="zola-anchor" href="#chapter-2-the-dance-of-deployment" aria-label="Anchor link for: chapter-2-the-dance-of-deployment">🔗</a></h2>
+<p>I watched the little yellow dot next to my commit on GitHub. It spun, then turned red. <strong>Failed.</strong></p>
+<p>This is where the partnership truly began. I wasn't just giving instructions; I was providing feedback on failure. I clicked into the logs, a wall of text that even seasoned developers dread. The error was cryptic: <code>action not found</code>.</p>
+<p>I fed this error back to the AI.</p>
+<p><strong>Me:</strong> "The GitHub Action failed. The error is <code>action not found</code>."</p>
+<p><strong>Cursor:</strong> "I am searching for information on this error. It seems the <code>getzola/zola-action-build</code> action is deprecated. A more modern and maintained alternative is <code>shalzz/zola-deploy-action</code>. I will update the workflow file."</p>
+<p>With a few keystrokes, it rewrote the <code>gh-pages.yml</code> file, replacing the old action with the new one, configuring the necessary inputs like the branch to deploy to. I committed and pushed again.</p>
+<p>This time, the dot turned green. <strong>Success!</strong></p>
+<p>I eagerly typed my new blog's URL into the browser: <code>https://williamhatch.github.io/william_blog/</code>.</p>
+<p>And was greeted by a stark white page with a single, soul-crushing message: <strong>404 Not Found</strong>.</p>
+<p>The deployment had succeeded, but the page wasn't there. This is a classic GitHub Pages puzzle. I explained the situation to the AI.</p>
+<p><strong>Cursor:</strong> "A successful deployment with a 404 error on GitHub Pages often points to an issue with the repository's settings. Please ensure the source for GitHub Pages is set to 'Deploy from a branch' and the selected branch is <code>gh-pages</code>."</p>
+<p>I followed its instructions, navigating through the repository settings. It was exactly as the AI predicted. The source was still set to the default, waiting for me to tell it where to find the static files. I switched it to the <code>gh-pages</code> branch, saved, and refreshed the page.</p>
+<p>It worked. A basic, unstyled page with "Hello, World" appeared. We were live.</p>
+<h2 id="chapter-3-a-change-of-scenery">Chapter 3: A Change of Scenery<a class="zola-anchor" href="#chapter-3-a-change-of-scenery" aria-label="Anchor link for: chapter-3-a-change-of-scenery">🔗</a></h2>
+<p>The <code>deepthought</code> theme was functional, but I quickly realized it was old and unmaintained. I wanted something more modern, with more features out of the box. After a bit of searching, I settled on <code>zolarwind</code>.</p>
+<p>This meant a significant change. I didn't just want to swap files; I wanted to do it properly.</p>
+<p><strong>Me:</strong> "I've decided to switch themes. Let's remove <code>deepthought</code> and add <code>zolarwind</code> as a proper Git submodule. Then, to avoid any conflicts, let's delete all the templates and content we created and start fresh with the new theme's structure."</p>
+<p>This "scorched earth" approach was a calculated risk. It would be faster than trying to merge two different theme structures. The AI understood immediately. It removed the old theme files, executed <code>git submodule add https://github.com/huhu/zolarwind.git themes/zolarwind</code>, and then proceeded to delete the <code>templates</code>, <code>content</code>, and other directories we had created, knowing they would be inherited from the new theme.</p>
+<h2 id="chapter-4-the-custom-homepage">Chapter 4: The Custom Homepage<a class="zola-anchor" href="#chapter-4-the-custom-homepage" aria-label="Anchor link for: chapter-4-the-custom-homepage">🔗</a></h2>
+<p>With the new theme in place, it was time to make it my own. I didn't want the standard list of blog posts on the homepage. I wanted a personal introduction.</p>
+<p>I provided the AI with my bio and a list of my skills. I had a vision: a clean, professional header with a short bio, followed by a grid of my technical skills. I wanted a little flair, so I asked for a subtle animation where the skill cards would light up or grow when you hovered over them.</p>
+<p><strong>Cursor:</strong> "I will create a custom <code>index.html</code> in the root <code>templates</code> directory to override the theme's default. I'll use Tailwind CSS for styling and implement the hover animations as requested."</p>
+<p>This was the most creative task yet, and it handled it beautifully. It wrote the HTML structure, crafted the CSS classes for the layout, and added the necessary <code>transform</code> and <code>transition</code> properties for the hover effect. It even created a placeholder blog post so we'd have something to link to.</p>
+<h2 id="chapter-5-the-localhost-labyrinth">Chapter 5: The Localhost Labyrinth<a class="zola-anchor" href="#chapter-5-the-localhost-labyrinth" aria-label="Anchor link for: chapter-5-the-localhost-labyrinth">🔗</a></h2>
+<p>The custom homepage was done. The new theme was in place. I was excited to see it all come together. I ran the command I'd been waiting for: <code>zola serve</code>.</p>
+<p>And I entered what I can only describe as debugging hell.</p>
+<p><strong>Error:</strong> <code>Template 'index.html' not found</code></p>
+<p>This was bizarre. The file was right there. I told the AI.</p>
+<p><strong>Cursor:</strong> "This is strange. Since you are using a theme, you might need to specify it in the command. Try <code>zola serve --theme zolarwind</code>."</p>
+<p><strong>Error:</strong> <code>Found argument '--theme' which wasn't expected</code></p>
+<p>What? I checked my Zola version: <code>v0.20.0</code>. According to the documentation, this flag should exist. We were both stumped. We tried other flags, like <code>--root .</code>. Same error. We checked for shell aliases, for a corrupted Homebrew installation. Nothing made sense. It felt like my local environment was haunted.</p>
+<p>After a dozen failed attempts to fix the command, we pivoted. If the environment wouldn't bend, we would bend the project to its will.</p>
+<p><strong>Cursor:</strong> "It seems your local Zola installation is behaving unexpectedly. I propose an alternative: we can copy all the necessary files from the <code>zolarwind</code> theme (<code>templates</code>, <code>static</code>, <code>i18n</code>, etc.) directly into your project's root directory. Then, we can comment out the <code>theme</code> setting in <code>config.toml</code>. This will make Zola see it as a single, self-contained project, bypassing the theme loading mechanism entirely."</p>
+<p>It was a hack, but a brilliant one. A pragmatic solution to an illogical problem. The AI performed the copy, modified the config, and I ran <code>zola serve</code> one more time.</p>
+<p>It worked. The local server spun up. But my relief was short-lived. The console was now flooded with a new wave of errors.</p>
+<h2 id="chapter-6-a-cascade-of-configuration-errors">Chapter 6: A Cascade of Configuration Errors<a class="zola-anchor" href="#chapter-6-a-cascade-of-configuration-errors" aria-label="Anchor link for: chapter-6-a-cascade-of-configuration-errors">🔗</a></h2>
+<p>Our hack had solved one problem but created a chain reaction of others. The <code>zolarwind</code> theme, now acting as the core of our project, had specific expectations for the <code>config.toml</code> file that our basic setup didn't meet.</p>
+<p>First, an error about a missing <code>tags</code> taxonomy. The AI added it.</p>
+<pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span style="color:#bf616a;">taxonomies </span><span>= [
+</span><span>    { </span><span style="color:#bf616a;">name </span><span>= &quot;</span><span style="color:#a3be8c;">tags</span><span>&quot;, </span><span style="color:#bf616a;">feed </span><span>= </span><span style="color:#d08770;">true </span><span>},
+</span><span>]
+</span></code></pre>
+<p>Next, a syntax error. The AI had initially put the taxonomy in a <code>[taxonomies]</code> table, but the theme expected a top-level key. It corrected itself. Then came errors about missing theme-specific variables like <code>path_language_resources</code> and incorrect data structures for menus and social links.</p>
+<p>For nearly an hour, we went back and forth. I would run <code>zola serve</code>, paste the error, and the AI would analyze it, consult the theme's documentation, and propose a fix for <code>config.toml</code>. It was a tedious, painstaking process that would have been incredibly frustrating to do alone. But with the AI, it was a rapid, iterative loop: run, fail, report, fix, repeat.</p>
+<p>Finally, the stream of red text stopped. The server was running, error-free. I opened my browser to <code>127.0.0.1:1111</code> and there it was. My custom homepage, the new theme, everything working together. It was beautiful.</p>
+<h2 id="chapter-7-the-final-boss">Chapter 7: The Final Boss<a class="zola-anchor" href="#chapter-7-the-final-boss" aria-label="Anchor link for: chapter-7-the-final-boss">🔗</a></h2>
+<p>With local development finally sorted, I pushed all our changes. The GitHub Action ran successfully. The green checkmark appeared. This was it.</p>
+<p>I navigated to <code>https://williamhatch.github.io/william_blog/</code>.</p>
+<p>The page loaded. The HTML content was there. My bio, my skills, the blog post title. But all the styling was gone. The JavaScript was broken. The images were missing. It was a barren, unstyled mess.</p>
+<p>I opened the developer console. It was a sea of 404s. The browser was trying to load <code>https://williamhatch.github.io/css/style.css</code>, but it should have been looking for <code>https://williamhatch.github.io/william_blog/css/style.css</code>.</p>
+<p>The repository subpath, <code>/william_blog/</code>, was missing from every single asset URL.</p>
+<p>This was a problem my AI partner couldn't see, because it only existed in the context of GitHub Pages deployment. It was up to me to diagnose it. I used <code>curl</code> to confirm my suspicion. The problem was clear: the theme's templates were using hardcoded root-relative paths (e.g., <code>href="/css/style.css"</code>).</p>
+<p>I explained my findings to the AI. This was our final boss.</p>
+<p><strong>Me:</strong> "I've found the issue. The production site is broken because all the asset links in the templates are hardcoded with a leading slash, like <code>/css/main.css</code>. This doesn't work when the site is served from a subdirectory. We need to replace all of them with Zola's <code>get_url()</code> function to generate correct, absolute paths."</p>
+<p><strong>Cursor:</strong> "I understand completely. I will perform a systematic search and replace across all relevant template files (<code>base.html</code>, <code>header.html</code>, <code>list-element.html</code>, etc.) to wrap every asset URL in <code>get_url()</code>."</p>
+<p>And it did. It meticulously went through every template file, finding every <code>&lt;link&gt;</code>, <code>&lt;script&gt;</code>, and <code>&lt;img&gt;</code> tag. It replaced <code>href="/css/generated.css"</code> with <code>href="{{ get_url(path='css/generated.css') | safe }}"</code>. It found paths hidden in partials and even within inline <code>style</code> attributes.</p>
+<p>I pushed the final set of changes. The Action ran. I held my breath and refreshed the page.</p>
+<p>And there it was. Perfect. The styles loaded, the hover animations worked, the images appeared. My blog was alive, fully functional, and deployed on the internet for all to see.</p>
+<h2 id="conclusion-a-new-dialogue">Conclusion: A New Dialogue<a class="zola-anchor" href="#conclusion-a-new-dialogue" aria-label="Anchor link for: conclusion-a-new-dialogue">🔗</a></h2>
+<p>Looking back, was Jensen Huang right? Did I, a programmer, become obsolete? No. But the nature of my work changed. It became less about the monotonous, line-by-line grind of writing code and more about high-level direction, creative problem-solving, and precise debugging.</p>
+<p>The journey was a dialogue.</p>
+<ul>
+<li><strong>I said:</strong> "Build me a blog."</li>
+<li><strong>The AI said:</strong> "Here is a structure. Uh oh, it failed."</li>
+<li><strong>I said:</strong> "Here's the error. What does it mean?"</li>
+<li><strong>The AI said:</strong> "I've researched it. Here is the fix."</li>
+</ul>
+<p>This partnership allowed me to operate at a higher level of abstraction. I was the architect, and the AI was the incredibly fast, knowledgeable, and tireless construction crew. It handled the boilerplate, researched obscure errors, and performed tedious refactoring, freeing me up to focus on the bigger picture.</p>
+<p>We are not at a point where you can just say "build me a billion-dollar app" and have it appear. But we are at a point where the conversation between human and machine can create complex, functional, and beautiful software. The language is still punctuated by code, commits, and error logs, but the grammar is becoming more and more human. And that truly is a miracle.</p>
+<p>You can visit the finished blog here: <strong><a href="https://williamhatch.github.io/william_blog/">https://williamhatch.github.io/william_blog/</a></strong></p>
+<p>And if you're curious to see the entire commit history of our journey, the code is open-source on GitHub: <strong><a href="https://github.com/williamhatch/william_blog">https://github.com/williamhatch/william_blog</a></strong></p>
+
+      </div>
+    </article>
+  </div>
+
+  <script type="application/ld+json">
+{
+   "@context": "https://schema.org"
+  ,"@type": "BlogPosting"
+  ,"mainEntityOfPage": {
+     "@type": "WebPage"
+    ,"@id": "https://williamhatch.github.io/william_blog/blog/building-this-blog-with-ai/"
+  }
+  ,"headline": "How I Built This Blog: A Journey with Zola, GitHub, and an AI Pair Programmer"
+  ,"datePublished": "2025-06-21"
+  ,"dateModified": "2025-06-21"
+  
+  ,"description": "The detailed, winding, and ultimately successful story of creating a personal blog from scratch, not just with code, but in constant dialogue with an AI assistant. We&#x27;ll cover everything from initial setup and CI&#x2F;CD pipelines to debugging theme migrations and fixing mysterious environment-specific bugs."
+  ,"articleBody": "&#x27;It is our job to create computing technology such that nobody has to program, and that the programming language is human. Everybody in the world is now a programmer. This is the miracle of AI.”Those are the words of NVIDIA&#x27;s founder and CEO, Jensen Huang. He painted a future where creation is democratized, where the barrier between an idea and its digital form is dissolved by natural language. For many programmers, this sounded like a threat. For me, it sounded like an invitation.I wanted to build a personal blog. A space to share my thoughts, document my projects, and plant a flag in my own little corner of the internet. The &#x27;how&#x27; was a familiar path: I&#x27;d use Zola, a fast static site generator I&#x27;d been meaning to try, and deploy it for free on GitHub Pages. But I decided to add a twist. I wouldn&#x27;t do it alone. I would do it almost entirely with an AI pair programmer, Cursor, to see just how close we are to Huang&#x27;s vision.This post is the story of that journey. It&#x27;s not a sanitized, step-by-step tutorial where everything works perfectly. It&#x27;s a real, raw account of the collaboration between man and machine. It&#x27;s a story of triumph, of unexpected detours, of debugging hell, and ultimately, of a new, powerful way to build software.Chapter 1: Laying the Foundation🔗Every project starts with a single command. For me, it was zola init william_blog. But from that point on, I wanted the AI to take the lead.Me: &#x27;Okay, I&#x27;ve started a Zola project. I want to build a simple blog and deploy it to GitHub Pages. Can you set up a basic structure and a GitHub Actions workflow for me?&#x27;Cursor (The AI): &#x27;Of course.&#x27;It immediately scaffolded the project. It created a .gitignore file tailored for Zola projects. Then, it wrote the first version of our CI&#x2F;CD pipeline in .github&#x2F;workflows&#x2F;gh-pages.yml. The idea was simple: on every push to the main branch, the action would build the Zola site and deploy the resulting static files to a gh-pages branch.This was the AI&#x27;s first test. It chose an action, getzola&#x2F;zola-action-build, which seemed reasonable. It also proposed a basic theme, deepthought. I accepted, and it added it as a Git submodule.With a skeleton in place, it was time for our first commit. And our first problem.git commit -m &#x27;Initial commit with basic structure and theme&#x27;The command failed. Git complained about the themes&#x2F;deepthought directory being an uninitialized Git repository. It was a classic submodule snag. I told the AI what happened.Cursor: &#x27;I see. The submodule was added, but its own .git directory is causing a conflict. I will remove the submodule&#x27;s Git metadata to treat it as a regular directory.&#x27;It executed rm -rf themes&#x2F;deepthought&#x2F;.git. The next commit worked flawlessly. We were on our way. I created a new repository on GitHub, and we pushed the code. The first Action started running.Chapter 2: The Dance of Deployment🔗I watched the little yellow dot next to my commit on GitHub. It spun, then turned red. Failed.This is where the partnership truly began. I wasn&#x27;t just giving instructions; I was providing feedback on failure. I clicked into the logs, a wall of text that even seasoned developers dread. The error was cryptic: action not found.I fed this error back to the AI.Me: &#x27;The GitHub Action failed. The error is action not found.&#x27;Cursor: &#x27;I am searching for information on this error. It seems the getzola&#x2F;zola-action-build action is deprecated. A more modern and maintained alternative is shalzz&#x2F;zola-deploy-action. I will update the workflow file.&#x27;With a few keystrokes, it rewrote the gh-pages.yml file, replacing the old action with the new one, configuring the necessary inputs like the branch to deploy to. I committed and pushed again.This time, the dot turned green. Success!I eagerly typed my new blog&#x27;s URL into the browser: https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;.And was greeted by a stark white page with a single, soul-crushing message: 404 Not Found.The deployment had succeeded, but the page wasn&#x27;t there. This is a classic GitHub Pages puzzle. I explained the situation to the AI.Cursor: &#x27;A successful deployment with a 404 error on GitHub Pages often points to an issue with the repository&#x27;s settings. Please ensure the source for GitHub Pages is set to &#x27;Deploy from a branch&#x27; and the selected branch is gh-pages.&#x27;I followed its instructions, navigating through the repository settings. It was exactly as the AI predicted. The source was still set to the default, waiting for me to tell it where to find the static files. I switched it to the gh-pages branch, saved, and refreshed the page.It worked. A basic, unstyled page with &#x27;Hello, World&#x27; appeared. We were live.Chapter 3: A Change of Scenery🔗The deepthought theme was functional, but I quickly realized it was old and unmaintained. I wanted something more modern, with more features out of the box. After a bit of searching, I settled on zolarwind.This meant a significant change. I didn&#x27;t just want to swap files; I wanted to do it properly.Me: &#x27;I&#x27;ve decided to switch themes. Let&#x27;s remove deepthought and add zolarwind as a proper Git submodule. Then, to avoid any conflicts, let&#x27;s delete all the templates and content we created and start fresh with the new theme&#x27;s structure.&#x27;This &#x27;scorched earth&#x27; approach was a calculated risk. It would be faster than trying to merge two different theme structures. The AI understood immediately. It removed the old theme files, executed git submodule add https:&#x2F;&#x2F;github.com&#x2F;huhu&#x2F;zolarwind.git themes&#x2F;zolarwind, and then proceeded to delete the templates, content, and other directories we had created, knowing they would be inherited from the new theme.Chapter 4: The Custom Homepage🔗With the new theme in place, it was time to make it my own. I didn&#x27;t want the standard list of blog posts on the homepage. I wanted a personal introduction.I provided the AI with my bio and a list of my skills. I had a vision: a clean, professional header with a short bio, followed by a grid of my technical skills. I wanted a little flair, so I asked for a subtle animation where the skill cards would light up or grow when you hovered over them.Cursor: &#x27;I will create a custom index.html in the root templates directory to override the theme&#x27;s default. I&#x27;ll use Tailwind CSS for styling and implement the hover animations as requested.&#x27;This was the most creative task yet, and it handled it beautifully. It wrote the HTML structure, crafted the CSS classes for the layout, and added the necessary transform and transition properties for the hover effect. It even created a placeholder blog post so we&#x27;d have something to link to.Chapter 5: The Localhost Labyrinth🔗The custom homepage was done. The new theme was in place. I was excited to see it all come together. I ran the command I&#x27;d been waiting for: zola serve.And I entered what I can only describe as debugging hell.Error: Template &#x27;index.html&#x27; not foundThis was bizarre. The file was right there. I told the AI.Cursor: &#x27;This is strange. Since you are using a theme, you might need to specify it in the command. Try zola serve --theme zolarwind.&#x27;Error: Found argument &#x27;--theme&#x27; which wasn&#x27;t expectedWhat? I checked my Zola version: v0.20.0. According to the documentation, this flag should exist. We were both stumped. We tried other flags, like --root .. Same error. We checked for shell aliases, for a corrupted Homebrew installation. Nothing made sense. It felt like my local environment was haunted.After a dozen failed attempts to fix the command, we pivoted. If the environment wouldn&#x27;t bend, we would bend the project to its will.Cursor: &#x27;It seems your local Zola installation is behaving unexpectedly. I propose an alternative: we can copy all the necessary files from the zolarwind theme (templates, static, i18n, etc.) directly into your project&#x27;s root directory. Then, we can comment out the theme setting in config.toml. This will make Zola see it as a single, self-contained project, bypassing the theme loading mechanism entirely.&#x27;It was a hack, but a brilliant one. A pragmatic solution to an illogical problem. The AI performed the copy, modified the config, and I ran zola serve one more time.It worked. The local server spun up. But my relief was short-lived. The console was now flooded with a new wave of errors.Chapter 6: A Cascade of Configuration Errors🔗Our hack had solved one problem but created a chain reaction of others. The zolarwind theme, now acting as the core of our project, had specific expectations for the config.toml file that our basic setup didn&#x27;t meet.First, an error about a missing tags taxonomy. The AI added it.taxonomies = [    { name = &amp;quot;tags&amp;quot;, feed = true },]Next, a syntax error. The AI had initially put the taxonomy in a [taxonomies] table, but the theme expected a top-level key. It corrected itself. Then came errors about missing theme-specific variables like path_language_resources and incorrect data structures for menus and social links.For nearly an hour, we went back and forth. I would run zola serve, paste the error, and the AI would analyze it, consult the theme&#x27;s documentation, and propose a fix for config.toml. It was a tedious, painstaking process that would have been incredibly frustrating to do alone. But with the AI, it was a rapid, iterative loop: run, fail, report, fix, repeat.Finally, the stream of red text stopped. The server was running, error-free. I opened my browser to 127.0.0.1:1111 and there it was. My custom homepage, the new theme, everything working together. It was beautiful.Chapter 7: The Final Boss🔗With local development finally sorted, I pushed all our changes. The GitHub Action ran successfully. The green checkmark appeared. This was it.I navigated to https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;.The page loaded. The HTML content was there. My bio, my skills, the blog post title. But all the styling was gone. The JavaScript was broken. The images were missing. It was a barren, unstyled mess.I opened the developer console. It was a sea of 404s. The browser was trying to load https:&#x2F;&#x2F;williamhatch.github.io&#x2F;css&#x2F;style.css, but it should have been looking for https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;css&#x2F;style.css.The repository subpath, &#x2F;william_blog&#x2F;, was missing from every single asset URL.This was a problem my AI partner couldn&#x27;t see, because it only existed in the context of GitHub Pages deployment. It was up to me to diagnose it. I used curl to confirm my suspicion. The problem was clear: the theme&#x27;s templates were using hardcoded root-relative paths (e.g., href=&#x27;&#x2F;css&#x2F;style.css&#x27;).I explained my findings to the AI. This was our final boss.Me: &#x27;I&#x27;ve found the issue. The production site is broken because all the asset links in the templates are hardcoded with a leading slash, like &#x2F;css&#x2F;main.css. This doesn&#x27;t work when the site is served from a subdirectory. We need to replace all of them with Zola&#x27;s get_url() function to generate correct, absolute paths.&#x27;Cursor: &#x27;I understand completely. I will perform a systematic search and replace across all relevant template files (base.html, header.html, list-element.html, etc.) to wrap every asset URL in get_url().&#x27;And it did. It meticulously went through every template file, finding every &amp;lt;link&amp;gt;, &amp;lt;script&amp;gt;, and &amp;lt;img&amp;gt; tag. It replaced href=&#x27;&#x2F;css&#x2F;generated.css&#x27; with href=&#x27;{{ get_url(path=&#x27;css&#x2F;generated.css&#x27;) | safe }}&#x27;. It found paths hidden in partials and even within inline style attributes.I pushed the final set of changes. The Action ran. I held my breath and refreshed the page.And there it was. Perfect. The styles loaded, the hover animations worked, the images appeared. My blog was alive, fully functional, and deployed on the internet for all to see.Conclusion: A New Dialogue🔗Looking back, was Jensen Huang right? Did I, a programmer, become obsolete? No. But the nature of my work changed. It became less about the monotonous, line-by-line grind of writing code and more about high-level direction, creative problem-solving, and precise debugging.The journey was a dialogue.I said: &#x27;Build me a blog.&#x27;The AI said: &#x27;Here is a structure. Uh oh, it failed.&#x27;I said: &#x27;Here&#x27;s the error. What does it mean?&#x27;The AI said: &#x27;I&#x27;ve researched it. Here is the fix.&#x27;This partnership allowed me to operate at a higher level of abstraction. I was the architect, and the AI was the incredibly fast, knowledgeable, and tireless construction crew. It handled the boilerplate, researched obscure errors, and performed tedious refactoring, freeing me up to focus on the bigger picture.We are not at a point where you can just say &#x27;build me a billion-dollar app&#x27; and have it appear. But we are at a point where the conversation between human and machine can create complex, functional, and beautiful software. The language is still punctuated by code, commits, and error logs, but the grammar is becoming more and more human. And that truly is a miracle.You can visit the finished blog here: https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;And if you&#x27;re curious to see the entire commit history of our journey, the code is open-source on GitHub: https:&#x2F;&#x2F;github.com&#x2F;williamhatch&#x2F;william_blog"
+  
+}
+</script>
+
+
+
+  </div>
+  <footer>
+  <!-- Social Media Icons -->
+  
+    <ul class="mt-4 flex justify-center space-x-8">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
+    
+    
+  </div>
+</footer>
+
+  <script>
+    // 注册ScrollTrigger插件
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // 页面加载完成后执行动画
+    window.addEventListener('load', () => {
+      // 导航栏动画
+      gsap.from("nav", {
+        y: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+
+      // 标题动画
+      gsap.from("h1, h2", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+      });
+    });
+  </script>
+</body>
+</html>
+ 

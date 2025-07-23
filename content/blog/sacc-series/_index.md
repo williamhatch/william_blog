@@ -25,7 +25,7 @@ SACC 系列旨在探索如何通过语义驱动的方式重构软件工程，让
 ## 文章规划
 
 ### 第一阶段：理论基础（1-20篇）
-1. ✅ **语义驱动时代的软件工程：MiniSpec 与 SACC 的五层模型**
+1. ✅ **[语义驱动时代的软件工程：MiniSpec 与 SACC 的五层模型](/blog/001-semantic-driven-engineering/)**
 2. SACC 五层模型深度解析
 3. MiniSpec DSL 语法规范详解
 4. 语义驱动 vs 传统开发模式对比

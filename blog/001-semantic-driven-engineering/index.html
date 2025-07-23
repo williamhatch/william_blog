@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  
+  
+  
+  
+  
+
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name=generator content="Zola">
+
+  
+    <meta name="description" content="An in-depth introduction to MiniSpec DSL and the SACC five-layer semantic model, exploring how to restructure our understanding of engineering language, context, and AI for semantic-driven development.">
+  
+
+  <title>William&#x27;s Blog</title>
+  <link rel="stylesheet" href="https://williamhatch.github.io/william_blog/css/generated.css">
+  
+
+  
+
+  <script defer src="https://williamhatch.github.io/william_blog/js/zolarwind/logic.js" integrity="sha384-GYtsrgYVRYoxdEL+C+79KROm+MCl1ArSzQnqVnPTV78UNz5a1vFxAEiKbobXhQlw"></script>
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  
+
+  
+
+
+<header class="sticky top-0 w-full z-10">
+  <nav class="bg-gray-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <a href="https://williamhatch.github.io/william_blog" aria-label="Go to homepage">
+              <div class="h-8 w-8 text-gray-200 hover:text-white fill-current">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                  <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-8 flex items-baseline">
+              
+                
+                  
+                    <a class="px-3 py-2 ml-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+                  
+                
+              
+            </div>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button id="toggleMobileMenu" class="icon inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white" aria-label="Menu">
+            <span id="mobile-icon-menu-unselected">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </span>
+            <span id="mobile-icon-menu-selected" class="hidden">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+      <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 sm:px-3">
+        
+          
+            <a class="mt-1 block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+          
+        
+      </div>
+    
+  </nav>
+</header>
+
+  <div id="content">
+    
+
+  
+    
+  
+
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+    <article class="prose">
+      <div class="h-48 rounded-md shadow-md">
+        <img class="h-48 w-full object-cover" src="https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;img&#x2F;default-banner.jpg" alt="Semantic-Driven Software Engineering: MiniSpec and the SACC Five-Layer Model">
+      </div>
+      <h1>Semantic-Driven Software Engineering: MiniSpec and the SACC Five-Layer Model</h1>
+      <div>
+        <p>
+          <span class="mr-2 text-sm">
+            <time datetime="2025-07-24">July 24, 2025</time> &middot;
+            1,021 words &middot;
+            6 minutes reading time
+          </span>
+          <span class="text-sm leading-5 font-medium text-indigo-600">
+
+  
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/ai-engineering/">AI Engineering</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/minispec/">MiniSpec</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/sacc/">SACC</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/software-architecture/">Software Architecture</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/semantic-models/">Semantic Models</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/devops/">DevOps</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/dsl/">DSL</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/semantic-driven-development/">Semantic-Driven Development</a></span>
+    
+  
+
+</span>
+
+        </p>
+      </div>
+
+      <div>
+        <h1 id="semantic-driven-software-engineering-minispec-and-the-sacc-five-layer-model">Semantic-Driven Software Engineering: MiniSpec and the SACC Five-Layer Model<a class="zola-anchor" href="#semantic-driven-software-engineering-minispec-and-the-sacc-five-layer-model" aria-label="Anchor link for: semantic-driven-software-engineering-minispec-and-the-sacc-five-layer-model">🔗</a></h1>
+<p>Software engineers have always dreamed of generating entire systems' code, tests, and deployment scripts through clear, structured documentation alone.</p>
+<p>This dream is becoming reality in the wave of "Semantic-Driven Development."</p>
+<p>This is the first article in the series, where we'll dive deep into what MiniSpec DSL is, and how its underlying SACC five-layer semantic model restructures our understanding of engineering language, context, and AI.</p>
+<hr />
+<h2 id="the-ultimate-dream-of-software-engineers-from-uml-to-ai-native-dsl">The Ultimate Dream of Software Engineers: From UML to AI-native DSL<a class="zola-anchor" href="#the-ultimate-dream-of-software-engineers-from-uml-to-ai-native-dsl" aria-label="Anchor link for: the-ultimate-dream-of-software-engineers-from-uml-to-ai-native-dsl">🔗</a></h2>
+<p>Over the past decades, UML was seen as the hope for achieving automated development: describing system design graphically, theoretically capable of generating code. But it ultimately failed in engineering practice.</p>
+<p>Why?</p>
+<ul>
+<li>Semantic ambiguity, inconsistency between diagrams and code</li>
+<li>Lack of syntactic constraints, difficult to maintain</li>
+<li>Poor for version control and collaboration</li>
+</ul>
+<p>Now, with the emergence of AI large models, "Prompt Engineering" has reignited hope for automated generation. However, it faces similar challenges:</p>
+<ul>
+<li>Unstructured, uncontrollable</li>
+<li>High hallucination and error rates</li>
+<li>Difficult for team collaboration</li>
+</ul>
+<p>The lessons from both are clear: we need a new language layer to clearly describe engineering intent and context.</p>
+<p>This is the birth background of MiniSpec DSL.</p>
+<hr />
+<h2 id="what-is-minispec">What is MiniSpec?<a class="zola-anchor" href="#what-is-minispec" aria-label="Anchor link for: what-is-minispec">🔗</a></h2>
+<p>MiniSpec (Minimal Specification) is a semantic-driven development syntax designed to make engineering intent understandable by both AI and humans, and mappable to executable artifacts.</p>
+<p>It doesn't replace programming languages, but stands above them, providing a unified, clear, and generatable semantic description.</p>
+<p>Its design principles include:</p>
+<table><thead><tr><th>Principle</th><th>Description</th></tr></thead><tbody>
+<tr><td>✅ Readability</td><td>Human engineers can easily understand</td></tr>
+<tr><td>✅ Structurability</td><td>JSON/YAML expression, convenient for LLM parsing</td></tr>
+<tr><td>✅ Context-Intent Separation</td><td>Separate context from spec, clearly defining semantic boundaries</td></tr>
+<tr><td>✅ Action Mappable</td><td>Each spec can be mapped to an agent task</td></tr>
+<tr><td>✅ Modularity</td><td>Suitable for various scenarios: test, infra, deploy, api doc, prompt</td></tr>
+</tbody></table>
+<hr />
+<h2 id="minispec-syntax-example">MiniSpec Syntax Example<a class="zola-anchor" href="#minispec-syntax-example" aria-label="Anchor link for: minispec-syntax-example">🔗</a></h2>
+<pre data-lang="yaml" style="background-color:#2b303b;color:#c0c5ce;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">version</span><span>: &quot;</span><span style="color:#a3be8c;">0.1</span><span>&quot;
+</span><span>
+</span><span style="color:#bf616a;">context</span><span>:
+</span><span>  </span><span style="color:#bf616a;">env</span><span>: &quot;</span><span style="color:#a3be8c;">staging</span><span>&quot;
+</span><span>  </span><span style="color:#bf616a;">user_role</span><span>: &quot;</span><span style="color:#a3be8c;">admin</span><span>&quot;
+</span><span>  </span><span style="color:#bf616a;">feature_flag</span><span>: &quot;</span><span style="color:#a3be8c;">beta</span><span>&quot;
+</span><span>  </span><span style="color:#bf616a;">git_branch</span><span>: &quot;</span><span style="color:#a3be8c;">feature/signup</span><span>&quot;
+</span><span>  </span><span style="color:#bf616a;">runtime</span><span>: &quot;</span><span style="color:#a3be8c;">Node.js 18</span><span>&quot;
+</span><span>
+</span><span style="color:#bf616a;">spec</span><span>:
+</span><span>  </span><span style="color:#bf616a;">goal</span><span>: &quot;</span><span style="color:#a3be8c;">Build new user registration flow</span><span>&quot;
+</span><span>  </span><span style="color:#bf616a;">entities</span><span>:
+</span><span>    - </span><span style="color:#bf616a;">name</span><span>: &quot;</span><span style="color:#a3be8c;">User</span><span>&quot;
+</span><span>      </span><span style="color:#bf616a;">attributes</span><span>:
+</span><span>        - </span><span style="color:#a3be8c;">email
+</span><span>        - </span><span style="color:#a3be8c;">password
+</span><span>        - </span><span style="color:#a3be8c;">is_verified
+</span><span>  </span><span style="color:#bf616a;">behavior</span><span>:
+</span><span>    - &quot;</span><span style="color:#a3be8c;">Send verification email after registration</span><span>&quot;
+</span><span>    - &quot;</span><span style="color:#a3be8c;">email must be unique</span><span>&quot;
+</span><span>    - &quot;</span><span style="color:#a3be8c;">password length must be greater than 8</span><span>&quot;
+</span><span>  </span><span style="color:#bf616a;">test</span><span>:
+</span><span>    - &quot;</span><span style="color:#a3be8c;">Should successfully register</span><span>&quot;
+</span><span>    - &quot;</span><span style="color:#a3be8c;">Duplicate email should error</span><span>&quot;
+</span><span>    - &quot;</span><span style="color:#a3be8c;">Short password should be rejected</span><span>&quot;
+</span><span>  </span><span style="color:#bf616a;">infra</span><span>:
+</span><span>    </span><span style="color:#bf616a;">deploy_target</span><span>: &quot;</span><span style="color:#a3be8c;">AWS Lambda</span><span>&quot;
+</span><span>    </span><span style="color:#bf616a;">scaling</span><span>: &quot;</span><span style="color:#a3be8c;">auto</span><span>&quot;
+</span><span>    </span><span style="color:#bf616a;">database</span><span>: &quot;</span><span style="color:#a3be8c;">PostgreSQL</span><span>&quot;
+</span></code></pre>
+<hr />
+<h2 id="corresponding-application-outputs">Corresponding Application Outputs<a class="zola-anchor" href="#corresponding-application-outputs" aria-label="Anchor link for: corresponding-application-outputs">🔗</a></h2>
+<table><thead><tr><th>Type</th><th>LLM Can Generate</th></tr></thead><tbody>
+<tr><td>✅ Test Code</td><td>RSpec / Jest / Pytest</td></tr>
+<tr><td>✅ Infra Code</td><td>Terraform / Pulumi</td></tr>
+<tr><td>✅ API Documentation</td><td>Swagger / OpenAPI</td></tr>
+<tr><td>✅ Prompt</td><td>Function schema / Assistant</td></tr>
+<tr><td>✅ DevOps</td><td>GitHub Action / CI pipeline</td></tr>
+<tr><td>✅ Documentation</td><td>README.md / Spec docs</td></tr>
+<tr><td>✅ UI Output</td><td>Figma DSL / HTML prototype</td></tr>
+<tr><td>✅ Scaffolding</td><td>model/controller/service</td></tr>
+</tbody></table>
+<hr />
+<h2 id="the-sacc-five-layer-semantic-model">The SACC Five-Layer Semantic Model<a class="zola-anchor" href="#the-sacc-five-layer-semantic-model" aria-label="Anchor link for: the-sacc-five-layer-semantic-model">🔗</a></h2>
+<p>Based on deep understanding of AI-code interaction, we propose the SACC (Spec and Context as Code) five-layer model:</p>
+<h3 id="layer-architecture">Layer Architecture<a class="zola-anchor" href="#layer-architecture" aria-label="Anchor link for: layer-architecture">🔗</a></h3>
+<table><thead><tr><th>Layer</th><th>Name</th><th>Function</th><th>Analogy</th></tr></thead><tbody>
+<tr><td>L1</td><td>Symbolic Layer</td><td>Bottom layer: language symbols, tokens, bitstreams</td><td>Similar to OSI physical/data layer</td></tr>
+<tr><td>L2</td><td>Instruction Layer</td><td>Basic syntax + API calls + control structures (like if/else, function)</td><td>Similar to OSI network/transport layer</td></tr>
+<tr><td>L3</td><td>Intent Layer</td><td>User's explicit intent, like "write tests for this code"</td><td>Similar to OSI session layer</td></tr>
+<tr><td>L4</td><td>Context Layer</td><td>Task background, conversation history, role settings, prior knowledge</td><td>Similar to OSI presentation layer</td></tr>
+<tr><td>L5</td><td>Specification Layer</td><td>Task standards, business specifications, constraints, meta-goals</td><td>Similar to OSI application layer</td></tr>
+</tbody></table>
+<h3 id="detailed-analysis-of-each-layer">Detailed Analysis of Each Layer<a class="zola-anchor" href="#detailed-analysis-of-each-layer" aria-label="Anchor link for: detailed-analysis-of-each-layer">🔗</a></h3>
+<p><strong>L1. Symbolic Layer — Language atoms received and processed by LLM</strong></p>
+<ul>
+<li>All language processing starts from symbols: tokens, characters, strings, opcodes</li>
+<li>Corresponds to: Tokenizer, Embeddings, Binary Instructions, Assembly</li>
+<li>Examples: string "def", token ##ing, or embedding vectors [0.82, -0.12, ...]</li>
+</ul>
+<p><strong>L2. Instruction Layer — Syntactic structure of program behavior</strong></p>
+<ul>
+<li>Functions, conditional statements, API calls are the basic units at the execution level</li>
+<li>AI's understanding of this layer is key to behavior simulation (like Copilot's code completion)</li>
+<li>Examples: for, return, fetch('/api'), assert, and other syntax nodes</li>
+</ul>
+<p><strong>L3. Intent Layer — Human's specific intent of "what to do"</strong></p>
+<ul>
+<li>This is the core level of prompt, e.g.: "Please automatically generate test code for this API"</li>
+<li>LLM plans program output based on intent</li>
+<li>Similar to function "calls" but more semantic and fuzzy</li>
+</ul>
+<p><strong>L4. Context Layer — The source of AI understanding where context is king</strong></p>
+<ul>
+<li>This layer is LLM's "short-term memory" and "contextual understanding"</li>
+<li>Includes previous conversation content, role assumptions, input methods, prompt history</li>
+<li>Without context, AI is prone to hallucination or task misunderstanding</li>
+</ul>
+<p>✅ <strong>At this layer, we first propose: Spec/Context as Code</strong>
+Spec/Context determines behavior, just as Code determines output.</p>
+<p><strong>L5. Specification Layer — Meta-instruction layer of semantics and logic</strong></p>
+<ul>
+<li>Like software specifications, describing "what should be accomplished" and its boundaries</li>
+<li>May come from: Product spec, Swagger, User story, design diagrams</li>
+<li>This layer doesn't directly appear in input but determines whether final output is correct</li>
+</ul>
+<hr />
+<h2 id="why-do-we-need-such-a-model">Why Do We Need Such a Model?<a class="zola-anchor" href="#why-do-we-need-such-a-model" aria-label="Anchor link for: why-do-we-need-such-a-model">🔗</a></h2>
+<h3 id="white-check-mark-1-clearly-divide-ai-s-task-thinking-levels">✅ 1. Clearly Divide AI's Task "Thinking Levels"<a class="zola-anchor" href="#white-check-mark-1-clearly-divide-ai-s-task-thinking-levels" aria-label="Anchor link for: white-check-mark-1-clearly-divide-ai-s-task-thinking-levels">🔗</a></h3>
+<ul>
+<li>AI's understanding of prompts isn't simple text matching, but crosses semantic structures</li>
+<li>Establishing this layering helps build more stable, controllable AI behavior models</li>
+</ul>
+<h3 id="white-check-mark-2-help-us-design-more-precise-prompt-flow">✅ 2. Help Us Design More Precise Prompt Flow<a class="zola-anchor" href="#white-check-mark-2-help-us-design-more-precise-prompt-flow" aria-label="Anchor link for: white-check-mark-2-help-us-design-more-precise-prompt-flow">🔗</a></h3>
+<ul>
+<li>You can adjust prompt tone and command structure at the Intent layer</li>
+<li>Design input flow and context control strategies at the Context layer</li>
+<li>Use DSL (like JSON schema) at the Specification layer to clearly limit generation behavior</li>
+</ul>
+<h3 id="white-check-mark-3-make-ai-programmable-not-just-vague-dialogue">✅ 3. Make AI "Programmable", Not Just Vague Dialogue<a class="zola-anchor" href="#white-check-mark-3-make-ai-programmable-not-just-vague-dialogue" aria-label="Anchor link for: white-check-mark-3-make-ai-programmable-not-just-vague-dialogue">🔗</a></h3>
+<ul>
+<li>Treating context as program code (Spec/Context as Code), we can:</li>
+<li>Version control context</li>
+<li>Unit test differences in output from different contexts</li>
+<li>Form "context script libraries": every prompt context is a reusable logic module</li>
+</ul>
+<hr />
+<h2 id="differences-between-minispec-and-prompt-engineering">Differences Between MiniSpec and Prompt Engineering<a class="zola-anchor" href="#differences-between-minispec-and-prompt-engineering" aria-label="Anchor link for: differences-between-minispec-and-prompt-engineering">🔗</a></h2>
+<table><thead><tr><th>Dimension</th><th>Prompt Engineering</th><th>MiniSpec DSL</th></tr></thead><tbody>
+<tr><td>Reproducibility</td><td>❌ Poor, slight input change completely different output</td><td>✅ High, controllable output</td></tr>
+<tr><td>Testability</td><td>❌ Difficult to write unit tests</td><td>✅ Can generate test cases</td></tr>
+<tr><td>Team Consensus</td><td>❌ Relies on individual skills</td><td>✅ DSL + Schema</td></tr>
+<tr><td>Multi-module Collaboration</td><td>❌ Difficult to integrate with CI/CD</td><td>✅ Can integrate with GitHub Workflow</td></tr>
+<tr><td>Multi-scenario Extension</td><td>⚠️ Requires lots of prompt writing</td><td>✅ Naturally extends to Infra / UI / API Doc etc.</td></tr>
+</tbody></table>
+<hr />
+<h2 id="vision-building-ai-native-engineering-ecosystem">Vision: Building AI-native Engineering Ecosystem<a class="zola-anchor" href="#vision-building-ai-native-engineering-ecosystem" aria-label="Anchor link for: vision-building-ai-native-engineering-ecosystem">🔗</a></h2>
+<p>Our goal isn't just MiniSpec, but an entire semantic-driven development ecosystem:</p>
+<ul>
+<li>✅ MiniSpec DSL and Playground</li>
+<li>✅ VSCode Extension and GitHub Workflow integration</li>
+<li>✅ DevOps + OpenAPI + Prompt multi-scenario support</li>
+<li>✅ Open specifications + 100 tutorial articles</li>
+</ul>
+<p>We call it: SACC (Spec and Context as Code)</p>
+<hr />
+<h2 id="conclusion-the-beginning-of-an-era">Conclusion: The Beginning of an Era<a class="zola-anchor" href="#conclusion-the-beginning-of-an-era" aria-label="Anchor link for: conclusion-the-beginning-of-an-era">🔗</a></h2>
+<p>This isn't "just another YAML DSL," but an upgrade in cognitive approach.</p>
+<p>The essence of engineering is semantic alignment.</p>
+<p>What we aim to do is provide a language that's both human-writable and AI-understandable, letting semantics no longer hide behind code, but become the first layer driving everything.</p>
+<p>This is Semantic-Driven Development (Semantic-first Engineering).</p>
+<hr />
+<p><em>This is the first article in the SACC series, with subsequent articles diving deep into various practices and application scenarios of semantic-driven development.</em></p>
+
+      </div>
+    </article>
+  </div>
+
+  <script type="application/ld+json">
+{
+   "@context": "https://schema.org"
+  ,"@type": "BlogPosting"
+  ,"mainEntityOfPage": {
+     "@type": "WebPage"
+    ,"@id": "https://williamhatch.github.io/william_blog/blog/001-semantic-driven-engineering/"
+  }
+  ,"headline": "Semantic-Driven Software Engineering: MiniSpec and the SACC Five-Layer Model"
+  ,"datePublished": "2025-07-24"
+  ,"dateModified": "2025-07-24"
+  
+  ,"description": "An in-depth introduction to MiniSpec DSL and the SACC five-layer semantic model, exploring how to restructure our understanding of engineering language, context, and AI for semantic-driven development."
+  ,"articleBody": "Semantic-Driven Software Engineering: MiniSpec and the SACC Five-Layer Model🔗Software engineers have always dreamed of generating entire systems&#x27; code, tests, and deployment scripts through clear, structured documentation alone.This dream is becoming reality in the wave of &#x27;Semantic-Driven Development.&#x27;This is the first article in the series, where we&#x27;ll dive deep into what MiniSpec DSL is, and how its underlying SACC five-layer semantic model restructures our understanding of engineering language, context, and AI.The Ultimate Dream of Software Engineers: From UML to AI-native DSL🔗Over the past decades, UML was seen as the hope for achieving automated development: describing system design graphically, theoretically capable of generating code. But it ultimately failed in engineering practice.Why?Semantic ambiguity, inconsistency between diagrams and codeLack of syntactic constraints, difficult to maintainPoor for version control and collaborationNow, with the emergence of AI large models, &#x27;Prompt Engineering&#x27; has reignited hope for automated generation. However, it faces similar challenges:Unstructured, uncontrollableHigh hallucination and error ratesDifficult for team collaborationThe lessons from both are clear: we need a new language layer to clearly describe engineering intent and context.This is the birth background of MiniSpec DSL.What is MiniSpec?🔗MiniSpec (Minimal Specification) is a semantic-driven development syntax designed to make engineering intent understandable by both AI and humans, and mappable to executable artifacts.It doesn&#x27;t replace programming languages, but stands above them, providing a unified, clear, and generatable semantic description.Its design principles include:PrincipleDescription✅ ReadabilityHuman engineers can easily understand✅ StructurabilityJSON&#x2F;YAML expression, convenient for LLM parsing✅ Context-Intent SeparationSeparate context from spec, clearly defining semantic boundaries✅ Action MappableEach spec can be mapped to an agent task✅ ModularitySuitable for various scenarios: test, infra, deploy, api doc, promptMiniSpec Syntax Example🔗version: &amp;quot;0.1&amp;quot;context:  env: &amp;quot;staging&amp;quot;  user_role: &amp;quot;admin&amp;quot;  feature_flag: &amp;quot;beta&amp;quot;  git_branch: &amp;quot;feature&#x2F;signup&amp;quot;  runtime: &amp;quot;Node.js 18&amp;quot;spec:  goal: &amp;quot;Build new user registration flow&amp;quot;  entities:    - name: &amp;quot;User&amp;quot;      attributes:        - email        - password        - is_verified  behavior:    - &amp;quot;Send verification email after registration&amp;quot;    - &amp;quot;email must be unique&amp;quot;    - &amp;quot;password length must be greater than 8&amp;quot;  test:    - &amp;quot;Should successfully register&amp;quot;    - &amp;quot;Duplicate email should error&amp;quot;    - &amp;quot;Short password should be rejected&amp;quot;  infra:    deploy_target: &amp;quot;AWS Lambda&amp;quot;    scaling: &amp;quot;auto&amp;quot;    database: &amp;quot;PostgreSQL&amp;quot;Corresponding Application Outputs🔗TypeLLM Can Generate✅ Test CodeRSpec &#x2F; Jest &#x2F; Pytest✅ Infra CodeTerraform &#x2F; Pulumi✅ API DocumentationSwagger &#x2F; OpenAPI✅ PromptFunction schema &#x2F; Assistant✅ DevOpsGitHub Action &#x2F; CI pipeline✅ DocumentationREADME.md &#x2F; Spec docs✅ UI OutputFigma DSL &#x2F; HTML prototype✅ Scaffoldingmodel&#x2F;controller&#x2F;serviceThe SACC Five-Layer Semantic Model🔗Based on deep understanding of AI-code interaction, we propose the SACC (Spec and Context as Code) five-layer model:Layer Architecture🔗LayerNameFunctionAnalogyL1Symbolic LayerBottom layer: language symbols, tokens, bitstreamsSimilar to OSI physical&#x2F;data layerL2Instruction LayerBasic syntax + API calls + control structures (like if&#x2F;else, function)Similar to OSI network&#x2F;transport layerL3Intent LayerUser&#x27;s explicit intent, like &#x27;write tests for this code&#x27;Similar to OSI session layerL4Context LayerTask background, conversation history, role settings, prior knowledgeSimilar to OSI presentation layerL5Specification LayerTask standards, business specifications, constraints, meta-goalsSimilar to OSI application layerDetailed Analysis of Each Layer🔗L1. Symbolic Layer — Language atoms received and processed by LLMAll language processing starts from symbols: tokens, characters, strings, opcodesCorresponds to: Tokenizer, Embeddings, Binary Instructions, AssemblyExamples: string &#x27;def&#x27;, token ##ing, or embedding vectors [0.82, -0.12, ...]L2. Instruction Layer — Syntactic structure of program behaviorFunctions, conditional statements, API calls are the basic units at the execution levelAI&#x27;s understanding of this layer is key to behavior simulation (like Copilot&#x27;s code completion)Examples: for, return, fetch(&#x27;&#x2F;api&#x27;), assert, and other syntax nodesL3. Intent Layer — Human&#x27;s specific intent of &#x27;what to do&#x27;This is the core level of prompt, e.g.: &#x27;Please automatically generate test code for this API&#x27;LLM plans program output based on intentSimilar to function &#x27;calls&#x27; but more semantic and fuzzyL4. Context Layer — The source of AI understanding where context is kingThis layer is LLM&#x27;s &#x27;short-term memory&#x27; and &#x27;contextual understanding&#x27;Includes previous conversation content, role assumptions, input methods, prompt historyWithout context, AI is prone to hallucination or task misunderstanding✅ At this layer, we first propose: Spec&#x2F;Context as CodeSpec&#x2F;Context determines behavior, just as Code determines output.L5. Specification Layer — Meta-instruction layer of semantics and logicLike software specifications, describing &#x27;what should be accomplished&#x27; and its boundariesMay come from: Product spec, Swagger, User story, design diagramsThis layer doesn&#x27;t directly appear in input but determines whether final output is correctWhy Do We Need Such a Model?🔗✅ 1. Clearly Divide AI&#x27;s Task &#x27;Thinking Levels&#x27;🔗AI&#x27;s understanding of prompts isn&#x27;t simple text matching, but crosses semantic structuresEstablishing this layering helps build more stable, controllable AI behavior models✅ 2. Help Us Design More Precise Prompt Flow🔗You can adjust prompt tone and command structure at the Intent layerDesign input flow and context control strategies at the Context layerUse DSL (like JSON schema) at the Specification layer to clearly limit generation behavior✅ 3. Make AI &#x27;Programmable&#x27;, Not Just Vague Dialogue🔗Treating context as program code (Spec&#x2F;Context as Code), we can:Version control contextUnit test differences in output from different contextsForm &#x27;context script libraries&#x27;: every prompt context is a reusable logic moduleDifferences Between MiniSpec and Prompt Engineering🔗DimensionPrompt EngineeringMiniSpec DSLReproducibility❌ Poor, slight input change completely different output✅ High, controllable outputTestability❌ Difficult to write unit tests✅ Can generate test casesTeam Consensus❌ Relies on individual skills✅ DSL + SchemaMulti-module Collaboration❌ Difficult to integrate with CI&#x2F;CD✅ Can integrate with GitHub WorkflowMulti-scenario Extension⚠️ Requires lots of prompt writing✅ Naturally extends to Infra &#x2F; UI &#x2F; API Doc etc.Vision: Building AI-native Engineering Ecosystem🔗Our goal isn&#x27;t just MiniSpec, but an entire semantic-driven development ecosystem:✅ MiniSpec DSL and Playground✅ VSCode Extension and GitHub Workflow integration✅ DevOps + OpenAPI + Prompt multi-scenario support✅ Open specifications + 100 tutorial articlesWe call it: SACC (Spec and Context as Code)Conclusion: The Beginning of an Era🔗This isn&#x27;t &#x27;just another YAML DSL,&#x27; but an upgrade in cognitive approach.The essence of engineering is semantic alignment.What we aim to do is provide a language that&#x27;s both human-writable and AI-understandable, letting semantics no longer hide behind code, but become the first layer driving everything.This is Semantic-Driven Development (Semantic-first Engineering).This is the first article in the SACC series, with subsequent articles diving deep into various practices and application scenarios of semantic-driven development."
+  
+}
+</script>
+
+
+
+  </div>
+  <footer>
+  <!-- Social Media Icons -->
+  
+    <ul class="mt-4 flex justify-center space-x-8">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
+    
+    
+  </div>
+</footer>
+
+  <script>
+    // 注册ScrollTrigger插件
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // 页面加载完成后执行动画
+    window.addEventListener('load', () => {
+      // 导航栏动画
+      gsap.from("nav", {
+        y: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+
+      // 标题动画
+      gsap.from("h1, h2", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+      });
+    });
+  </script>
+</body>
+</html>
+ 

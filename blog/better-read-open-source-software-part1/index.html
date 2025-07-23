@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  
+  
+  
+  
+  
+
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name=generator content="Zola">
+
+  
+    <meta name="description" content="A comprehensive guide on using ERD tools to better understand open source software projects, with practical examples using Rails and Spree.">
+  
+
+  <title>William&#x27;s Blog</title>
+  <link rel="stylesheet" href="https://williamhatch.github.io/william_blog/css/generated.css">
+  
+
+  
+
+  <script defer src="https://williamhatch.github.io/william_blog/js/zolarwind/logic.js" integrity="sha384-GYtsrgYVRYoxdEL+C+79KROm+MCl1ArSzQnqVnPTV78UNz5a1vFxAEiKbobXhQlw"></script>
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  
+
+  
+
+
+<header class="sticky top-0 w-full z-10">
+  <nav class="bg-gray-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <a href="https://williamhatch.github.io/william_blog" aria-label="Go to homepage">
+              <div class="h-8 w-8 text-gray-200 hover:text-white fill-current">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                  <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-8 flex items-baseline">
+              
+                
+                  
+                    <a class="px-3 py-2 ml-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+                  
+                
+              
+            </div>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button id="toggleMobileMenu" class="icon inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white" aria-label="Menu">
+            <span id="mobile-icon-menu-unselected">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </span>
+            <span id="mobile-icon-menu-selected" class="hidden">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+      <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 sm:px-3">
+        
+          
+            <a class="mt-1 block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+          
+        
+      </div>
+    
+  </nav>
+</header>
+
+  <div id="content">
+    
+
+  
+    
+  
+
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+    <article class="prose">
+      <div class="h-48 rounded-md shadow-md">
+        <img class="h-48 w-full object-cover" src="https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;img&#x2F;default-banner.jpg" alt="How to Better Read Open Source Software — Part 1: Introduction to ERD Tools">
+      </div>
+      <h1>How to Better Read Open Source Software — Part 1: Introduction to ERD Tools</h1>
+      <div>
+        <p>
+          <span class="mr-2 text-sm">
+            <time datetime="2024-03-21">March 21, 2024</time> &middot;
+            574 words &middot;
+            3 minutes reading time
+          </span>
+          <span class="text-sm leading-5 font-medium text-indigo-600">
+
+  
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/backend/">Backend</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/programmer/">Programmer</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/open-source/">Open Source</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/erd/">ERD</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/rails/">Rails</a></span>
+    
+  
+
+</span>
+
+        </p>
+      </div>
+
+      <div>
+        <h1 id="how-to-better-read-open-source-software-part-1-introduction-to-erd-tools">How to Better Read Open Source Software — Part 1: Introduction to ERD Tools<a class="zola-anchor" href="#how-to-better-read-open-source-software-part-1-introduction-to-erd-tools" aria-label="Anchor link for: how-to-better-read-open-source-software-part-1-introduction-to-erd-tools">🔗</a></h1>
+<p>Reading quality open source software is one of the best ways to significantly improve your coding skills. Open source projects can sometimes be very large and complex, so having techniques to navigate and understand them is essential. While many articles on this topic exist on platforms like Juejin, this series aims to share some of my own experiences to help you get started. This first article introduces ERD (Entity Relationship Diagram) tools.</p>
+<hr />
+<h2 id="what-is-an-er-model">What is an ER Model?<a class="zola-anchor" href="#what-is-an-er-model" aria-label="Anchor link for: what-is-an-er-model">🔗</a></h2>
+<p>The ER (Entity Relationship) model is usually the output of system analysis used to define and describe the key content within the business domain. It does <strong>not</strong> define business processes but presents business data patterns in a graphical form.</p>
+<p><img src="https://williamhatch.github.io/william_blog/blog/better-read-open-source-software-part1/erd-overview.webp" alt="ERD Overview" /></p>
+<p>Typically, the ER model consists of entities (represented by boxes) connected by relationships (lines), where the lines represent associations and dependencies between entities. For example, a building can have zero or more apartments, but an apartment belongs to exactly one building.</p>
+<p>Entities can be characterized by relationships as well as additional attributes, including identifiers called <em>primary keys</em>. A diagram showing entities, their attributes, and relationships is called an entity-attribute-relationship diagram (ERD).</p>
+<p>In practice, ER models are implemented as databases. In a simple relational database, each row represents an instance of an entity type, each column is an attribute, and relationships between entities are implemented via foreign keys.</p>
+<hr />
+<h2 id="how-erd-helps-in-reading-open-source-projects">How ERD Helps in Reading Open Source Projects<a class="zola-anchor" href="#how-erd-helps-in-reading-open-source-projects" aria-label="Anchor link for: how-erd-helps-in-reading-open-source-projects">🔗</a></h2>
+<p>ERDs visually represent the data structures and relationships, helping you quickly grasp the backbone of complex systems. This is especially helpful when facing large open source codebases — ERDs highlight the core data models and how they interact, speeding up comprehension.</p>
+<p><img src="https://williamhatch.github.io/william_blog/blog/better-read-open-source-software-part1/spree-erd-example.webp" alt="Spree ERD Example" /></p>
+<hr />
+<h2 id="example-generating-erd-for-spree-e-commerce">Example: Generating ERD for Spree E-commerce<a class="zola-anchor" href="#example-generating-erd-for-spree-e-commerce" aria-label="Anchor link for: example-generating-erd-for-spree-e-commerce">🔗</a></h2>
+<p>Spree is a popular open-source e-commerce platform similar to Shopify. Let's use it as an example to generate an ERD.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> clone git@github.com:spree/spree_starter.git
+</span><span style="color:#96b5b4;">cd</span><span> spree_starter
+</span><span style="color:#bf616a;">bundle</span><span> add rails-erd
+</span><span style="color:#bf616a;">bundle
+</span></code></pre>
+<p>On macOS, install Graphviz:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">brew</span><span> install graphviz
+</span></code></pre>
+<p>Configure your database in <code>config/database.yaml</code> and create the database, then run migrations:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">bundle</span><span> exec rake db:migrate
+</span></code></pre>
+<p>Generate the ERD:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">bundle</span><span> exec erd</span><span style="color:#bf616a;"> --notation</span><span>=simple</span><span style="color:#bf616a;"> --direct --orientation</span><span>=vertical</span><span style="color:#bf616a;"> --splines</span><span>=ortho</span><span style="color:#bf616a;"> --connected --attributes</span><span>=false
+</span></code></pre>
+<p>You will get a simple diagram showing main entities and their relationships.</p>
+<p><img src="https://williamhatch.github.io/william_blog/blog/better-read-open-source-software-part1/rails-erd-config.webp" alt="Rails ERD Configuration" /></p>
+<hr />
+<h2 id="improving-erd-with-color">Improving ERD with Color<a class="zola-anchor" href="#improving-erd-with-color" aria-label="Anchor link for: improving-erd-with-color">🔗</a></h2>
+<p>The default ERD can be hard to read with many entities connected together. To improve clarity, change the <code>rails-erd</code> gem source in your <code>Gemfile</code> to a version that supports colors:</p>
+<pre data-lang="ruby" style="background-color:#2b303b;color:#c0c5ce;" class="language-ruby "><code class="language-ruby" data-lang="ruby"><span style="color:#8fa1b3;">gem </span><span>&#39;</span><span style="color:#a3be8c;">rails-erd</span><span>&#39;</span><span style="color:#8fa1b3;">, </span><span style="color:#a3be8c;">github: </span><span>&quot;</span><span style="color:#a3be8c;">williamhatch/rails-erd</span><span>&quot;
+</span></code></pre>
+<p>Then update bundles and regenerate:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">bundle
+</span><span style="color:#bf616a;">bundle</span><span> exec erd</span><span style="color:#bf616a;"> --notation</span><span>=simple</span><span style="color:#bf616a;"> --direct --orientation</span><span>=vertical</span><span style="color:#bf616a;"> --splines</span><span>=ortho</span><span style="color:#bf616a;"> --connected
+</span></code></pre>
+<p>The color-coded ERD improves readability by visually distinguishing different modules and their relationships.</p>
+<p><img src="https://williamhatch.github.io/william_blog/blog/better-read-open-source-software-part1/colored-erd.webp" alt="Colored ERD" /></p>
+<hr />
+<h2 id="next-steps-and-future-plans">Next Steps and Future Plans<a class="zola-anchor" href="#next-steps-and-future-plans" aria-label="Anchor link for: next-steps-and-future-plans">🔗</a></h2>
+<ul>
+<li>Define entities and their relationships in YAML format, then automatically generate Rails models and colored ERDs.</li>
+<li>Create a web-based drag-and-drop UI (inspired by Strapi admin dashboard) for easier YAML and ERD generation.</li>
+<li>Develop a Nuxt3-based UI to select and generate ERDs only for related modules, making diagrams more focused.</li>
+</ul>
+<p>The ultimate goal is to enable drag-and-drop modeling that automatically generates RESTful and GraphQL APIs, supports authentication and logging, and follows Domain-Driven Design (DDD) principles in the backend.</p>
+<hr />
+<h2 id="references-and-resources">References and Resources<a class="zola-anchor" href="#references-and-resources" aria-label="Anchor link for: references-and-resources">🔗</a></h2>
+<ul>
+<li><a href="https://github.com/williamhatch/rails-erd">rails-erd GitHub repository</a></li>
+<li><a href="https://github.com/spree/spree_starter">Spree Starter GitHub repository</a></li>
+<li>Original article in Chinese on Juejin: <a href="https://juejin.cn/post/7037627476897431565">How to Better Read Open Source Software Part 1 (掘金)</a></li>
+</ul>
+<hr />
+<p>Thanks for reading! Feel free to leave a comment or follow me on GitHub for more insights on open source and backend development.</p>
+
+      </div>
+    </article>
+  </div>
+
+  <script type="application/ld+json">
+{
+   "@context": "https://schema.org"
+  ,"@type": "BlogPosting"
+  ,"mainEntityOfPage": {
+     "@type": "WebPage"
+    ,"@id": "https://williamhatch.github.io/william_blog/blog/better-read-open-source-software-part1/"
+  }
+  ,"headline": "How to Better Read Open Source Software — Part 1: Introduction to ERD Tools"
+  ,"datePublished": "2024-03-21"
+  ,"dateModified": "2024-03-21"
+  
+  ,"description": "A comprehensive guide on using ERD tools to better understand open source software projects, with practical examples using Rails and Spree."
+  ,"articleBody": "How to Better Read Open Source Software — Part 1: Introduction to ERD Tools🔗Reading quality open source software is one of the best ways to significantly improve your coding skills. Open source projects can sometimes be very large and complex, so having techniques to navigate and understand them is essential. While many articles on this topic exist on platforms like Juejin, this series aims to share some of my own experiences to help you get started. This first article introduces ERD (Entity Relationship Diagram) tools.What is an ER Model?🔗The ER (Entity Relationship) model is usually the output of system analysis used to define and describe the key content within the business domain. It does not define business processes but presents business data patterns in a graphical form.Typically, the ER model consists of entities (represented by boxes) connected by relationships (lines), where the lines represent associations and dependencies between entities. For example, a building can have zero or more apartments, but an apartment belongs to exactly one building.Entities can be characterized by relationships as well as additional attributes, including identifiers called primary keys. A diagram showing entities, their attributes, and relationships is called an entity-attribute-relationship diagram (ERD).In practice, ER models are implemented as databases. In a simple relational database, each row represents an instance of an entity type, each column is an attribute, and relationships between entities are implemented via foreign keys.How ERD Helps in Reading Open Source Projects🔗ERDs visually represent the data structures and relationships, helping you quickly grasp the backbone of complex systems. This is especially helpful when facing large open source codebases — ERDs highlight the core data models and how they interact, speeding up comprehension.Example: Generating ERD for Spree E-commerce🔗Spree is a popular open-source e-commerce platform similar to Shopify. Let&#x27;s use it as an example to generate an ERD.git clone git@github.com:spree&#x2F;spree_starter.gitcd spree_starterbundle add rails-erdbundleOn macOS, install Graphviz:brew install graphvizConfigure your database in config&#x2F;database.yaml and create the database, then run migrations:bundle exec rake db:migrateGenerate the ERD:bundle exec erd --notation=simple --direct --orientation=vertical --splines=ortho --connected --attributes=falseYou will get a simple diagram showing main entities and their relationships.Improving ERD with Color🔗The default ERD can be hard to read with many entities connected together. To improve clarity, change the rails-erd gem source in your Gemfile to a version that supports colors:gem &amp;#39;rails-erd&amp;#39;, github: &amp;quot;williamhatch&#x2F;rails-erd&amp;quot;Then update bundles and regenerate:bundlebundle exec erd --notation=simple --direct --orientation=vertical --splines=ortho --connectedThe color-coded ERD improves readability by visually distinguishing different modules and their relationships.Next Steps and Future Plans🔗Define entities and their relationships in YAML format, then automatically generate Rails models and colored ERDs.Create a web-based drag-and-drop UI (inspired by Strapi admin dashboard) for easier YAML and ERD generation.Develop a Nuxt3-based UI to select and generate ERDs only for related modules, making diagrams more focused.The ultimate goal is to enable drag-and-drop modeling that automatically generates RESTful and GraphQL APIs, supports authentication and logging, and follows Domain-Driven Design (DDD) principles in the backend.References and Resources🔗rails-erd GitHub repositorySpree Starter GitHub repositoryOriginal article in Chinese on Juejin: How to Better Read Open Source Software Part 1 (掘金)Thanks for reading! Feel free to leave a comment or follow me on GitHub for more insights on open source and backend development."
+  
+}
+</script>
+
+
+
+  </div>
+  <footer>
+  <!-- Social Media Icons -->
+  
+    <ul class="mt-4 flex justify-center space-x-8">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
+    
+    
+  </div>
+</footer>
+
+  <script>
+    // 注册ScrollTrigger插件
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // 页面加载完成后执行动画
+    window.addEventListener('load', () => {
+      // 导航栏动画
+      gsap.from("nav", {
+        y: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+
+      // 标题动画
+      gsap.from("h1, h2", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+      });
+    });
+  </script>
+</body>
+</html>
+ 

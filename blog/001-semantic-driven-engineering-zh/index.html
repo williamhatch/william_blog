@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  
+  
+  
+  
+  
+
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name=generator content="Zola">
+
+  
+    <meta name="description" content="深入介绍 MiniSpec DSL 和 SACC 五层语义模型，探索如何重构工程语言、上下文与 AI 的理解方式，实现语义驱动开发。">
+  
+
+  <title>William&#x27;s Blog</title>
+  <link rel="stylesheet" href="https://williamhatch.github.io/william_blog/css/generated.css">
+  
+
+  
+
+  <script defer src="https://williamhatch.github.io/william_blog/js/zolarwind/logic.js" integrity="sha384-GYtsrgYVRYoxdEL+C+79KROm+MCl1ArSzQnqVnPTV78UNz5a1vFxAEiKbobXhQlw"></script>
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  
+
+  
+
+
+<header class="sticky top-0 w-full z-10">
+  <nav class="bg-gray-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <a href="https://williamhatch.github.io/william_blog" aria-label="Go to homepage">
+              <div class="h-8 w-8 text-gray-200 hover:text-white fill-current">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                  <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-8 flex items-baseline">
+              
+                
+                  
+                    <a class="px-3 py-2 ml-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+                  
+                
+              
+            </div>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button id="toggleMobileMenu" class="icon inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white" aria-label="Menu">
+            <span id="mobile-icon-menu-unselected">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </span>
+            <span id="mobile-icon-menu-selected" class="hidden">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+      <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 sm:px-3">
+        
+          
+            <a class="mt-1 block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+          
+        
+      </div>
+    
+  </nav>
+</header>
+
+  <div id="content">
+    
+
+  
+    
+  
+
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+    <article class="prose">
+      <div class="h-48 rounded-md shadow-md">
+        <img class="h-48 w-full object-cover" src="https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;img&#x2F;default-banner.jpg" alt="语义驱动时代的软件工程：MiniSpec 与 SACC 的五层模型">
+      </div>
+      <h1>语义驱动时代的软件工程：MiniSpec 与 SACC 的五层模型</h1>
+      <div>
+        <p>
+          <span class="mr-2 text-sm">
+            <time datetime="2025-07-24">July 24, 2025</time> &middot;
+            1,605 words &middot;
+            9 minutes reading time
+          </span>
+          <span class="text-sm leading-5 font-medium text-indigo-600">
+
+  
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/aigong-cheng/">AI工程</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/minispec/">MiniSpec</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/sacc/">SACC</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/ruan-jian-jia-gou/">软件架构</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/yu-yi-mo-xing/">语义模型</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/devops/">DevOps</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/dsl/">DSL</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/yu-yi-qu-dong-kai-fa/">语义驱动开发</a></span>
+    
+  
+
+</span>
+
+        </p>
+      </div>
+
+      <div>
+        <h1 id="yu-yi-qu-dong-shi-dai-de-ruan-jian-gong-cheng-minispec-yu-sacc-de-wu-ceng-mo-xing">语义驱动时代的软件工程：MiniSpec 与 SACC 的五层模型<a class="zola-anchor" href="#yu-yi-qu-dong-shi-dai-de-ruan-jian-gong-cheng-minispec-yu-sacc-de-wu-ceng-mo-xing" aria-label="Anchor link for: yu-yi-qu-dong-shi-dai-de-ruan-jian-gong-cheng-minispec-yu-sacc-de-wu-ceng-mo-xing">🔗</a></h1>
+<p>软件工程师一直有一个梦想 —— 仅通过清晰的结构化文档，就能生成整个系统的代码、测试与部署脚本。</p>
+<p>而这个梦想，正在「语义驱动开发」的浪潮下成真。</p>
+<p>本文是该系列的第一篇，我们将深入介绍什么是 MiniSpec DSL，以及它背后的 SACC 五层语义模型，如何重构我们对工程语言、上下文与 AI 的理解方式。</p>
+<hr />
+<h2 id="ruan-jian-gong-cheng-shi-de-zhong-ji-meng-xiang-cong-uml-dao-ai-native-dsl">软件工程师的终极梦想：从 UML 到 AI-native DSL<a class="zola-anchor" href="#ruan-jian-gong-cheng-shi-de-zhong-ji-meng-xiang-cong-uml-dao-ai-native-dsl" aria-label="Anchor link for: ruan-jian-gong-cheng-shi-de-zhong-ji-meng-xiang-cong-uml-dao-ai-native-dsl">🔗</a></h2>
+<p>在过去数十年中，UML 曾被视为实现自动化开发的希望：以图形化的方式描述系统设计，理论上可以生成代码。但最终它在工程实践中失败了。</p>
+<p>为什么？</p>
+<ul>
+<li>语义模糊，图像与代码不一致</li>
+<li>缺乏语法约束，难以维护</li>
+<li>不利于版本控制与协作</li>
+</ul>
+<p>如今，随着 AI 大模型的出现，「Prompt Engineering」再度点燃了自动化生成的希望。然而，它同样面临：</p>
+<ul>
+<li>无结构、不可控</li>
+<li>幻觉、错误率高</li>
+<li>不易团队共建</li>
+</ul>
+<p>这两者的教训是明确的：我们需要一种新的语言层，来清晰描述工程意图与上下文。</p>
+<p>这就是 MiniSpec DSL 的诞生背景。</p>
+<hr />
+<h2 id="minispec-shi-shen-me">MiniSpec 是什么？<a class="zola-anchor" href="#minispec-shi-shen-me" aria-label="Anchor link for: minispec-shi-shen-me">🔗</a></h2>
+<p>MiniSpec（Minimal Specification）是一种语义驱动开发语法，旨在让工程意图可以被 AI 与人类共同理解并映射为可执行产物。</p>
+<p>它不取代编程语言，而是站在编程语言之上，提供一种统一、清晰、可生成的语义描述。</p>
+<p>其设计原则包括：</p>
+<table><thead><tr><th>准则</th><th>描述</th></tr></thead><tbody>
+<tr><td>✅ 可读性</td><td>人类工程师能轻松理解</td></tr>
+<tr><td>✅ 可结构化</td><td>JSON/YAML 表达，方便 LLM parsing</td></tr>
+<tr><td>✅ 上下文与意图分离</td><td>context 与 spec 分开，清楚界定语义边界</td></tr>
+<tr><td>✅ 可映射到行动</td><td>每个 spec 都可映射为一个 agent 任务</td></tr>
+<tr><td>✅ 模块化</td><td>适合各种场景：test、infra、deploy、api doc、prompt</td></tr>
+</tbody></table>
+<hr />
+<h2 id="minispec-yu-fa-shi-li">MiniSpec 语法示例<a class="zola-anchor" href="#minispec-yu-fa-shi-li" aria-label="Anchor link for: minispec-yu-fa-shi-li">🔗</a></h2>
+<pre data-lang="yaml" style="background-color:#2b303b;color:#c0c5ce;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">version</span><span>: &quot;</span><span style="color:#a3be8c;">0.1</span><span>&quot;
+</span><span>
+</span><span style="color:#bf616a;">context</span><span>:
+</span><span>  </span><span style="color:#bf616a;">env</span><span>: &quot;</span><span style="color:#a3be8c;">staging</span><span>&quot;
+</span><span>  </span><span style="color:#bf616a;">user_role</span><span>: &quot;</span><span style="color:#a3be8c;">admin</span><span>&quot;
+</span><span>  </span><span style="color:#bf616a;">feature_flag</span><span>: &quot;</span><span style="color:#a3be8c;">beta</span><span>&quot;
+</span><span>  </span><span style="color:#bf616a;">git_branch</span><span>: &quot;</span><span style="color:#a3be8c;">feature/signup</span><span>&quot;
+</span><span>  </span><span style="color:#bf616a;">runtime</span><span>: &quot;</span><span style="color:#a3be8c;">Node.js 18</span><span>&quot;
+</span><span>
+</span><span style="color:#bf616a;">spec</span><span>:
+</span><span>  </span><span style="color:#bf616a;">goal</span><span>: &quot;</span><span style="color:#a3be8c;">建立新的用户注册流程</span><span>&quot;
+</span><span>  </span><span style="color:#bf616a;">entities</span><span>:
+</span><span>    - </span><span style="color:#bf616a;">name</span><span>: &quot;</span><span style="color:#a3be8c;">User</span><span>&quot;
+</span><span>      </span><span style="color:#bf616a;">attributes</span><span>:
+</span><span>        - </span><span style="color:#a3be8c;">email
+</span><span>        - </span><span style="color:#a3be8c;">password
+</span><span>        - </span><span style="color:#a3be8c;">is_verified
+</span><span>  </span><span style="color:#bf616a;">behavior</span><span>:
+</span><span>    - &quot;</span><span style="color:#a3be8c;">注册完成后寄出验证信</span><span>&quot;
+</span><span>    - &quot;</span><span style="color:#a3be8c;">email 必须唯一</span><span>&quot;
+</span><span>    - &quot;</span><span style="color:#a3be8c;">password 长度需大于 8</span><span>&quot;
+</span><span>  </span><span style="color:#bf616a;">test</span><span>:
+</span><span>    - &quot;</span><span style="color:#a3be8c;">应该可以成功注册</span><span>&quot;
+</span><span>    - &quot;</span><span style="color:#a3be8c;">email 重复应该报错</span><span>&quot;
+</span><span>    - &quot;</span><span style="color:#a3be8c;">密码太短应该拒绝</span><span>&quot;
+</span><span>  </span><span style="color:#bf616a;">infra</span><span>:
+</span><span>    </span><span style="color:#bf616a;">deploy_target</span><span>: &quot;</span><span style="color:#a3be8c;">AWS Lambda</span><span>&quot;
+</span><span>    </span><span style="color:#bf616a;">scaling</span><span>: &quot;</span><span style="color:#a3be8c;">auto</span><span>&quot;
+</span><span>    </span><span style="color:#bf616a;">database</span><span>: &quot;</span><span style="color:#a3be8c;">PostgreSQL</span><span>&quot;
+</span></code></pre>
+<hr />
+<h2 id="dui-ying-ying-yong-shu-chu">对应应用输出<a class="zola-anchor" href="#dui-ying-ying-yong-shu-chu" aria-label="Anchor link for: dui-ying-ying-yong-shu-chu">🔗</a></h2>
+<table><thead><tr><th>类型</th><th>LLM 可生成</th></tr></thead><tbody>
+<tr><td>✅ 测试码</td><td>RSpec / Jest / Pytest</td></tr>
+<tr><td>✅ Infra Code</td><td>Terraform / Pulumi</td></tr>
+<tr><td>✅ API 文档</td><td>Swagger / OpenAPI</td></tr>
+<tr><td>✅ Prompt</td><td>Function schema / Assistant</td></tr>
+<tr><td>✅ DevOps</td><td>GitHub Action / CI pipeline</td></tr>
+<tr><td>✅ 文档</td><td>README.md / Spec文档</td></tr>
+<tr><td>✅ UI 输出</td><td>Figma DSL / HTML prototype</td></tr>
+<tr><td>✅ scaffolding</td><td>model/controller/service</td></tr>
+</tbody></table>
+<hr />
+<h2 id="sacc-wu-ceng-yu-yi-mo-xing">SACC 五层语义模型<a class="zola-anchor" href="#sacc-wu-ceng-yu-yi-mo-xing" aria-label="Anchor link for: sacc-wu-ceng-yu-yi-mo-xing">🔗</a></h2>
+<p>基于对 AI 与代码交互的深入理解，我们提出了 SACC（Spec and Context as Code）五层模型：</p>
+<h3 id="ceng-ji-jia-gou">层级架构<a class="zola-anchor" href="#ceng-ji-jia-gou" aria-label="Anchor link for: ceng-ji-jia-gou">🔗</a></h3>
+<table><thead><tr><th>层级</th><th>名称</th><th>功能定位</th><th>类比</th></tr></thead><tbody>
+<tr><td>L1</td><td>Symbolic Layer</td><td>最底层：语言符号、token、位元流</td><td>类似 OSI 的物理层/数据层</td></tr>
+<tr><td>L2</td><td>Instruction Layer</td><td>基本语法 + API 调用 + 控制结构（如 if/else、function）</td><td>类似 OSI 的网络/传输层</td></tr>
+<tr><td>L3</td><td>Intent Layer</td><td>用户的明确意图，如「为这段程序代码写测试」</td><td>类似 OSI 的会话层</td></tr>
+<tr><td>L4</td><td>Context Layer</td><td>任务背景、对话历史、角色设定、先前知识</td><td>类似 OSI 的展示层</td></tr>
+<tr><td>L5</td><td>Specification Layer</td><td>任务标准、业务规格、约束条件、meta-goals</td><td>类似 OSI 的应用层</td></tr>
+</tbody></table>
+<h3 id="mei-ceng-de-ju-ti-jie-xi">每层的具体解析<a class="zola-anchor" href="#mei-ceng-de-ju-ti-jie-xi" aria-label="Anchor link for: mei-ceng-de-ju-ti-jie-xi">🔗</a></h3>
+<p><strong>L1. Symbolic Layer — LLM 接收与处理的语言原子</strong></p>
+<ul>
+<li>所有语言处理都是从符号开始：token、字符、字符串、操作码</li>
+<li>对应：Tokenizer, Embeddings, Binary Instructions, Assembly</li>
+<li>示例：字符串 "def"、token ##ing，或嵌入向量 [0.82, -0.12, ...]</li>
+</ul>
+<p><strong>L2. Instruction Layer — 程序行为的语法结构</strong></p>
+<ul>
+<li>函数、条件语句、API 调用，是执行层级的基本单位</li>
+<li>AI 对这层的理解是行为模拟的关键（像 Copilot 那样补 code）</li>
+<li>示例：for, return, fetch('/api'), assert, 等语法节点</li>
+</ul>
+<p><strong>L3. Intent Layer — 人类「想做什么」的具体意图</strong></p>
+<ul>
+<li>这是 prompt 的核心层次，例如：「请根据这个 API 自动生成测试程序代码」</li>
+<li>LLM 根据意图来规划接下来的程序产出</li>
+<li>类似于函数的「调用」，但更语义化、更模糊</li>
+</ul>
+<p><strong>L4. Context Layer — 上下文为王的 AI 理解之源</strong></p>
+<ul>
+<li>这层是 LLM 的「短期记忆」与「语境理解」</li>
+<li>包括之前的对话内容、角色假设、输入方式、prompt history</li>
+<li>若缺 context，AI 容易 hallucinate 或误解任务</li>
+</ul>
+<p>✅ <strong>在这一层，我们首创提出：Spec/Context as Code</strong>
+Spec/Context 决定行为，就像 Code 决定输出。</p>
+<p><strong>L5. Specification Layer — 语义与逻辑的元指令层</strong></p>
+<ul>
+<li>像软件规格书一样，描述任务「应该完成什么」，以及其边界</li>
+<li>可能来自：Product spec、Swagger、User story、设计图</li>
+<li>这层不直接出现在输入，但决定最终产出是否正确</li>
+</ul>
+<hr />
+<h2 id="wei-shen-me-yao-you-zhe-yang-yi-ge-mo-xing">为什么要有这样一个模型？<a class="zola-anchor" href="#wei-shen-me-yao-you-zhe-yang-yi-ge-mo-xing" aria-label="Anchor link for: wei-shen-me-yao-you-zhe-yang-yi-ge-mo-xing">🔗</a></h2>
+<h3 id="white-check-mark-1-ming-que-hua-fen-ai-de-ren-wu-si-kao-ceng-ji">✅ 1. 明确划分 AI 的任务「思考层级」<a class="zola-anchor" href="#white-check-mark-1-ming-que-hua-fen-ai-de-ren-wu-si-kao-ceng-ji" aria-label="Anchor link for: white-check-mark-1-ming-que-hua-fen-ai-de-ren-wu-si-kao-ceng-ji">🔗</a></h3>
+<ul>
+<li>AI 对 prompt 的理解不是单纯文字匹配，而是跨越语义结构</li>
+<li>建立这个分层有助于打造更稳定、可控的 AI 行为模型</li>
+</ul>
+<h3 id="white-check-mark-2-bang-zhu-wo-men-she-ji-geng-jing-zhun-de-prompt-flow">✅ 2. 帮助我们设计更精准的 Prompt Flow<a class="zola-anchor" href="#white-check-mark-2-bang-zhu-wo-men-she-ji-geng-jing-zhun-de-prompt-flow" aria-label="Anchor link for: white-check-mark-2-bang-zhu-wo-men-she-ji-geng-jing-zhun-de-prompt-flow">🔗</a></h3>
+<ul>
+<li>你可以在 Intent 层调整 prompt 语气与命令结构</li>
+<li>在 Context 层设计输入流程与上下文控制策略</li>
+<li>在 Specification 层用 DSL（如 JSON schema）来明确限制生成行为</li>
+</ul>
+<h3 id="white-check-mark-3-rang-ai-ke-bian-cheng-bu-shi-zhi-kao-mo-hu-dui-hua">✅ 3. 让 AI「可编程」，不是只靠模糊对话<a class="zola-anchor" href="#white-check-mark-3-rang-ai-ke-bian-cheng-bu-shi-zhi-kao-mo-hu-dui-hua" aria-label="Anchor link for: white-check-mark-3-rang-ai-ke-bian-cheng-bu-shi-zhi-kao-mo-hu-dui-hua">🔗</a></h3>
+<ul>
+<li>将语境当作程序代码（Spec/Context as Code），我们可以：</li>
+<li>版本控制 context</li>
+<li>单元测试不同语境产出的差异</li>
+<li>形成「语境脚本库」：每一个 prompt context 都是可复用逻辑模块</li>
+</ul>
+<hr />
+<h2 id="minispec-yu-prompt-engineering-de-chai-yi">MiniSpec 与 Prompt Engineering 的差异<a class="zola-anchor" href="#minispec-yu-prompt-engineering-de-chai-yi" aria-label="Anchor link for: minispec-yu-prompt-engineering-de-chai-yi">🔗</a></h2>
+<table><thead><tr><th>维度</th><th>Prompt Engineering</th><th>MiniSpec DSL</th></tr></thead><tbody>
+<tr><td>可复现性</td><td>❌ 较差，输入稍变输出完全不同</td><td>✅ 高，可控输出</td></tr>
+<tr><td>可测试性</td><td>❌ 难以写单元测试</td><td>✅ 可生成 test case</td></tr>
+<tr><td>团队共识</td><td>❌ 靠个人技巧</td><td>✅ DSL + Schema</td></tr>
+<tr><td>多模块协作</td><td>❌ 难与 CI/CD 整合</td><td>✅ 可与 GitHub Workflow 整合</td></tr>
+<tr><td>多场景扩展</td><td>⚠️ 需要大量 prompt 编写</td><td>✅ 自然扩展到 Infra / UI / API Doc 等</td></tr>
+</tbody></table>
+<hr />
+<h2 id="zhan-wang-gou-jian-ai-native-gong-cheng-sheng-tai">展望：构建 AI-native 工程生态<a class="zola-anchor" href="#zhan-wang-gou-jian-ai-native-gong-cheng-sheng-tai" aria-label="Anchor link for: zhan-wang-gou-jian-ai-native-gong-cheng-sheng-tai">🔗</a></h2>
+<p>我们的目标不仅是 MiniSpec，而是一整套语义驱动开发的生态：</p>
+<ul>
+<li>✅ MiniSpec DSL 与 Playground</li>
+<li>✅ VSCode Extension 与 GitHub Workflow 整合</li>
+<li>✅ DevOps + OpenAPI + Prompt 多场景支持</li>
+<li>✅ 开放规范 + 100 篇教学文章</li>
+</ul>
+<p>我们称之为：SACC（Spec and Context as Code）</p>
+<hr />
+<h2 id="jie-yu-yi-ge-shi-dai-de-kai-duan">结语：一个时代的开端<a class="zola-anchor" href="#jie-yu-yi-ge-shi-dai-de-kai-duan" aria-label="Anchor link for: jie-yu-yi-ge-shi-dai-de-kai-duan">🔗</a></h2>
+<p>这不是「又一种 YAML DSL」，而是一种认知方式的升级。</p>
+<p>工程的本质是语义对齐。</p>
+<p>而我们要做的，是提供一种既给人写、又给 AI 理解的语言，让语义不再隐藏在代码背后，而是成为驱动一切的第一层。</p>
+<p>这，就是语义驱动开发（Semantic-first Engineering）。</p>
+<hr />
+<p><em>本文是 SACC 系列的第一篇，后续将深入探讨语义驱动开发的各种实践和应用场景。</em></p>
+
+      </div>
+    </article>
+  </div>
+
+  <script type="application/ld+json">
+{
+   "@context": "https://schema.org"
+  ,"@type": "BlogPosting"
+  ,"mainEntityOfPage": {
+     "@type": "WebPage"
+    ,"@id": "https://williamhatch.github.io/william_blog/blog/001-semantic-driven-engineering-zh/"
+  }
+  ,"headline": "语义驱动时代的软件工程：MiniSpec 与 SACC 的五层模型"
+  ,"datePublished": "2025-07-24"
+  ,"dateModified": "2025-07-24"
+  
+  ,"description": "深入介绍 MiniSpec DSL 和 SACC 五层语义模型，探索如何重构工程语言、上下文与 AI 的理解方式，实现语义驱动开发。"
+  ,"articleBody": "语义驱动时代的软件工程：MiniSpec 与 SACC 的五层模型🔗软件工程师一直有一个梦想 —— 仅通过清晰的结构化文档，就能生成整个系统的代码、测试与部署脚本。而这个梦想，正在「语义驱动开发」的浪潮下成真。本文是该系列的第一篇，我们将深入介绍什么是 MiniSpec DSL，以及它背后的 SACC 五层语义模型，如何重构我们对工程语言、上下文与 AI 的理解方式。软件工程师的终极梦想：从 UML 到 AI-native DSL🔗在过去数十年中，UML 曾被视为实现自动化开发的希望：以图形化的方式描述系统设计，理论上可以生成代码。但最终它在工程实践中失败了。为什么？语义模糊，图像与代码不一致缺乏语法约束，难以维护不利于版本控制与协作如今，随着 AI 大模型的出现，「Prompt Engineering」再度点燃了自动化生成的希望。然而，它同样面临：无结构、不可控幻觉、错误率高不易团队共建这两者的教训是明确的：我们需要一种新的语言层，来清晰描述工程意图与上下文。这就是 MiniSpec DSL 的诞生背景。MiniSpec 是什么？🔗MiniSpec（Minimal Specification）是一种语义驱动开发语法，旨在让工程意图可以被 AI 与人类共同理解并映射为可执行产物。它不取代编程语言，而是站在编程语言之上，提供一种统一、清晰、可生成的语义描述。其设计原则包括：准则描述✅ 可读性人类工程师能轻松理解✅ 可结构化JSON&#x2F;YAML 表达，方便 LLM parsing✅ 上下文与意图分离context 与 spec 分开，清楚界定语义边界✅ 可映射到行动每个 spec 都可映射为一个 agent 任务✅ 模块化适合各种场景：test、infra、deploy、api doc、promptMiniSpec 语法示例🔗version: &amp;quot;0.1&amp;quot;context:  env: &amp;quot;staging&amp;quot;  user_role: &amp;quot;admin&amp;quot;  feature_flag: &amp;quot;beta&amp;quot;  git_branch: &amp;quot;feature&#x2F;signup&amp;quot;  runtime: &amp;quot;Node.js 18&amp;quot;spec:  goal: &amp;quot;建立新的用户注册流程&amp;quot;  entities:    - name: &amp;quot;User&amp;quot;      attributes:        - email        - password        - is_verified  behavior:    - &amp;quot;注册完成后寄出验证信&amp;quot;    - &amp;quot;email 必须唯一&amp;quot;    - &amp;quot;password 长度需大于 8&amp;quot;  test:    - &amp;quot;应该可以成功注册&amp;quot;    - &amp;quot;email 重复应该报错&amp;quot;    - &amp;quot;密码太短应该拒绝&amp;quot;  infra:    deploy_target: &amp;quot;AWS Lambda&amp;quot;    scaling: &amp;quot;auto&amp;quot;    database: &amp;quot;PostgreSQL&amp;quot;对应应用输出🔗类型LLM 可生成✅ 测试码RSpec &#x2F; Jest &#x2F; Pytest✅ Infra CodeTerraform &#x2F; Pulumi✅ API 文档Swagger &#x2F; OpenAPI✅ PromptFunction schema &#x2F; Assistant✅ DevOpsGitHub Action &#x2F; CI pipeline✅ 文档README.md &#x2F; Spec文档✅ UI 输出Figma DSL &#x2F; HTML prototype✅ scaffoldingmodel&#x2F;controller&#x2F;serviceSACC 五层语义模型🔗基于对 AI 与代码交互的深入理解，我们提出了 SACC（Spec and Context as Code）五层模型：层级架构🔗层级名称功能定位类比L1Symbolic Layer最底层：语言符号、token、位元流类似 OSI 的物理层&#x2F;数据层L2Instruction Layer基本语法 + API 调用 + 控制结构（如 if&#x2F;else、function）类似 OSI 的网络&#x2F;传输层L3Intent Layer用户的明确意图，如「为这段程序代码写测试」类似 OSI 的会话层L4Context Layer任务背景、对话历史、角色设定、先前知识类似 OSI 的展示层L5Specification Layer任务标准、业务规格、约束条件、meta-goals类似 OSI 的应用层每层的具体解析🔗L1. Symbolic Layer — LLM 接收与处理的语言原子所有语言处理都是从符号开始：token、字符、字符串、操作码对应：Tokenizer, Embeddings, Binary Instructions, Assembly示例：字符串 &#x27;def&#x27;、token ##ing，或嵌入向量 [0.82, -0.12, ...]L2. Instruction Layer — 程序行为的语法结构函数、条件语句、API 调用，是执行层级的基本单位AI 对这层的理解是行为模拟的关键（像 Copilot 那样补 code）示例：for, return, fetch(&#x27;&#x2F;api&#x27;), assert, 等语法节点L3. Intent Layer — 人类「想做什么」的具体意图这是 prompt 的核心层次，例如：「请根据这个 API 自动生成测试程序代码」LLM 根据意图来规划接下来的程序产出类似于函数的「调用」，但更语义化、更模糊L4. Context Layer — 上下文为王的 AI 理解之源这层是 LLM 的「短期记忆」与「语境理解」包括之前的对话内容、角色假设、输入方式、prompt history若缺 context，AI 容易 hallucinate 或误解任务✅ 在这一层，我们首创提出：Spec&#x2F;Context as CodeSpec&#x2F;Context 决定行为，就像 Code 决定输出。L5. Specification Layer — 语义与逻辑的元指令层像软件规格书一样，描述任务「应该完成什么」，以及其边界可能来自：Product spec、Swagger、User story、设计图这层不直接出现在输入，但决定最终产出是否正确为什么要有这样一个模型？🔗✅ 1. 明确划分 AI 的任务「思考层级」🔗AI 对 prompt 的理解不是单纯文字匹配，而是跨越语义结构建立这个分层有助于打造更稳定、可控的 AI 行为模型✅ 2. 帮助我们设计更精准的 Prompt Flow🔗你可以在 Intent 层调整 prompt 语气与命令结构在 Context 层设计输入流程与上下文控制策略在 Specification 层用 DSL（如 JSON schema）来明确限制生成行为✅ 3. 让 AI「可编程」，不是只靠模糊对话🔗将语境当作程序代码（Spec&#x2F;Context as Code），我们可以：版本控制 context单元测试不同语境产出的差异形成「语境脚本库」：每一个 prompt context 都是可复用逻辑模块MiniSpec 与 Prompt Engineering 的差异🔗维度Prompt EngineeringMiniSpec DSL可复现性❌ 较差，输入稍变输出完全不同✅ 高，可控输出可测试性❌ 难以写单元测试✅ 可生成 test case团队共识❌ 靠个人技巧✅ DSL + Schema多模块协作❌ 难与 CI&#x2F;CD 整合✅ 可与 GitHub Workflow 整合多场景扩展⚠️ 需要大量 prompt 编写✅ 自然扩展到 Infra &#x2F; UI &#x2F; API Doc 等展望：构建 AI-native 工程生态🔗我们的目标不仅是 MiniSpec，而是一整套语义驱动开发的生态：✅ MiniSpec DSL 与 Playground✅ VSCode Extension 与 GitHub Workflow 整合✅ DevOps + OpenAPI + Prompt 多场景支持✅ 开放规范 + 100 篇教学文章我们称之为：SACC（Spec and Context as Code）结语：一个时代的开端🔗这不是「又一种 YAML DSL」，而是一种认知方式的升级。工程的本质是语义对齐。而我们要做的，是提供一种既给人写、又给 AI 理解的语言，让语义不再隐藏在代码背后，而是成为驱动一切的第一层。这，就是语义驱动开发（Semantic-first Engineering）。本文是 SACC 系列的第一篇，后续将深入探讨语义驱动开发的各种实践和应用场景。"
+  
+}
+</script>
+
+
+
+  </div>
+  <footer>
+  <!-- Social Media Icons -->
+  
+    <ul class="mt-4 flex justify-center space-x-8">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
+    
+    
+  </div>
+</footer>
+
+  <script>
+    // 注册ScrollTrigger插件
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // 页面加载完成后执行动画
+    window.addEventListener('load', () => {
+      // 导航栏动画
+      gsap.from("nav", {
+        y: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+
+      // 标题动画
+      gsap.from("h1, h2", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+      });
+    });
+  </script>
+</body>
+</html>
+ 

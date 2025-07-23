@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  
+  
+  
+  
+  
+
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name=generator content="Zola">
+
+  
+    <meta name="description" content="探索约定优于配置原则如何塑造现代软件架构，及其对系统设计的深远影响">
+  
+
+  <title>William&#x27;s Blog</title>
+  <link rel="stylesheet" href="https://williamhatch.github.io/william_blog/css/generated.css">
+  
+
+  
+
+  <script defer src="https://williamhatch.github.io/william_blog/js/zolarwind/logic.js" integrity="sha384-GYtsrgYVRYoxdEL+C+79KROm+MCl1ArSzQnqVnPTV78UNz5a1vFxAEiKbobXhQlw"></script>
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  
+
+  
+
+
+<header class="sticky top-0 w-full z-10">
+  <nav class="bg-gray-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <a href="https://williamhatch.github.io/william_blog" aria-label="Go to homepage">
+              <div class="h-8 w-8 text-gray-200 hover:text-white fill-current">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                  <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-8 flex items-baseline">
+              
+                
+                  
+                    <a class="px-3 py-2 ml-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+                  
+                
+              
+            </div>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button id="toggleMobileMenu" class="icon inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white" aria-label="Menu">
+            <span id="mobile-icon-menu-unselected">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </span>
+            <span id="mobile-icon-menu-selected" class="hidden">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+      <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 sm:px-3">
+        
+          
+            <a class="mt-1 block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+          
+        
+      </div>
+    
+  </nav>
+</header>
+
+  <div id="content">
+    
+
+  
+    
+  
+
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+    <article class="prose">
+      <div class="h-48 rounded-md shadow-md">
+        <img class="h-48 w-full object-cover" src="https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;img&#x2F;default-banner.jpg" alt="约定优于配置：从资深架构师视角解读现代软件设计">
+      </div>
+      <h1>约定优于配置：从资深架构师视角解读现代软件设计</h1>
+      <div>
+        <p>
+          <span class="mr-2 text-sm">
+            <time datetime="2025-07-09">July 09, 2025</time> &middot;
+            816 words &middot;
+            5 minutes reading time
+          </span>
+          <span class="text-sm leading-5 font-medium text-indigo-600">
+
+</span>
+
+        </p>
+      </div>
+
+      <div>
+        <h1 id="yue-ding-you-yu-pei-zhi-cong-zi-shen-jia-gou-shi-shi-jiao-jie-du-xian-dai-ruan-jian-she-ji">约定优于配置：从资深架构师视角解读现代软件设计<a class="zola-anchor" href="#yue-ding-you-yu-pei-zhi-cong-zi-shen-jia-gou-shi-shi-jiao-jie-du-xian-dai-ruan-jian-she-ji" aria-label="Anchor link for: yue-ding-you-yu-pei-zhi-cong-zi-shen-jia-gou-shi-shi-jiao-jie-du-xian-dai-ruan-jian-she-ji">🔗</a></h1>
+<img src="coc-system-overview.png" alt="约定优于配置软件系统流程图" style="width: 400px; margin: auto; display: block;">
+<h2 id="1-wei-shen-me-wo-men-xu-yao-coc-cong-pei-zhi-qu-dong-dao-jia-gou-zhe-xue">1. 为什么我们需要 CoC？从配置驱动到架构哲学<a class="zola-anchor" href="#1-wei-shen-me-wo-men-xu-yao-coc-cong-pei-zhi-qu-dong-dao-jia-gou-zhe-xue" aria-label="Anchor link for: 1-wei-shen-me-wo-men-xu-yao-coc-cong-pei-zhi-qu-dong-dao-jia-gou-zhe-xue">🔗</a></h2>
+<p>早期的 Java EE 时代，企业开发者需要大量手工编写 XML 来描述系统结构：</p>
+<ul>
+<li><strong>重复声明</strong>：每个 bean、controller、service 都需手动配置</li>
+<li><strong>关注点错位</strong>：配置逻辑和实现逻辑分离</li>
+<li><strong>学习曲线陡峭</strong>：理解项目等于解析配置文件森林</li>
+</ul>
+<p>如果 90% 的项目结构类似，为什么不直接通过结构约定自动生成？这正是 CoC 的初衷。</p>
+<h2 id="2-coc-de-ding-yi-yu-he-xin-li-nian">2. CoC 的定义与核心理念<a class="zola-anchor" href="#2-coc-de-ding-yi-yu-he-xin-li-nian" aria-label="Anchor link for: 2-coc-de-ding-yi-yu-he-xin-li-nian">🔗</a></h2>
+<blockquote>
+<p>“不要为框架能够推断的内容写配置。” —— DHH（Rails 之父）</p>
+</blockquote>
+<p>核心思想：</p>
+<ul>
+<li>提供<strong>合理的默认行为</strong></li>
+<li>通过<strong>命名与目录结构约定</strong>完成自动配置</li>
+<li>只需对“例外情况”进行显式配置</li>
+</ul>
+<h2 id="3-zhu-liu-kuang-jia-zhong-de-coc-shi-xian">3. 主流框架中的 CoC 实现<a class="zola-anchor" href="#3-zhu-liu-kuang-jia-zhong-de-coc-shi-xian" aria-label="Anchor link for: 3-zhu-liu-kuang-jia-zhong-de-coc-shi-xian">🔗</a></h2>
+<table><thead><tr><th>框架</th><th>CoC 展现形式</th><th>常用工具</th></tr></thead><tbody>
+<tr><td>Rails</td><td>基于目录结构自动加载</td><td><code>rails generate scaffold</code></td></tr>
+<tr><td>Spring Boot</td><td>注解 + Classpath 自动装配</td><td><code>@ComponentScan</code> 等</td></tr>
+<tr><td>Django</td><td>App 模块化 + 命名约定</td><td><code>startapp</code>, <code>urls.py</code></td></tr>
+<tr><td>Laravel</td><td>控制器 + 路由资源化</td><td><code>artisan make:controller</code></td></tr>
+<tr><td>NestJS</td><td>装饰器 + 模块结构</td><td><code>@Controller</code>, <code>@Module()</code></td></tr>
+</tbody></table>
+<p>这些框架都在通过“结构约定”统一开发体验，使开发者关注业务逻辑。</p>
+<h2 id="4-cong-kuang-jia-ji-qiao-dao-gong-cheng-zhe-xue">4. 从框架技巧到工程哲学<a class="zola-anchor" href="#4-cong-kuang-jia-ji-qiao-dao-gong-cheng-zhe-xue" aria-label="Anchor link for: 4-cong-kuang-jia-ji-qiao-dao-gong-cheng-zhe-xue">🔗</a></h2>
+<p>CoC 并不是语法糖，而是<strong>工程抽象</strong>的重要体现。</p>
+<ul>
+<li><strong>统一代码风格</strong>：避免无意义的自由</li>
+<li><strong>降低认知负担</strong>：减少重复选择</li>
+<li><strong>提升协作效率</strong>：新成员快速理解项目结构</li>
+<li><strong>易于迁移与演进</strong>：架构升级更可控</li>
+</ul>
+<h2 id="5-jia-gou-tu-yu-liu-cheng-tu">5. 架构图与流程图<a class="zola-anchor" href="#5-jia-gou-tu-yu-liu-cheng-tu" aria-label="Anchor link for: 5-jia-gou-tu-yu-liu-cheng-tu">🔗</a></h2>
+<img src="coc-workflow-diagram.png" alt="约定优于配置软件系统流程图" style="width: 400px; margin: auto; display: block;">
+<p>此图展示了现代框架如何整合：</p>
+<ul>
+<li>默认行为</li>
+<li>文件结构</li>
+<li>命名规范</li>
+<li>模块注入方式</li>
+</ul>
+<p>...统一为一体的约定式架构系统。</p>
+<h2 id="6-coc-zai-devops-yu-wei-fu-wu-zhong-de-zuo-yong">6. CoC 在 DevOps 与微服务中的作用<a class="zola-anchor" href="#6-coc-zai-devops-yu-wei-fu-wu-zhong-de-zuo-yong" aria-label="Anchor link for: 6-coc-zai-devops-yu-wei-fu-wu-zhong-de-zuo-yong">🔗</a></h2>
+<p>DevOps 工具也普遍使用约定：</p>
+<ul>
+<li><strong>Terraform</strong>：变量命名规范、文件分层</li>
+<li><strong>Kubernetes</strong>：YAML 结构、标签匹配、资源命名</li>
+<li><strong>CI/CD</strong>：如 <code>.github/workflows/</code>、<code>Jenkinsfile</code> 的默认路径</li>
+</ul>
+<p>CoC 是 DevOps 能够扩展与模块化的基础。</p>
+<h2 id="7-dai-ma-qian-yi-de-qiao-liang-ji-shu-shi-ke-yi-qian-yi-de">7. 代码迁移的桥梁：技术是可以迁移的<a class="zola-anchor" href="#7-dai-ma-qian-yi-de-qiao-liang-ji-shu-shi-ke-yi-qian-yi-de" aria-label="Anchor link for: 7-dai-ma-qian-yi-de-qiao-liang-ji-shu-shi-ke-yi-qian-yi-de">🔗</a></h2>
+<p>一旦掌握 CoC 架构方式，从 Rails 到 NestJS、Laravel 并不难。示例：</p>
+<pre data-lang="typescript" style="background-color:#2b303b;color:#c0c5ce;" class="language-typescript "><code class="language-typescript" data-lang="typescript"><span style="color:#65737e;">// NestJS
+</span><span>@</span><span style="color:#8fa1b3;">Controller</span><span>(&#39;</span><span style="color:#a3be8c;">posts</span><span>&#39;)
+</span><span style="color:#b48ead;">export class </span><span style="color:#ebcb8b;">PostController </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">  @</span><span style="color:#8fa1b3;">Get</span><span style="color:#eff1f5;">(</span><span>&#39;</span><span style="color:#a3be8c;">:id</span><span>&#39;</span><span style="color:#eff1f5;">)
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">async </span><span style="color:#8fa1b3;">show</span><span>(</span><span style="color:#eff1f5;">@</span><span style="color:#8fa1b3;">Param</span><span style="color:#eff1f5;">(</span><span>&#39;</span><span style="color:#a3be8c;">id</span><span>&#39;</span><span style="color:#eff1f5;">) </span><span style="color:#bf616a;">id</span><span>: </span><span style="color:#eff1f5;">string</span><span>) </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">postService</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">findOne</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">id</span><span style="color:#eff1f5;">);
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">}
+</span></code></pre>
+<pre data-lang="php" style="background-color:#2b303b;color:#c0c5ce;" class="language-php "><code class="language-php" data-lang="php"><span>// Laravel
+</span><span>public function show($id) {
+</span><span>  $post = Post::find($id);
+</span><span>  return view(&#39;posts.show&#39;, compact(&#39;post&#39;));
+</span><span>}
+</span></code></pre>
+<pre data-lang="ruby" style="background-color:#2b303b;color:#c0c5ce;" class="language-ruby "><code class="language-ruby" data-lang="ruby"><span style="color:#65737e;"># Rails
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">show
+</span><span>  @</span><span style="color:#bf616a;">post </span><span>= </span><span style="color:#ebcb8b;">Post</span><span>.find(params[</span><span style="color:#a3be8c;">:id</span><span>])
+</span><span style="color:#b48ead;">end
+</span></code></pre>
+<p>✨ 结构、命名、路由方式完全一致。掌握一套结构模型，语言只是工具。</p>
+<h2 id="8-ai-zi-dong-hua-yu-coc-de-xin-yan-hua">8. AI、自动化与 CoC 的新演化<a class="zola-anchor" href="#8-ai-zi-dong-hua-yu-coc-de-xin-yan-hua" aria-label="Anchor link for: 8-ai-zi-dong-hua-yu-coc-de-xin-yan-hua">🔗</a></h2>
+<p>即使在 AI 工程与 MLOps 中：</p>
+<ul>
+<li>文件结构约定：<code>data/</code>, <code>model/</code>, <code>train.py</code>, <code>inference.py</code></li>
+<li>工具约定：MLflow, Kubeflow 等都依赖默认路径</li>
+<li>Prompt 编程：模型根据结构提示生成代码</li>
+</ul>
+<p>结构决定生成结果，CoC 在 AI 编程中价值更大。</p>
+<h2 id="9-zong-jie-coc-shi-xian-dai-jia-gou-de-tong-yong-yu-yan">9. 总结：CoC 是现代架构的通用语言<a class="zola-anchor" href="#9-zong-jie-coc-shi-xian-dai-jia-gou-de-tong-yong-yu-yan" aria-label="Anchor link for: 9-zong-jie-coc-shi-xian-dai-jia-gou-de-tong-yong-yu-yan">🔗</a></h2>
+<p>CoC 已成为：</p>
+<ul>
+<li>软件工程师的共同认知</li>
+<li>架构设计的基础规则</li>
+<li>多语言迁移的桥梁</li>
+<li>软件自动化与团队协作的核心</li>
+</ul>
+<blockquote>
+<p>“约定是送给团队未来成员的一份礼物。”</p>
+</blockquote>
+<hr />
+<p><em>作者：资深架构师 / 平台工程专家</em></p>
+
+      </div>
+    </article>
+  </div>
+
+  <script type="application/ld+json">
+{
+   "@context": "https://schema.org"
+  ,"@type": "BlogPosting"
+  ,"mainEntityOfPage": {
+     "@type": "WebPage"
+    ,"@id": "https://williamhatch.github.io/william_blog/blog/convention-over-configuration-architecture-part1-zh/"
+  }
+  ,"headline": "约定优于配置：从资深架构师视角解读现代软件设计"
+  ,"datePublished": "2025-07-09"
+  ,"dateModified": "2025-07-09"
+  
+  ,"description": "探索约定优于配置原则如何塑造现代软件架构，及其对系统设计的深远影响"
+  ,"articleBody": "约定优于配置：从资深架构师视角解读现代软件设计🔗1. 为什么我们需要 CoC？从配置驱动到架构哲学🔗早期的 Java EE 时代，企业开发者需要大量手工编写 XML 来描述系统结构：重复声明：每个 bean、controller、service 都需手动配置关注点错位：配置逻辑和实现逻辑分离学习曲线陡峭：理解项目等于解析配置文件森林如果 90% 的项目结构类似，为什么不直接通过结构约定自动生成？这正是 CoC 的初衷。2. CoC 的定义与核心理念🔗“不要为框架能够推断的内容写配置。” —— DHH（Rails 之父）核心思想：提供合理的默认行为通过命名与目录结构约定完成自动配置只需对“例外情况”进行显式配置3. 主流框架中的 CoC 实现🔗框架CoC 展现形式常用工具Rails基于目录结构自动加载rails generate scaffoldSpring Boot注解 + Classpath 自动装配@ComponentScan 等DjangoApp 模块化 + 命名约定startapp, urls.pyLaravel控制器 + 路由资源化artisan make:controllerNestJS装饰器 + 模块结构@Controller, @Module()这些框架都在通过“结构约定”统一开发体验，使开发者关注业务逻辑。4. 从框架技巧到工程哲学🔗CoC 并不是语法糖，而是工程抽象的重要体现。统一代码风格：避免无意义的自由降低认知负担：减少重复选择提升协作效率：新成员快速理解项目结构易于迁移与演进：架构升级更可控5. 架构图与流程图🔗此图展示了现代框架如何整合：默认行为文件结构命名规范模块注入方式...统一为一体的约定式架构系统。6. CoC 在 DevOps 与微服务中的作用🔗DevOps 工具也普遍使用约定：Terraform：变量命名规范、文件分层Kubernetes：YAML 结构、标签匹配、资源命名CI&#x2F;CD：如 .github&#x2F;workflows&#x2F;、Jenkinsfile 的默认路径CoC 是 DevOps 能够扩展与模块化的基础。7. 代码迁移的桥梁：技术是可以迁移的🔗一旦掌握 CoC 架构方式，从 Rails 到 NestJS、Laravel 并不难。示例：&#x2F;&#x2F; NestJS@Controller(&amp;#39;posts&amp;#39;)export class PostController {  @Get(&amp;#39;:id&amp;#39;)  async show(@Param(&amp;#39;id&amp;#39;) id: string) {    return this.postService.findOne(id);  }}&#x2F;&#x2F; Laravelpublic function show($id) {  $post = Post::find($id);  return view(&amp;#39;posts.show&amp;#39;, compact(&amp;#39;post&amp;#39;));}# Railsdef show  @post = Post.find(params[:id])end✨ 结构、命名、路由方式完全一致。掌握一套结构模型，语言只是工具。8. AI、自动化与 CoC 的新演化🔗即使在 AI 工程与 MLOps 中：文件结构约定：data&#x2F;, model&#x2F;, train.py, inference.py工具约定：MLflow, Kubeflow 等都依赖默认路径Prompt 编程：模型根据结构提示生成代码结构决定生成结果，CoC 在 AI 编程中价值更大。9. 总结：CoC 是现代架构的通用语言🔗CoC 已成为：软件工程师的共同认知架构设计的基础规则多语言迁移的桥梁软件自动化与团队协作的核心“约定是送给团队未来成员的一份礼物。”作者：资深架构师 &#x2F; 平台工程专家"
+  
+}
+</script>
+
+
+
+  </div>
+  <footer>
+  <!-- Social Media Icons -->
+  
+    <ul class="mt-4 flex justify-center space-x-8">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
+    
+    
+  </div>
+</footer>
+
+  <script>
+    // 注册ScrollTrigger插件
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // 页面加载完成后执行动画
+    window.addEventListener('load', () => {
+      // 导航栏动画
+      gsap.from("nav", {
+        y: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+
+      // 标题动画
+      gsap.from("h1, h2", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+      });
+    });
+  </script>
+</body>
+</html>
+ 

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  
+  
+  
+  
+  
+
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name=generator content="Zola">
+
+  
+    <meta name="description" content="一个详细、曲折但最终成功的故事：如何从零开始创建一个个人博客。这不仅关乎代码，更关乎与AI助手的持续对话。我们将涵盖从初始设置、CI&#x2F;CD部署，到主题迁移和修复神秘的环境特定错误的所有细节。">
+  
+
+  <title>William&#x27;s Blog</title>
+  <link rel="stylesheet" href="https://williamhatch.github.io/william_blog/css/generated.css">
+  
+
+  
+
+  <script defer src="https://williamhatch.github.io/william_blog/js/zolarwind/logic.js" integrity="sha384-GYtsrgYVRYoxdEL+C+79KROm+MCl1ArSzQnqVnPTV78UNz5a1vFxAEiKbobXhQlw"></script>
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  
+
+  
+
+
+<header class="sticky top-0 w-full z-10">
+  <nav class="bg-gray-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <a href="https://williamhatch.github.io/william_blog" aria-label="Go to homepage">
+              <div class="h-8 w-8 text-gray-200 hover:text-white fill-current">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                  <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-8 flex items-baseline">
+              
+                
+                  
+                    <a class="px-3 py-2 ml-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+                  
+                
+              
+            </div>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button id="toggleMobileMenu" class="icon inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white" aria-label="Menu">
+            <span id="mobile-icon-menu-unselected">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </span>
+            <span id="mobile-icon-menu-selected" class="hidden">
+              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+      <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 sm:px-3">
+        
+          
+            <a class="mt-1 block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="https://williamhatch.github.io/william_blog/blog" title="Blog">Blog</a>
+          
+        
+      </div>
+    
+  </nav>
+</header>
+
+  <div id="content">
+    
+
+  
+    
+  
+
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+    <article class="prose">
+      <div class="h-48 rounded-md shadow-md">
+        <img class="h-48 w-full object-cover" src="https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;img&#x2F;default-banner.jpg" alt="我是如何搭建这个博客的：与Zola、GitHub和一个AI结对程序员的旅程">
+      </div>
+      <h1>我是如何搭建这个博客的：与Zola、GitHub和一个AI结对程序员的旅程</h1>
+      <div>
+        <p>
+          <span class="mr-2 text-sm">
+            <time datetime="2025-06-21">June 21, 2025</time> &middot;
+            3,635 words &middot;
+            19 minutes reading time
+          </span>
+          <span class="text-sm leading-5 font-medium text-indigo-600">
+
+  
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/ai/">AI</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/webkai-fa/">Web开发</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/zola/">Zola</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/meta/">Meta</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/github-actions/">GitHub Actions</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/cursor/">Cursor</a></span>
+    
+      <span class="mr-2 badge badge-green"><a href="https://williamhatch.github.io/william_blog/tags/zhong-wen/">中文</a></span>
+    
+  
+
+</span>
+
+        </p>
+      </div>
+
+      <div>
+        <blockquote>
+<p>"我们的工作是创造出这样的计算技术，以至于没有人需要编程，而编程语言就是人类语言。世界上的每一个人现在都是程序员。这就是人工智能的奇迹。"</p>
+</blockquote>
+<p>这些话出自NVIDIA创始人兼CEO黄仁勋之口。他描绘了一个创造力被普及的未来，一个想法与它的数字形态之间的障碍被自然语言消解的未来。对许多程序员来说，这听起来像是一种威胁。但对我而言，这听起来像是一份邀请。</p>
+<p>我一直想建立一个个人博客。一个分享我思考、记录我项目的地方，一个在我自己的互联网小角落里插上一面旗帜的空间。实现这个目标的"方法"本是一条熟悉的路径：我打算用Zola，一个我早就想尝试的、以速度著称的静态网站生成器，然后免费部署在GitHub Pages上。但我决定给这个计划增加一点新花样。我不想独自完成。我决定几乎完全与一个AI结对程序员——Cursor——合作来完成，看看我们距离黄仁勋所描绘的愿景到底有多近。</p>
+<p>这篇文章就是那段旅程的故事。它不是一个所有步骤都完美无缺、经过消毒的教程。它是一个关于人与机器协作的、真实的、未加修饰的记录。这是一个关于胜利、意外弯路、调试地狱，以及最终，关于一种全新的、强大的软件构建方式的故事。</p>
+<h2 id="di-yi-zhang-dian-ding-ji-shi">第一章：奠定基石<a class="zola-anchor" href="#di-yi-zhang-dian-ding-ji-shi" aria-label="Anchor link for: di-yi-zhang-dian-ding-ji-shi">🔗</a></h2>
+<p>每个项目都始于一条命令。对我来说，是 <code>zola init william_blog</code>。但从那一刻起，我希望让AI来主导。</p>
+<p><strong>我：</strong> "好了，我已经启动了一个Zola项目。我想建一个简单的博客，然后部署到GitHub Pages。你能帮我设置好基本结构和GitHub Actions工作流吗？"</p>
+<p><strong>Cursor (AI)：</strong> "当然可以。"</p>
+<p>它立刻开始构建项目。它创建了一个为Zola项目量身定制的 <code>.gitignore</code> 文件。然后，它在 <code>.github/workflows/gh-pages.yml</code> 中写下了我们CI/CD流水线的第一个版本。想法很简单：每当有代码推送到 <code>main</code> 分支，这个Action就会构建Zola站点，并将生成的静态文件部署到一个名为 <code>gh-pages</code> 的分支。</p>
+<p>这是对AI的第一次考验。它选择了一个名为 <code>getzola/zola-action-build</code> 的Action，看起来很合理。它还推荐了一个基础主题 <code>deepthought</code>。我接受了，AI便将其添加为Git子模块。</p>
+<p>骨架搭好了，是时候进行第一次提交了。以及，我们的第一个问题也随之而来。</p>
+<p><code>git commit -m "Initial commit with basic structure and theme"</code></p>
+<p>命令失败了。Git抱怨说 <code>themes/deepthought</code> 目录是一个未初始化的Git仓库。这是一个经典的子模块问题。我把情况告诉了AI。</p>
+<p><strong>Cursor：</strong> "我明白了。子模块已添加，但它自己的 <code>.git</code> 目录引发了冲突。我将删除该子模块的Git元数据，使其被当作一个普通目录来处理。"</p>
+<p>它执行了 <code>rm -rf themes/deepthought/.git</code>。下一次提交顺利通过。我们上路了。我在GitHub上创建了一个新仓库，然后我们把代码推了上去。第一个Action开始运行。</p>
+<h2 id="di-er-zhang-bu-shu-zhi-wu">第二章：部署之舞<a class="zola-anchor" href="#di-er-zhang-bu-shu-zhi-wu" aria-label="Anchor link for: di-er-zhang-bu-shu-zhi-wu">🔗</a></h2>
+<p>我盯着GitHub上我那次提交旁边的小黄点。它旋转着，然后变成了红色。<strong>失败。</strong></p>
+<p>真正的合作从这里才开始。我不仅仅是下达指令，我还在为失败提供反馈。我点进日志，那是一堵即使是经验丰富的开发者也会感到畏惧的文本墙。错误信息很神秘：<code>action not found</code>。</p>
+<p>我把这个错误反馈给AI。</p>
+<p><strong>我：</strong> "GitHub Action失败了。错误是 <code>action not found</code>。"</p>
+<p><strong>Cursor：</strong> "我正在搜索关于这个错误的信息。看起来 <code>getzola/zola-action-build</code> 这个Action已经被弃用了。一个更现代且仍在维护的替代品是 <code>shalzz/zola-deploy-action</code>。我将更新工作流文件。"</p>
+<p>只需几次敲击，它就重写了 <code>gh-pages.yml</code> 文件，用新的Action替换了旧的，并配置了必要的输入参数，比如要部署到的分支。我再次提交并推送。</p>
+<p>这一次，那个点变成了绿色。<strong>成功！</strong></p>
+<p>我迫不及不及地在浏览器中输入我新博客的URL：<code>https://williamhatch.github.io/william_blog/</code>。</p>
+<p>迎接我的是一个纯白的页面，上面只有一条令人心碎的信息：<strong>404 Not Found</strong>。</p>
+<p>部署成功了，但页面却不存在。这是一个典型的GitHub Pages谜题。我向AI说明了情况。</p>
+<p><strong>Cursor：</strong> "一次成功的部署却在GitHub Pages上出现404错误，通常指向仓库的设置问题。请确保GitHub Pages的源设置为'从分支部署'（Deploy from a branch），并且选择的分支是 <code>gh-pages</code>。"</p>
+<p>我按照它的指示，在仓库设置中导航。情况果真如AI所料。源设置仍然是默认值，等待我告诉它去哪里找静态文件。我把它切换到 <code>gh-pages</code> 分支，保存，然后刷新了页面。</p>
+<p>成功了。一个基础的、没有样式的、写着"Hello, World"的页面出现了。我们上线了。</p>
+<h2 id="di-san-zhang-gai-tou-huan-mian">第三章：改头换面<a class="zola-anchor" href="#di-san-zhang-gai-tou-huan-mian" aria-label="Anchor link for: di-san-zhang-gai-tou-huan-mian">🔗</a></h2>
+<p><code>deepthought</code> 主题虽然能用，但我很快意识到它已经很旧并且无人维护了。我想要一些更现代、开箱即用功能更多的东西。经过一番搜索，我选择了 <code>zolarwind</code>。</p>
+<p>这意味着一次重大的改变。我不想只是简单地替换文件，我想用正确的方式来做。</p>
+<p><strong>我：</strong> "我决定换个主题。让我们移除 <code>deepthought</code>，然后把 <code>zolarwind</code> 作为一个真正的Git子模块加进来。然后，为了避免任何冲突，我们把之前创建的所有模板和内容都删掉，用新主题的结构重新开始。"</p>
+<p>这种"焦土"策略是一次有计划的冒险。它比试图合并两个不同主题的结构要快得多。AI立刻理解了我的意图。它移除了旧的主题文件，执行了 <code>git submodule add https://github.com/huhu/zolarwind.git themes/zolarwind</code>，然后删除了我们之前创建的 <code>templates</code>、<code>content</code> 和其他目录，因为它知道这些都将从新主题中继承。</p>
+<h2 id="di-si-zhang-ding-zhi-zhu-ye">第四章：定制主页<a class="zola-anchor" href="#di-si-zhang-ding-zhi-zhu-ye" aria-label="Anchor link for: di-si-zhang-ding-zhi-zhu-ye">🔗</a></h2>
+<p>新主题就位后，是时候让它变得更"我"一些了。我不想在主页上展示标准的博客文章列表。我想要一个个人化的介绍。</p>
+<p>我向AI提供了我的个人简介和技能清单。我有一个设想：一个简洁、专业的头部，附有简短的个人介绍，下面是一个展示我技术技能的网格。我还想加点花样，要求在鼠标悬停在技能卡片上时，卡片会发光或变大，有一个微妙的动画效果。</p>
+<p><strong>Cursor：</strong> "我将在根目录的 <code>templates</code> 文件夹下创建一个自定义的 <code>index.html</code> 来覆盖主题的默认设置。我将使用Tailwind CSS进行样式设计，并实现您要求的悬停动画。"</p>
+<p>这是迄今为止最具创造性的任务，而它完成得非常漂亮。它编写了HTML结构，精心制作了布局所需的CSS类，并为悬停效果添加了必要的 <code>transform</code> 和 <code>transition</code> 属性。它甚至创建了一篇占位的博客文章，这样我们就有东西可以链接了。</p>
+<h2 id="di-wu-zhang-ben-di-zhu-ji-de-mi-gong">第五章：本地主机的迷宫<a class="zola-anchor" href="#di-wu-zhang-ben-di-zhu-ji-de-mi-gong" aria-label="Anchor link for: di-wu-zhang-ben-di-zhu-ji-de-mi-gong">🔗</a></h2>
+<p>定制主页完成了。新主题也到位了。我兴奋地想看看这一切组合起来的样子。我运行了我期待已久的命令：<code>zola serve</code>。</p>
+<p>然后我进入了我只能称之为"调试地狱"的模式。</p>
+<p><strong>错误：</strong> <code>Template 'index.html' not found</code> (模板 'index.html' 未找到)</p>
+<p>这太诡异了。文件明明就在那里。我告诉了AI。</p>
+<p><strong>Cursor：</strong> "这很奇怪。因为您正在使用主题，可能需要在命令中指定它。试试 <code>zola serve --theme zolarwind</code>。"</p>
+<p><strong>错误：</strong> <code>Found argument '--theme' which wasn't expected</code> (发现了未预期的参数'--theme')</p>
+<p>什么？我检查了我的Zola版本：<code>v0.20.0</code>。根据文档，这个标志应该是存在的。我们俩都懵了。我们尝试了其他标志，比如 <code>--root .</code>。同样的错误。我们检查了shell别名，检查了Homebrew安装是否损坏。一切都说不通。感觉就像我的本地环境被下了咒。</p>
+<p>在十几次修复命令的尝试失败后，我们改变了策略。如果环境不肯屈服，那我们就让项目去适应它。</p>
+<p><strong>Cursor：</strong> "看起来您本地的Zola安装行为异常。我提议一个替代方案：我们可以把 <code>zolarwind</code> 主题所有必要的文件（<code>templates</code>, <code>static</code>, <code>i18n</code> 等）直接复制到您项目的根目录。然后，我们在 <code>config.toml</code> 中注释掉 <code>theme</code> 设置。这将让Zola把它看作一个单一的、自包含的项目，从而绕过主题加载机制。"</p>
+<p>这是个hack，但却是个聪明的hack。一个针对不合逻辑问题的务实解决方案。AI执行了复制操作，修改了配置文件，我再次运行了 <code>zola serve</code>。</p>
+<p>它工作了。本地服务器启动了。但我的宽慰是短暂的。控制台现在被新一波的错误淹没了。</p>
+<h2 id="di-liu-zhang-pei-zhi-cuo-wu-de-lian-suo-fan-ying">第六章：配置错误的连锁反应<a class="zola-anchor" href="#di-liu-zhang-pei-zhi-cuo-wu-de-lian-suo-fan-ying" aria-label="Anchor link for: di-liu-zhang-pei-zhi-cuo-wu-de-lian-suo-fan-ying">🔗</a></h2>
+<p>我们的hack解决了一个问题，但却引发了一系列其他问题。<code>zolarwind</code> 主题，现在作为我们项目的核心，对 <code>config.toml</code> 文件有一些我们基础设置没有满足的特定期望。</p>
+<p>首先，一个关于缺少 <code>tags</code> 分类法的错误。AI添加了它。</p>
+<pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span style="color:#bf616a;">taxonomies </span><span>= [
+</span><span>    { </span><span style="color:#bf616a;">name </span><span>= &quot;</span><span style="color:#a3be8c;">tags</span><span>&quot;, </span><span style="color:#bf616a;">feed </span><span>= </span><span style="color:#d08770;">true </span><span>},
+</span><span>]
+</span></code></pre>
+<p>接下来，一个语法错误。AI最初把分类法放在一个 <code>[taxonomies]</code> 表里，但主题期望的是一个顶级的键。它纠正了自己。然后是关于缺少主题特定变量（如 <code>path_language_resources</code>）和菜单、社交链接数据结构不正确的错误。</p>
+<p>在将近一个小时的时间里，我们来来回回。我运行 <code>zola serve</code>，粘贴错误信息，AI就会分析它，查阅主题文档，然后提出对 <code>config.toml</code> 的修复方案。这是一个繁琐、艰苦的过程，如果独自一人会非常令人沮beta。但有了AI，这是一个快速的迭代循环：运行、失败、报告、修复、重复。</p>
+<p>最终，红色文本的洪流停止了。服务器在运行，没有任何错误。我在浏览器中打开 <code>127.0.0.1:1111</code>，它就在那里。我的定制主页，新主题，一切协同工作。太美了。</p>
+<h2 id="di-qi-zhang-zui-zhong-boss">第七章：最终Boss<a class="zola-anchor" href="#di-qi-zhang-zui-zhong-boss" aria-label="Anchor link for: di-qi-zhang-zui-zhong-boss">🔗</a></h2>
+<p>本地开发终于搞定，我推送了所有更改。GitHub Action成功运行。绿色的对勾出现了。就是这次了。</p>
+<p>我访问了 <code>https://williamhatch.github.io/william_blog/</code>。</p>
+<p>页面加载了。HTML内容都在。我的简介，我的技能，博客文章的标题。但所有的样式都消失了。JavaScript坏了。图片不见了。这是一个贫瘠、无样式的烂摊子。</p>
+<p>我打开开发者控制台。那是一片404的海洋。浏览器试图加载 <code>https://williamhatch.github.io/css/style.css</code>，但它本应该寻找 <code>https://williamhatch.github.io/william_blog/css/style.css</code>。</p>
+<p>仓库的子路径 <code>/william_blog/</code> 从每一个资源URL中都消失了。</p>
+<p>这是我的AI伙伴无法看到的问题，因为它只存在于GitHub Pages部署的上下文中。诊断它得靠我自己。我用 <code>curl</code> 确认了我的怀疑。问题很清楚：主题的模板正在使用硬编码的根相对路径（例如，<code>href="/css/style.css"</code>）。</p>
+<p>我向AI解释了我的发现。这是我们的最终Boss。</p>
+<p><strong>我：</strong> "我找到问题了。生产环境的网站坏了，因为模板里所有的资源链接都是用斜杠开头的硬编码路径，比如 <code>/css/main.css</code>。当网站从一个子目录提供服务时，这行不通。我们需要把它们全部替换成Zola的 <code>get_url()</code> 函数来生成正确的、绝对的路径。"</p>
+<p><strong>Cursor：</strong> "完全明白。我将对所有相关的模板文件（<code>base.html</code>, <code>header.html</code>, <code>list-element.html</code>等）进行系统性的搜索和替换，将每一个资源URL都用 <code>get_url()</code> 包裹起来。"</p>
+<p>它照做了。它一丝不苟地检查了每一个模板文件，找到了每一个 <code>&lt;link&gt;</code>、<code>&lt;script&gt;</code> 和 <code>&lt;img&gt;</code> 标签。它把 <code>href="/css/generated.css"</code> 替换成 <code>href="{{ get_url(path='css/generated.css') | safe }}"</code>。它找到了隐藏在partials甚至内联 <code>style</code> 属性中的路径。</p>
+<p>我推送了最后一批更改。Action运行。我屏住呼吸，刷新了页面。</p>
+<p>它就在那里。完美。样式加载了，悬停动画工作了，图片出现了。我的博客活了过来，功能齐全，并部署在互联网上，供所有人访问。</p>
+<h2 id="jie-yu-ren-ji-xie-tong-de-xin-dui-hua">结语：人机协同的新对话<a class="zola-anchor" href="#jie-yu-ren-ji-xie-tong-de-xin-dui-hua" aria-label="Anchor link for: jie-yu-ren-ji-xie-tong-de-xin-dui-hua">🔗</a></h2>
+<p>回过头看，黄仁勋说对了吗？我，一个程序员，被淘汰了吗？没有。但我工作的性质改变了。它变得更少关乎单调的、逐行编写代码的苦差事，而更多地关乎高层次的指导、创造性的问题解决和精确的调试。</p>
+<p>这段旅程是一场对话。</p>
+<ul>
+<li><strong>我说：</strong> "给我建个博客。"</li>
+<li><strong>AI说：</strong> "这是一个结构。哦，它失败了。"</li>
+<li><strong>我说：</strong> "这是错误信息。它是什么意思？"</li>
+<li><strong>AI说：</strong> "我研究了一下。这是修复方案。"</li>
+</ul>
+<p>这种伙伴关系让我能够在一个更高的抽象层次上运作。我是架构师，而AI是那个速度极快、知识渊博、不知疲倦的施工队。它处理了样板代码，研究了晦涩的错误，并执行了繁琐的重构，让我得以解放出来，专注于更大的图景。</p>
+<p>我们还没到那个你可以说"给我建个价值十亿美元的应用"然后它就出现的阶段。但我们确实到了这样一个阶段：人与机器之间的对话可以创造出复杂的、功能性的、美观的软件。这门语言仍然由代码、提交和错误日志来断句，但它的语法正变得越来越人性化。而这，本身就是一个奇迹。</p>
+<p>你可以在这里访问最终建成的博客：<strong><a href="https://williamhatch.github.io/william_blog/">https://williamhatch.github.io/william_blog/</a></strong></p>
+<p>如果你好奇想看看我们这段旅程的完整提交历史，代码在GitHub上是开源的：<strong><a href="https://github.com/williamhatch/william_blog">https://github.com/williamhatch/william_blog</a></strong></p>
+
+      </div>
+    </article>
+  </div>
+
+  <script type="application/ld+json">
+{
+   "@context": "https://schema.org"
+  ,"@type": "BlogPosting"
+  ,"mainEntityOfPage": {
+     "@type": "WebPage"
+    ,"@id": "https://williamhatch.github.io/william_blog/blog/building-this-blog-with-ai-zh/"
+  }
+  ,"headline": "我是如何搭建这个博客的：与Zola、GitHub和一个AI结对程序员的旅程"
+  ,"datePublished": "2025-06-21"
+  ,"dateModified": "2025-06-21"
+  
+  ,"description": "一个详细、曲折但最终成功的故事：如何从零开始创建一个个人博客。这不仅关乎代码，更关乎与AI助手的持续对话。我们将涵盖从初始设置、CI&#x2F;CD部署，到主题迁移和修复神秘的环境特定错误的所有细节。"
+  ,"articleBody": "&#x27;我们的工作是创造出这样的计算技术，以至于没有人需要编程，而编程语言就是人类语言。世界上的每一个人现在都是程序员。这就是人工智能的奇迹。&#x27;这些话出自NVIDIA创始人兼CEO黄仁勋之口。他描绘了一个创造力被普及的未来，一个想法与它的数字形态之间的障碍被自然语言消解的未来。对许多程序员来说，这听起来像是一种威胁。但对我而言，这听起来像是一份邀请。我一直想建立一个个人博客。一个分享我思考、记录我项目的地方，一个在我自己的互联网小角落里插上一面旗帜的空间。实现这个目标的&#x27;方法&#x27;本是一条熟悉的路径：我打算用Zola，一个我早就想尝试的、以速度著称的静态网站生成器，然后免费部署在GitHub Pages上。但我决定给这个计划增加一点新花样。我不想独自完成。我决定几乎完全与一个AI结对程序员——Cursor——合作来完成，看看我们距离黄仁勋所描绘的愿景到底有多近。这篇文章就是那段旅程的故事。它不是一个所有步骤都完美无缺、经过消毒的教程。它是一个关于人与机器协作的、真实的、未加修饰的记录。这是一个关于胜利、意外弯路、调试地狱，以及最终，关于一种全新的、强大的软件构建方式的故事。第一章：奠定基石🔗每个项目都始于一条命令。对我来说，是 zola init william_blog。但从那一刻起，我希望让AI来主导。我： &#x27;好了，我已经启动了一个Zola项目。我想建一个简单的博客，然后部署到GitHub Pages。你能帮我设置好基本结构和GitHub Actions工作流吗？&#x27;Cursor (AI)： &#x27;当然可以。&#x27;它立刻开始构建项目。它创建了一个为Zola项目量身定制的 .gitignore 文件。然后，它在 .github&#x2F;workflows&#x2F;gh-pages.yml 中写下了我们CI&#x2F;CD流水线的第一个版本。想法很简单：每当有代码推送到 main 分支，这个Action就会构建Zola站点，并将生成的静态文件部署到一个名为 gh-pages 的分支。这是对AI的第一次考验。它选择了一个名为 getzola&#x2F;zola-action-build 的Action，看起来很合理。它还推荐了一个基础主题 deepthought。我接受了，AI便将其添加为Git子模块。骨架搭好了，是时候进行第一次提交了。以及，我们的第一个问题也随之而来。git commit -m &#x27;Initial commit with basic structure and theme&#x27;命令失败了。Git抱怨说 themes&#x2F;deepthought 目录是一个未初始化的Git仓库。这是一个经典的子模块问题。我把情况告诉了AI。Cursor： &#x27;我明白了。子模块已添加，但它自己的 .git 目录引发了冲突。我将删除该子模块的Git元数据，使其被当作一个普通目录来处理。&#x27;它执行了 rm -rf themes&#x2F;deepthought&#x2F;.git。下一次提交顺利通过。我们上路了。我在GitHub上创建了一个新仓库，然后我们把代码推了上去。第一个Action开始运行。第二章：部署之舞🔗我盯着GitHub上我那次提交旁边的小黄点。它旋转着，然后变成了红色。失败。真正的合作从这里才开始。我不仅仅是下达指令，我还在为失败提供反馈。我点进日志，那是一堵即使是经验丰富的开发者也会感到畏惧的文本墙。错误信息很神秘：action not found。我把这个错误反馈给AI。我： &#x27;GitHub Action失败了。错误是 action not found。&#x27;Cursor： &#x27;我正在搜索关于这个错误的信息。看起来 getzola&#x2F;zola-action-build 这个Action已经被弃用了。一个更现代且仍在维护的替代品是 shalzz&#x2F;zola-deploy-action。我将更新工作流文件。&#x27;只需几次敲击，它就重写了 gh-pages.yml 文件，用新的Action替换了旧的，并配置了必要的输入参数，比如要部署到的分支。我再次提交并推送。这一次，那个点变成了绿色。成功！我迫不及不及地在浏览器中输入我新博客的URL：https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;。迎接我的是一个纯白的页面，上面只有一条令人心碎的信息：404 Not Found。部署成功了，但页面却不存在。这是一个典型的GitHub Pages谜题。我向AI说明了情况。Cursor： &#x27;一次成功的部署却在GitHub Pages上出现404错误，通常指向仓库的设置问题。请确保GitHub Pages的源设置为&#x27;从分支部署&#x27;（Deploy from a branch），并且选择的分支是 gh-pages。&#x27;我按照它的指示，在仓库设置中导航。情况果真如AI所料。源设置仍然是默认值，等待我告诉它去哪里找静态文件。我把它切换到 gh-pages 分支，保存，然后刷新了页面。成功了。一个基础的、没有样式的、写着&#x27;Hello, World&#x27;的页面出现了。我们上线了。第三章：改头换面🔗deepthought 主题虽然能用，但我很快意识到它已经很旧并且无人维护了。我想要一些更现代、开箱即用功能更多的东西。经过一番搜索，我选择了 zolarwind。这意味着一次重大的改变。我不想只是简单地替换文件，我想用正确的方式来做。我： &#x27;我决定换个主题。让我们移除 deepthought，然后把 zolarwind 作为一个真正的Git子模块加进来。然后，为了避免任何冲突，我们把之前创建的所有模板和内容都删掉，用新主题的结构重新开始。&#x27;这种&#x27;焦土&#x27;策略是一次有计划的冒险。它比试图合并两个不同主题的结构要快得多。AI立刻理解了我的意图。它移除了旧的主题文件，执行了 git submodule add https:&#x2F;&#x2F;github.com&#x2F;huhu&#x2F;zolarwind.git themes&#x2F;zolarwind，然后删除了我们之前创建的 templates、content 和其他目录，因为它知道这些都将从新主题中继承。第四章：定制主页🔗新主题就位后，是时候让它变得更&#x27;我&#x27;一些了。我不想在主页上展示标准的博客文章列表。我想要一个个人化的介绍。我向AI提供了我的个人简介和技能清单。我有一个设想：一个简洁、专业的头部，附有简短的个人介绍，下面是一个展示我技术技能的网格。我还想加点花样，要求在鼠标悬停在技能卡片上时，卡片会发光或变大，有一个微妙的动画效果。Cursor： &#x27;我将在根目录的 templates 文件夹下创建一个自定义的 index.html 来覆盖主题的默认设置。我将使用Tailwind CSS进行样式设计，并实现您要求的悬停动画。&#x27;这是迄今为止最具创造性的任务，而它完成得非常漂亮。它编写了HTML结构，精心制作了布局所需的CSS类，并为悬停效果添加了必要的 transform 和 transition 属性。它甚至创建了一篇占位的博客文章，这样我们就有东西可以链接了。第五章：本地主机的迷宫🔗定制主页完成了。新主题也到位了。我兴奋地想看看这一切组合起来的样子。我运行了我期待已久的命令：zola serve。然后我进入了我只能称之为&#x27;调试地狱&#x27;的模式。错误： Template &#x27;index.html&#x27; not found (模板 &#x27;index.html&#x27; 未找到)这太诡异了。文件明明就在那里。我告诉了AI。Cursor： &#x27;这很奇怪。因为您正在使用主题，可能需要在命令中指定它。试试 zola serve --theme zolarwind。&#x27;错误： Found argument &#x27;--theme&#x27; which wasn&#x27;t expected (发现了未预期的参数&#x27;--theme&#x27;)什么？我检查了我的Zola版本：v0.20.0。根据文档，这个标志应该是存在的。我们俩都懵了。我们尝试了其他标志，比如 --root .。同样的错误。我们检查了shell别名，检查了Homebrew安装是否损坏。一切都说不通。感觉就像我的本地环境被下了咒。在十几次修复命令的尝试失败后，我们改变了策略。如果环境不肯屈服，那我们就让项目去适应它。Cursor： &#x27;看起来您本地的Zola安装行为异常。我提议一个替代方案：我们可以把 zolarwind 主题所有必要的文件（templates, static, i18n 等）直接复制到您项目的根目录。然后，我们在 config.toml 中注释掉 theme 设置。这将让Zola把它看作一个单一的、自包含的项目，从而绕过主题加载机制。&#x27;这是个hack，但却是个聪明的hack。一个针对不合逻辑问题的务实解决方案。AI执行了复制操作，修改了配置文件，我再次运行了 zola serve。它工作了。本地服务器启动了。但我的宽慰是短暂的。控制台现在被新一波的错误淹没了。第六章：配置错误的连锁反应🔗我们的hack解决了一个问题，但却引发了一系列其他问题。zolarwind 主题，现在作为我们项目的核心，对 config.toml 文件有一些我们基础设置没有满足的特定期望。首先，一个关于缺少 tags 分类法的错误。AI添加了它。taxonomies = [    { name = &amp;quot;tags&amp;quot;, feed = true },]接下来，一个语法错误。AI最初把分类法放在一个 [taxonomies] 表里，但主题期望的是一个顶级的键。它纠正了自己。然后是关于缺少主题特定变量（如 path_language_resources）和菜单、社交链接数据结构不正确的错误。在将近一个小时的时间里，我们来来回回。我运行 zola serve，粘贴错误信息，AI就会分析它，查阅主题文档，然后提出对 config.toml 的修复方案。这是一个繁琐、艰苦的过程，如果独自一人会非常令人沮beta。但有了AI，这是一个快速的迭代循环：运行、失败、报告、修复、重复。最终，红色文本的洪流停止了。服务器在运行，没有任何错误。我在浏览器中打开 127.0.0.1:1111，它就在那里。我的定制主页，新主题，一切协同工作。太美了。第七章：最终Boss🔗本地开发终于搞定，我推送了所有更改。GitHub Action成功运行。绿色的对勾出现了。就是这次了。我访问了 https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;。页面加载了。HTML内容都在。我的简介，我的技能，博客文章的标题。但所有的样式都消失了。JavaScript坏了。图片不见了。这是一个贫瘠、无样式的烂摊子。我打开开发者控制台。那是一片404的海洋。浏览器试图加载 https:&#x2F;&#x2F;williamhatch.github.io&#x2F;css&#x2F;style.css，但它本应该寻找 https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;css&#x2F;style.css。仓库的子路径 &#x2F;william_blog&#x2F; 从每一个资源URL中都消失了。这是我的AI伙伴无法看到的问题，因为它只存在于GitHub Pages部署的上下文中。诊断它得靠我自己。我用 curl 确认了我的怀疑。问题很清楚：主题的模板正在使用硬编码的根相对路径（例如，href=&#x27;&#x2F;css&#x2F;style.css&#x27;）。我向AI解释了我的发现。这是我们的最终Boss。我： &#x27;我找到问题了。生产环境的网站坏了，因为模板里所有的资源链接都是用斜杠开头的硬编码路径，比如 &#x2F;css&#x2F;main.css。当网站从一个子目录提供服务时，这行不通。我们需要把它们全部替换成Zola的 get_url() 函数来生成正确的、绝对的路径。&#x27;Cursor： &#x27;完全明白。我将对所有相关的模板文件（base.html, header.html, list-element.html等）进行系统性的搜索和替换，将每一个资源URL都用 get_url() 包裹起来。&#x27;它照做了。它一丝不苟地检查了每一个模板文件，找到了每一个 &amp;lt;link&amp;gt;、&amp;lt;script&amp;gt; 和 &amp;lt;img&amp;gt; 标签。它把 href=&#x27;&#x2F;css&#x2F;generated.css&#x27; 替换成 href=&#x27;{{ get_url(path=&#x27;css&#x2F;generated.css&#x27;) | safe }}&#x27;。它找到了隐藏在partials甚至内联 style 属性中的路径。我推送了最后一批更改。Action运行。我屏住呼吸，刷新了页面。它就在那里。完美。样式加载了，悬停动画工作了，图片出现了。我的博客活了过来，功能齐全，并部署在互联网上，供所有人访问。结语：人机协同的新对话🔗回过头看，黄仁勋说对了吗？我，一个程序员，被淘汰了吗？没有。但我工作的性质改变了。它变得更少关乎单调的、逐行编写代码的苦差事，而更多地关乎高层次的指导、创造性的问题解决和精确的调试。这段旅程是一场对话。我说： &#x27;给我建个博客。&#x27;AI说： &#x27;这是一个结构。哦，它失败了。&#x27;我说： &#x27;这是错误信息。它是什么意思？&#x27;AI说： &#x27;我研究了一下。这是修复方案。&#x27;这种伙伴关系让我能够在一个更高的抽象层次上运作。我是架构师，而AI是那个速度极快、知识渊博、不知疲倦的施工队。它处理了样板代码，研究了晦涩的错误，并执行了繁琐的重构，让我得以解放出来，专注于更大的图景。我们还没到那个你可以说&#x27;给我建个价值十亿美元的应用&#x27;然后它就出现的阶段。但我们确实到了这样一个阶段：人与机器之间的对话可以创造出复杂的、功能性的、美观的软件。这门语言仍然由代码、提交和错误日志来断句，但它的语法正变得越来越人性化。而这，本身就是一个奇迹。你可以在这里访问最终建成的博客：https:&#x2F;&#x2F;williamhatch.github.io&#x2F;william_blog&#x2F;如果你好奇想看看我们这段旅程的完整提交历史，代码在GitHub上是开源的：https:&#x2F;&#x2F;github.com&#x2F;williamhatch&#x2F;william_blog"
+  
+}
+</script>
+
+
+
+  </div>
+  <footer>
+  <!-- Social Media Icons -->
+  
+    <ul class="mt-4 flex justify-center space-x-8">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
+    
+    
+  </div>
+</footer>
+
+  <script>
+    // 注册ScrollTrigger插件
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // 页面加载完成后执行动画
+    window.addEventListener('load', () => {
+      // 导航栏动画
+      gsap.from("nav", {
+        y: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+
+      // 标题动画
+      gsap.from("h1, h2", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+      });
+    });
+  </script>
+</body>
+</html>
+ 

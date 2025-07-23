@@ -1,14 +1,11 @@
 +++
 title = "SACC 系列：语义驱动开发实践指南"
-date = 2024-12-20
 description = "SACC（Spec and Context as Code）系列文章，深入探讨语义驱动开发的各种实践和应用场景，从理论到实践的完整指南。"
-
-[taxonomies]
-tags = ["SACC", "语义驱动开发", "AI工程", "MiniSpec", "软件架构", "DevOps"]
 
 [extra]
 show_comments = true
 series = "SACC"
+tags = ["SACC", "语义驱动开发", "AI工程", "MiniSpec", "软件架构", "DevOps"]
 +++
 
 # SACC 系列：语义驱动开发实践指南
